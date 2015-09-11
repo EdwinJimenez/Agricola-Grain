@@ -1,0 +1,30 @@
+#divcontactanos
+{
+	padding-top: 0px;
+}
+#contactanos
+{
+	max-height: 133px;
+	margin-top: 0px;
+}
+#logo img
+{
+	width: 13%;
+	float: left;
+}
+#slogan img
+{
+	width: 80%;
+	float: left;
+}
+nav
+{
+	/*height: 62px;*/
+	width: 100%;
+}
+nav div a
+{
+	/*width: 90px;*/
+	width: 100%;
+	padding-top: -10px;
+}

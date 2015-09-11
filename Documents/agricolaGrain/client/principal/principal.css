@@ -1,0 +1,15 @@
+#principal
+{
+	border: 2px solid rgba(64, 119, 0, 0.9);
+}
+div.row,div.slider
+{
+	background: white;
+	margin-bottom: 0px;
+	text-align: center;
+}
+footer div.row
+{
+	background: #7cb342;
+	background: -moz-linear-gradient(top, rgba(161,179,86,1) 0%, rgba(81,137,47,0.79) 100%);
+}
