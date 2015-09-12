@@ -1,0 +1,24 @@
+<template name="acceder">
+	<form class="col s12">
+            <div class="row">
+            	<div>
+            		<p>Proporcione los siguientes datos: </p> <br>
+
+            	</div>
+                <div class="input-field row">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="icon_prefix" type="text" class="validate" autofocus  required>
+                    <label for="icon_prefix">Usuario</label>
+                </div>
+                <div class="input-field row">
+                    <i class="material-icons prefix">lock</i>
+                    <input id="icon_lock" type="tel" class="validate">
+                    <label for="icon_lock">Contraseña</label>
+                </div>
+                <div id="link">
+                	<a href="/registrarme">Registrarme!</a>
+                </div>
+				 <a class="waves-effect light-blue darken-3 btn" id="btnEntrar">Entrar<i class="material-icons right">send</i></a>
+            </div>
+    </form>
+</template>

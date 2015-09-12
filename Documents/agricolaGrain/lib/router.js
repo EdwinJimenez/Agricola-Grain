@@ -6,4 +6,8 @@ Router.route('/',{name: 'principal'});
 Router.route('/informacion',{name: 'informacion'});
 Router.route('/productos',{name: 'construccion'});
 Router.route('/catalogoBodegas',{name: 'catalogoBodegas'});
-Router.route('/acceder',{name: 'register'});
+Router.route('/comentarios',{name: 'comentarios'});
+Router.route('/acceder',{name: 'acceder'});
+Router.route('/registrarme',{name: 'register'});
+
+Router.route('/misBodegas',{name: 'misBodegas'});
