@@ -14,3 +14,7 @@ Router.route('/misBodegas',{name: 'misBodegas'});
 /*SITIOS EN CONSTRUCCION*/
 Router.route('/servicios',{name: 'construccion'});
 
+/*JUGANDO*/
+Router.route('/altaBodegas',{name:'altaBodegas'});
+Router.route('/verComentarios',{name:'verComentarios'})
+

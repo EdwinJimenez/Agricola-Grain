@@ -20,13 +20,13 @@
  				</div>
  				<div class="col s6">
 					<div class="input-field row">
-	                    <input id="txtCorreo" type="text" class="validate">
-	                    <label for="txtCorreo">Email</label>
+	                    <input id="txtCorreo" type="email" class="validate">
+	                    <label for="txtCorreo" data-error="Escriba un correo válido.">Correo electronico</label>
                     </div> 					
  				</div>
  				<div class="col s6">
 					<div class="input-field row">
-	                    <input id="txtTelefono" type="text" class="validate">
+	                    <input id="txtTelefono" type="tel" class="validate">
 	                    <label for="txtTelefono">Telefono</label>
                     </div> 					
  				</div>	
@@ -36,7 +36,7 @@
 	 			</div>		
  				<div class="col s6">
 					<div class="input-field row">
-	                    <input id="txtCalle" type="text" class="validate" autofocus  required>
+	                    <input id="txtCalle" type="text" class="validate">
 	                    <label for="txtCalle">Calle</label>
                     </div> 					
  				</div>
@@ -65,8 +65,11 @@
                     </div> 					
  				</div>
  				<div class="col s6">
-	 					&nbsp;&nbsp;
-	 			</div>	
+					<div class="input-field row">
+	                    <input id="txtCiudad" type="text" class="validate">
+	                    <label for="txtCiudad">Ciudad</label>
+                    </div> 					
+ 				</div>	
 	 			<div class="col s12">
 	 					<i class="material-icons prefix">person</i>Datos de inicio de sesión
 	 					<hr>

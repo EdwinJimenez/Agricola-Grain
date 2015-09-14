@@ -33,7 +33,13 @@
 				},
 				createdAt: new Date()
 			}
-			Meteor.call("insertarUsuario",usuario);
-			alert("Bien Hecho!!, Ya pueden jugar fifa!!");
+			Meteor.call('insertarUsuario',usuario,function (error, result) {
+			  if (error)
+			  {
+			    Materialize.toast('Error. Asegurese de haber llenado los campos', 4000);
+			 }
+			  else
+			    Materialize.toast('Gracias por registrarse.!', 4000);
+			});
 		}
 	});	
