@@ -1,0 +1,6 @@
+db.catalogoBodegas.insert({"nombreBodega":"Bodega 1","descripcionBodega":"Es una bodega muy lejos de la ciudad, pero refrigerada","precio":10000,"largo":1000,"ancho":1000,"alto":1000,"imagenBodega":"img/bodega_refrigerada.jpg","estatus":"A","especificaciones":"Bodega Refrigerada","direccionBodega":{"calle":"nose","colonica":"nose 1","numero":262,"pais":"Mexico","estado":"Sinaloa","ciudad":"Culiacan"}})
+
+db.catalogoBodegas.insert({"nombreBodega":"Bodega 2","descripcionBodega":"Es una bodega muy cerca de la ciudad, pero sin aire","precio":5000,"largo":1000,"ancho":1000,"alto":1000,"imagenBodega":"img/planta_Holanda.jpg","estatus":"A","especificaciones":"Bodega Refrigerada","direccionBodega":{"calle":"nose","colonica":"nose 1","numero":262,"pais":"Holanda","estado":"No sabo","ciudad":"Amsterdam"}})
+
+
+db.usuarios.insert({"nombreUsuario":"nombreUsuario","contraseña": "contraseña","nombre":"nombre","apellido":"apellido","correo":"correo","telefono": "telefono","estatus":"V","esEmpleado":"SI","direccionUsuario": {"calle": "calle","colonia":"colonia","rfc":"rfc","pais":"pais","estado":"estado","ciudad": "ciudad"}})

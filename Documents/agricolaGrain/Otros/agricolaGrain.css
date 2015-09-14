@@ -7,6 +7,10 @@ body
 	margin: 0 auto;
 	border-radius: 5px 5px 0px 0px;
 	border: 2px solid rgba(64, 119, 0, 0.9);
+	background: url(img/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
 }
 header
 {
