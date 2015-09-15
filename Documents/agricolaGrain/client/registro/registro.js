@@ -36,10 +36,15 @@
 			Meteor.call('insertarUsuario',usuario,function (error, result) {
 			  if (error)
 			  {
-			    Materialize.toast('Error. Asegurese de haber llenado los campos', 4000);
+			    Materialize.toast('Error. Asegurese de haber llenado los campos', 4000, 'rounded');
 			 }
 			  else
-			    Materialize.toast('Gracias por registrarse.!', 4000);
+			    Materialize.toast('Gracias por registrarse.!', 4000,'rounded');
 			});
 		}
 	});	
+Template.registro.onRendered(function(){
+	$('.collapsible').collapsible({
+	      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+	    });
+});

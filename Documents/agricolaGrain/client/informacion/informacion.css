@@ -2,15 +2,8 @@
 {
 	text-align: left;
 }
-#imgVision 
+#imgMision,#imgVision,#imgValores
 {
-	width: 70%;
-}
-#imgMision
-{
-	width: 38%;
-}
-#imgValores
-{
-	width: 55%;
+	/*width: 38%;*/
+	width: 50%;
 }
