@@ -1,0 +1,83 @@
+<template name="pantallaEmpleado">
+			<div class="row">
+		    <div class="col s12">
+		      <ul class="tabs">
+		        <li class="tab col s3"><a class="active" href="#solicitudes">Solicitudes</a></li>
+		        <li class="tab col s3"><a href="#bodegas">Bodegas</a></li>
+		        <li class="tab col s3"><a href="#usuarios">Usuarios</a></li>
+		        <li class="tab col s3"><a href="#comentarios">Comentarios</a></li>
+		      </ul>
+		    </div>
+		    <div id="solicitudes" class="col s12">
+			    <div id="opciones" class="col s12">
+			    	<div class="input-field col s6" id="CmbtipoSolicitud">
+					    <select>
+					      <option value="1">Pendientes</option>
+					      <option value="2">En proceso</option>
+					      <option value="3">Terminadas</option>
+					    </select>
+					    <label>¿Qué solicitudes desea ver?</label>
+					</div>
+			    	<div class="input-field col s6" id="CmbTipoProducto">
+					    <select>
+					      <option value="1">Bodegas</option>
+					      <!--<option value="2">Venta de Granos</option>
+					      <option value="3">Compra de Granos</option>-->
+					    </select>
+					    <label>¿De qué producto o servicio?</label>
+					</div>
+				</div>
+        <!--LA MISMA COLECCION SE USARA PARA SOLICITUDES PENDIENTES, EN PROCESO Y TERMINADAS-->
+				<div class="collection with-header" id="pantallaEmpleado">
+			      	 <ul class="collection with-header">
+				        <li class="collection-header"><h4>Pendientes</h4></li>
+				        <li class="collection-item"><div>Solicitud #1<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+				        <li class="collection-item"><div>Solicitud #2<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+				        <li class="collection-item"><div>Solicitud #3<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+				        <li class="collection-item"><div>Solicitud #4<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+			      </ul>
+			    </div>
+		    </div>
+
+		    <div id="bodegas" class="col s12">
+			    <div id="opciones" class="col s12">
+			    	<div class="input-field col s6" >
+					    <select id="cmbOpcionesBodega">
+					      <option value="1">Nueva Bodega</option>
+					      <option value="2">Editar Bodega</option>
+					      <option value="3">Eliminar Bodega</option>
+					    </select>
+					    <label>¿Qué desea hacer?</label>
+					</div>
+				</div>
+				<div id="altaBodegas">
+					{{>altaBodegas}}
+				</div>
+				<div id="editarBodega">
+					EDITAR BODEGA
+				</div>
+				<div id="eliminarBodega">
+					ELIMINAR BODEGA
+				</div>
+			</div>
+		    
+		    <div id="usuarios" class="col s12">
+  				<div id="opciones" class="col s12">
+			    	<div class="input-field col s6" >
+					    <select id="cmbOpcionesBodega">
+					      <option value="1">Nuevo Usuario</option>
+					      <option value="2">Editar Usuario</option>
+					      <option value="3">Dar de Baja Usuario</option>
+					    </select>
+					    <label>¿Qué desea hacer?</label>
+					</div>
+				</div>
+				<div id="nuevoUsuario">
+					{{>registrarEmpleado}}
+				</div>
+		    </div>
+		    <div id="comentarios" class="col s12">
+				{{>verComentarios}}	
+		   	</div>
+	  	</div>
+</template>

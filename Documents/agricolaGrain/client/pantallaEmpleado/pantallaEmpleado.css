@@ -1,0 +1,8 @@
+.collection-item
+{
+	text-align: left;
+}
+#editarBodega,#eliminarBodega
+{
+	display: none;
+}

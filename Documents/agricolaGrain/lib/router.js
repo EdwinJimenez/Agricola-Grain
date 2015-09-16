@@ -16,5 +16,5 @@ Router.route('/servicios',{name: 'construccion'});
 
 /*JUGANDO*/
 Router.route('/altaBodegas',{name:'altaBodegas'});
-Router.route('/verComentarios',{name:'verComentarios'})
+Router.route('/pantallaEmpleado',{name:'pantallaEmpleado'})
 
