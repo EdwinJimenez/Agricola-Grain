@@ -9,12 +9,10 @@ Router.route('/comentarios',{name: 'comentarios'});
 Router.route('/acceder',{name: 'acceder'});
 Router.route('/registrarme',{name: 'registro'});
 
-Router.route('/misBodegas',{name: 'misBodegas'});
+/*PANTALLAS DE USUARIO Y EMPLEADO*/
+Router.route('/pantallaEmpleado',{name:'pantallaEmpleado'});
+Router.route('/pantallaCliente',{name:'pantallaCliente'});
 
 /*SITIOS EN CONSTRUCCION*/
 Router.route('/servicios',{name: 'construccion'});
-
-/*JUGANDO*/
-Router.route('/altaBodegas',{name:'altaBodegas'});
-Router.route('/pantallaEmpleado',{name:'pantallaEmpleado'})
 
