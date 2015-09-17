@@ -2,7 +2,14 @@
 {
 	text-align: left;
 }
-#editarBodega,#eliminarBodega
+#editarBodega,#eliminarBodega,#editarUsuario,#eliminarUsuario
 {
-	display: none;
+	display:none;
+}
+#menuOpcionesBodegas,#menuOpcionesUsuarios
+{
+	margin-top: 10px;
+	border-radius: 5px 5px 5px 5px;
+	border: 2px solid rgba(3,130,190,0.5);
+	padding: 3px;
 }

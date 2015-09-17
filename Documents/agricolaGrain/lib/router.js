@@ -14,5 +14,5 @@ Router.route('/pantallaEmpleado',{name:'pantallaEmpleado'});
 Router.route('/pantallaCliente',{name:'pantallaCliente'});
 
 /*SITIOS EN CONSTRUCCION*/
-Router.route('/servicios',{name: 'construccion'});
+Router.route('/construccion',{name: 'construccion'});
 
