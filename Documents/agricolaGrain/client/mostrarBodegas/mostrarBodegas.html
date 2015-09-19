@@ -1,13 +1,14 @@
-<template name="catalogoBodegas">
+<template name="mostrarBodegas">
 	<div class="bodegas">
 		<div class="row">
-			{{#each bodegas}}
-        		{{> bodega}}
+			<h3>Editar Bodegas</h3>
+			{{#each bodegasMostrar}}
+        		{{> bodegaMostrar}}
       		{{/each}}
 		</div>
 	</div>
 </template>
-<template name="bodega">
+<template name="bodegaMostrar">
 	<div class="col s3">
 		<div class="card small">
 			<div class="card-image waves-effect waves-block waves-light">
@@ -15,11 +16,13 @@
 			</div>
 			<div class="card-content">
 				<span class="card-title activator grey-text text-darken-4">{{nombreBodega}}<i class="material-icons right">more_vert</i></span>
-				<p><a href="/detalleBodega" class="waves-effect light-green darken-1 btn" id="btnVerProductos">Ver mas<i class="material-icons right"></i></a></p>
+				<p><a class="waves-effect light-red darken-1 btn" id="btnVerProductos">Editar<i class="material-icons right"></i></a></p>
 			</div>
 			<div class="card-reveal">
 				<span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{precio}}</span>
-				<p>{{descripcionBodega}}</p>
+				<p> Calle: {{direccionBodega.calle}} <br>
+					Colonia:{{direccionBodega.colonia}} <br>
+					Ciudad: {{direccionBodega.ciudad}}</p>
 			</div>
 		</div>			
 	</div>  

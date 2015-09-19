@@ -6,6 +6,7 @@
 		        <li class="tab col s3"><a href="#bodegas">Bodegas</a></li>
 		        <li class="tab col s3"><a href="#usuarios">Usuarios</a></li>
 		        <li class="tab col s3"><a href="#comentarios">Comentarios</a></li>
+		        <li class="tab col s3"><a href="/">Salir</a></li>
 		      </ul>
 		    </div>
 		    <div id="solicitudes" class="col s12">
@@ -40,44 +41,39 @@
 		    </div>
 
 		    <div id="bodegas" class="col s12">
-			    <div id="opciones" class="col s12">
-			    	<div class="input-field col s6" >
-					    <select id="cmbOpcionesBodega">
-					      <option value="1">Nueva Bodega</option>
-					      <option value="2">Editar Bodega</option>
-					      <option value="3">Eliminar Bodega</option>
-					    </select>
-					    <label>¿Qué desea hacer?</label>
-					</div>
+				<div id="menuOpcionesBodegas">
+					<a class="waves-effect light-blue darken-2 btn" id="btnNuevaBodega">Nueva<i class="material-icons right">add</i></a>
+					<a class="waves-effect amber darken-2 btn" id="btnEditarBodega">Editar<i class="material-icons right">edit</i></a>
+					<a class="waves-effect red darken-2 btn" id="btnEliminarBodega">Eliminar<i class="material-icons right">delete</i></a>
 				</div>
-				<div id="altaBodegas">
-					{{>altaBodegas}}
+				<div id="altaBodega">
+					{{> altaBodegas}}
 				</div>
-				<div id="editarBodega">
-					EDITAR BODEGA
+				<div id="editarBodegas">
+					{{> mostrarBodegas}}
 				</div>
-				<div id="eliminarBodega">
-					ELIMINAR BODEGA
+				<div id="eliminarBodegas">
+					Eliminar Bodegas
 				</div>
 			</div>
-		    
 		    <div id="usuarios" class="col s12">
-  				<div id="opciones" class="col s12">
-			    	<div class="input-field col s6" >
-					    <select id="cmbOpcionesBodega">
-					      <option value="1">Nuevo Usuario</option>
-					      <option value="2">Editar Usuario</option>
-					      <option value="3">Dar de Baja Usuario</option>
-					    </select>
-					    <label>¿Qué desea hacer?</label>
-					</div>
+				<div id="menuOpcionesUsuarios">
+					<a class="waves-effect light-green darken-1 btn" id="btnNuevoUsuario">Nuevo<i class="material-icons right">add</i></a>
+					<a class="waves-effect light-green darken-1 btn" id="btnEditarUsuario">Editar<i class="material-icons right">edit</i></a>
+					<a class="waves-effect light-green darken-1 btn" id="btnEliminarUsuario">Eliminar<i class="material-icons right">delete</i></a>
 				</div>
 				<div id="nuevoUsuario">
-					{{>registrarEmpleado}}
+					Nuevo Usuario
 				</div>
-		    </div>
-		    <div id="comentarios" class="col s12">
-				{{>verComentarios}}	
-		   	</div>
+				<div id="editarUsuario">
+					Editar Bodegas
+				</div>
+				<div id="eliminarUsuario">
+					Eliminar Bodegas
+				</div>
 	  	</div>
+	  	<div id="comentarios">
+	  		{{> verComentarios}}
+	  	</div>
+	</div>
 </template>

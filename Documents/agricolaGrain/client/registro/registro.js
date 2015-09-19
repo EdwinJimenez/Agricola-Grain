@@ -21,14 +21,17 @@
 					telefono: $("#txtTelefono").val(),
 					estatus: "V",
 					esEmpleado: "No",
-					direccionUsuario: {
-						calle: $("#txtCalle").val(),
-						colonia:$("#txtColonia").val(),
-						rfc: $("#txtRFC").val(),
-						pais: $("#txtPais").val(),
-						estado: $("#txtEstado").val(),
-						ciudad: $("#txtCiudad").val()
-					},
+					direccionUsuario: [
+						{
+							calle: $("#txtCalle").val(),
+							colonia:$("#txtColonia").val(),
+							rfc: $("#txtRFC").val(),
+							pais: $("#txtPais").val(),
+							estado: $("#txtEstado").val(),
+							ciudad: $("#txtCiudad").val(),
+							fiscal: "Si"
+						}
+					],
 					createdAt: new Date()
 				}
 				Meteor.call('insertarUsuario',usuario,function (error) {

@@ -12,7 +12,8 @@ Router.route('/registrarme',{name: 'registro'});
 /*PANTALLAS DE USUARIO Y EMPLEADO*/
 Router.route('/pantallaEmpleado',{name:'pantallaEmpleado'});
 Router.route('/pantallaCliente',{name:'pantallaCliente'});
+Router.route('/detalleBodega',{name:'detalleBodega'});
 
 /*SITIOS EN CONSTRUCCION*/
-Router.route('/servicios',{name: 'construccion'});
+Router.route('/construccion',{name: 'construccion'});
 

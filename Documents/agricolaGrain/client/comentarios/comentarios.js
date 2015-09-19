@@ -2,7 +2,7 @@ Template.comentarios.events({
 	"click #btnEnviarComentarios": function(){
 		var cont=0;
 			$(":text").each(function(){	
-				if($($(this)).val()=="" && cont<1)
+				if(($($(this)).val()=="" || $("#textareaComentarios").val()=="") && cont<1)
 				{
 					cont++;
 				}
@@ -16,7 +16,7 @@ Template.comentarios.events({
 				nombreCompleto : $("#txtNombre").val(),
 				correo: $("#txtCorreo").val(),
 				comentario: $("#textareaComentarios").val(),
-				estatus:"D",
+				estatusComentario:"N",
 				createdAt: new Date()
 			}
 			Meteor.call("insertarCometario", comentario,function(error){
