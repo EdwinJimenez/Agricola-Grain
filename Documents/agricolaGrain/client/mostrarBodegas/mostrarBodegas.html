@@ -1,16 +1,16 @@
-<template name="editarBodegas">
+<template name="mostrarBodegas">
 	<div class="bodegas">
 		<div class="row">
 			<h3>Editar Bodegas</h3>
-			{{#each bodegas}}
-        		{{> bodega}}
+			{{#each bodegasMostrar}}
+        		{{> bodegaMostrar}}
       		{{/each}}
 		</div>
 	</div>
 </template>
-<template name="bodega">
+<template name="bodegaMostrar">
 	<div class="col s3">
-		<div class="card">
+		<div class="card small">
 			<div class="card-image waves-effect waves-block waves-light">
 				<img class="activator" src={{imagenBodega}}>
 			</div>
@@ -19,8 +19,10 @@
 				<p><a class="waves-effect light-red darken-1 btn" id="btnVerProductos">Editar<i class="material-icons right"></i></a></p>
 			</div>
 			<div class="card-reveal">
-				<span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{especificaciones}}</span>
-				<p>{{descripcionBodega}}</p>
+				<span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{precio}}</span>
+				<p> Calle: {{direccionBodega.calle}} <br>
+					Colonia:{{direccionBodega.colonia}} <br>
+					Ciudad: {{direccionBodega.ciudad}}</p>
 			</div>
 		</div>			
 	</div>  
