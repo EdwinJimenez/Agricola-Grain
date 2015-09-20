@@ -1,24 +1,16 @@
 Template.pantallaEmpleado.onRendered(function(){
 $('ul.tabs').tabs();
 $('select').material_select();
-$("#editarBodegas").hide("slow");
-$("#eliminarBodegas").hide("slow");
+$("#catalogoBodegas").hide("slow");
 });
 Template.pantallaEmpleado.events({
 "click #btnNuevaBodega":function(event,template){
 	$("#altaBodega").show("slow");
-	$("#editarBodegas").hide("slow");
-	$("#eliminarBodegas").hide("slow");
+	$("#catalogoBodegas").hide("slow");
 },
-"click #btnEditarBodega": function(event,template){
-	$("#editarBodegas").show("slow");
+"click #btnCatalogoBodega": function(event,template){
+	$("#catalogoBodegas").show("slow");
 	$("#altaBodega").hide("slow");
-	$("#eliminarBodegas").hide("slow");
-},
-"click #btnEliminarBodega": function(event,template){
-	$("#eliminarBodegas").show("slow");
-	$("#altaBodega").hide("slow");
-	$("#editarBodegas").hide("slow");
 },
 "click #btnNuevoUsuario":function(event,template){
 	$("#nuevoUsuario").show("slow");

@@ -13,7 +13,7 @@ Template.altaBodegas.events({
 			}
 		});
 		if (cont>0) {
-			Materialize.toast("Se nececitan llenar todos los campos", 4000);
+			Materialize.toast("Se necesitan llenar todos los campos", 4000);
 		}
 		else
 		{	
