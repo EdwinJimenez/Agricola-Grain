@@ -5,9 +5,13 @@ Template.mostrarBodegas.helpers({
 });
 //No funciona CHECAR
 Template.pantallaEmpleado.events({
-"click #editarBodega":function(event,template){
-	$("#altaBodega").hide("slow");
-	$("#catalogoBodegas").hide("slow");
-	$('#editarBodega').show("slow");
-}
+	"click #editarBodega":function(event,template){
+		$("#altaBodega").hide("slow");
+		$("#catalogoBodegas").hide("slow");
+		$('#editarBodega').show("slow");
+	},
+	"click #btnEliminar": function(){
+		Meteor.call("eliminarBodegas",this._id);
+		Materialize.toast("La bodega '"+this.nombreBodega+"' fue eliminada exitosamente",4000);
+	}
 });

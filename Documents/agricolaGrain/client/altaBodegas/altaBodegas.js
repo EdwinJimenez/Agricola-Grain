@@ -7,7 +7,7 @@ Template.altaBodegas.events({
 	"click #btnRegistrar": function(){
 		var cont=0;
 		$(":text").each(function(){	
-			if(($($(this)).val()=="" || $("#textareaComentarios").val()=="") && cont<1)
+			if($($(this)).val()=="" && cont<1)
 			{
 				cont++;
 			}

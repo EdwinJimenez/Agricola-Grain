@@ -8,5 +8,8 @@ Meteor.methods({
 			Bodegas.insert(bodega);
 		else
 			throw new Meteor.Error("bRep", "La bodega ya existe");
+	},
+	eliminarBodegas: function(id){
+		Bodegas.remove(id);
 	}
 });
