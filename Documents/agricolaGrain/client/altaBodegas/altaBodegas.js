@@ -5,7 +5,7 @@ Template.altaBodegas.onRendered(function(){
 });
 Template.altaBodegas.events({
 	"click #btnRegistrar": function(){
-		var cont=0;
+		/*var cont=0;
 		$(":text").each(function(){	
 			if($($(this)).val()=="" && cont<1)
 			{
@@ -16,7 +16,7 @@ Template.altaBodegas.events({
 			Materialize.toast("Se necesitan llenar todos los campos", 4000);
 		}
 		else
-		{	
+		{	*/
 			var bodega = {
 				nombreBodega:$("#txtNombre").val(),
 				descripcionBodega:$("#txtDescripcion").val(),
@@ -30,7 +30,7 @@ Template.altaBodegas.events({
 				especificaciones:$("#txtEspecificaciones").val(),
 				direccionBodega:{
 					calle:$("#txtCalle").val(),
-					colonica:$("#txtColonia").val(),
+					colonia:$("#txtColonia").val(),
 					numero:$("#txtNumero").val(),
 					pais:$("#txtPais").val(),
 					estado:$("#txtEstado").val(),
@@ -47,6 +47,6 @@ Template.altaBodegas.events({
 					});
 				}
 			});
-		}	
+		//}	
 	}
 });

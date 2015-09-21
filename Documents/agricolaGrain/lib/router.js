@@ -12,7 +12,10 @@ Router.route('/registrarme',{name: 'registro'});
 /*PANTALLAS DE USUARIO Y EMPLEADO*/
 Router.route('/pantallaEmpleado',{name:'pantallaEmpleado'});
 Router.route('/pantallaCliente',{name:'pantallaCliente'});
-Router.route('/detalleBodega',{name:'detalleBodega'});
+Router.route('/detalleBodega/:_id',
+	{name:'detalleBodega',
+	data: function() {return Bodegas.findOne(this.params._id);}
+});
 
 /*SITIOS EN CONSTRUCCION*/
 Router.route('/construccion',{name: 'construccion'});

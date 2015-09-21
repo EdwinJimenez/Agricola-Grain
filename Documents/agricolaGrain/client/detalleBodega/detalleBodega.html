@@ -1,30 +1,30 @@
 <template name="detalleBodega">
 	<form id="detalleBodega">
 		<div class="divider"></div>
-		  <div class="section">
-		    <h5>Imagenes</h5>
-		    <p>Stuff (Imagenes)</p>
-		  </div>
+		  	<div class="section">
+		    	<h5>Imagenes</h5>
+		    	<p>Stuff (Imagenes)</p>
+			</div>
 		<div class="divider"></div>
-		  <div class="section">
+		<div class="section">
 		    <h5>Datos Generales</h5>
 		    <div class="row">
-		    	<div class="col s3">
-		    		<p>Nombre de la Bodega:</p>
-		    	</div>
-		    	<div class="col s3">
-		    		<p id="nombreBodega"> Aqui el nombre de la bodega</p>
-		    	</div>
-		    	<div class="col s3">
-		    		<p>Precio:</p>
-		    	</div>
-		    	<div class="col s3">
-		    		<p id="descripcionBodega"> Aqui el precio</p>
-		    	</div>
-		    	<div class="col s12"> Descripción:</div>
-		    	<div class="col s12"> <p id="descripcionBodega">AQUI LA DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae accusamus modi voluptatibus explicabo esse voluptatem numquam voluptates quisquam illo, ducimus vero tenetur ipsa corrupti quis distinctio minima, architecto minus molestiae.</p></div>
+			    <div class="col s3">
+			    	<p>Nombre de la Bodega:</p>
+			    </div>
+			    <div class="col s3">
+			    	<p id="nombreBodega">{{nombreBodega}}</p>
+			    </div>
+			    <div class="col s3">
+			    	<p>Precio:</p>
+			    </div>
+			    <div class="col s3">
+			    	<p id="descripcionBodega">{{precio}}</p>
+			    </div>
+			    <div class="col s12"> Descripción:</div>
+			    <div class="col s12"> <p id="descripcionBodega">{{descripcionBodega}}</p></div>
 		    </div>
-		  </div>
+		</div>
 		  <div class="divider"></div>
 		  <div class="section">
 		    <h5>Caracteristicas</h5>
@@ -33,22 +33,22 @@
 		    		<p>Largo: </p>
 		    	</div>
 		    	<div class="col s2">
-		    		<p id="largoBodega"> 1000m</p>
+		    		<p id="largoBodega">{{largo}}</p>
 		    	</div>
 		    	<div class="col s2">
 		    		<p>Ancho: </p>
 		    	</div>
 		    	<div class="col s2">
-		    		<p id="anchoBodega"> 1000m</p>
+		    		<p id="anchoBodega"> {{ancho}}</p>
 		    	</div>
 		    	<div class="col s2">
 		    		<p>Alto: </p>
 		    	</div>
 		    	<div class="col s2"> 
-		    		<p id="altoBodega">1000m</p>
+		    		<p id="altoBodega">{{alto}}</p>
 		    	</div>
 		    	<div class="col s12"> Especificaciones: </div>
-		    	<div class="col s12"> <p id="especificacionesBodega">AQUI LAS ESPECIFICACIONES: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae accusamus modi voluptatibus explicabo esse voluptatem numquam voluptates quisquam illo, ducimus vero tenetur ipsa corrupti quis distinctio minima, architecto minus molestiae.</p></div>
+		    	<div class="col s12"> <p id="especificacionesBodega">{{especificaciones}}</p></div>
 		    </div>
 		  </div>
 		  <div class="divider"></div>
@@ -59,22 +59,22 @@
 		    		<p>Calle y Número: </p>
 		    	</div>
 		    	<div class="col s6">
-		    		<p id="calleNumeroBodega"> Av. Alvaro Obregón #214</p>
+		    		<p id="calleNumeroBodega"> {{direccionBodega.calle}} {{direccionBodega.numero}}</p>
 		    	</div>
 		    	<div class="col s6">
 		    		<p>Colonia: </p>
 		    	</div>
 		    	<div class="col s6">
-		    		<p id="coloniaBodega"> Colonia Infonavit Humaya</p>
+		    		<p id="coloniaBodega">{{direccionBodega.colonia}}</p>
 		    	</div>
 		    	<div class="col s6">
 		    		<p>Estado: </p>
 		    	</div>
 		    	<div class="col s6"> 
-		    		<p id="estadoBodega">Sinaloa</p>
+		    		<p id="estadoBodega">{{direccionBodega.estado}}</p>
 		    	</div>
 		    	<div class="col s6"><p>País:</p> </div>
-		    	<div class="col s6"> <p id="paisBodega">México</p></div>
+		    	<div class="col s6"> <p id="paisBodega">{{direccionBodega.pais}}</p></div>
 		    </div>
 		  </div>
 		  <ul class="collapsible" data-collapsible="accordion">
@@ -92,15 +92,15 @@
 					      <option value="1" selected>1 mes</option>
 					      <option value="2">2 meses</option>
 					      <option value="3">3 meses</option>
-					      <option value="3">4 meses</option>
-					      <option value="3">5 meses</option>
-					      <option value="3">6 meses</option>
-					      <option value="3">7 meses</option>
-					      <option value="3">8 meses</option>
-					      <option value="3">9 meses</option>
-					      <option value="3">10 meses</option>
-					      <option value="3">11 meses</option>
-					      <option value="3">12 meses</option>
+					      <option value="4">4 meses</option>
+					      <option value="5">5 meses</option>
+					      <option value="6">6 meses</option>
+					      <option value="7">7 meses</option>
+					      <option value="8">8 meses</option>
+					      <option value="9">9 meses</option>
+					      <option value="10">10 meses</option>
+					      <option value="11">11 meses</option>
+					      <option value="12">12 meses</option>
 					    </select>
 					    <label>Duración</label>
 					</div>
@@ -119,4 +119,8 @@
 		</ul>
 		  <a class="waves-effect light-red darken-1 btn" id="btnVerPDF">Ver PDF<i class="material-icons right">picture_as_pdf</i></a>
 	  </form>
+</template>
+
+<template name="datosBodega">
+	
 </template>

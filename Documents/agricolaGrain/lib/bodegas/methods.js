@@ -11,5 +11,8 @@ Meteor.methods({
 	},
 	eliminarBodegas: function(id){
 		Bodegas.remove(id);
+	},
+	insertarRenta: function(renta){
+		Rentas.insert(renta);
 	}
 });
