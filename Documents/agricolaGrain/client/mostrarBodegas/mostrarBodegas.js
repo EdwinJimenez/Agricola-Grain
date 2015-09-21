@@ -5,7 +5,7 @@ Template.mostrarBodegas.helpers({
 });
 //No funciona CHECAR
 Template.pantallaEmpleado.events({
-	"click #editarBodega":function(event,template){
+	"click #btnEditar":function(event,template){
 		$("#altaBodega").hide("slow");
 		$("#catalogoBodegas").hide("slow");
 		$('#editarBodega').show("slow");

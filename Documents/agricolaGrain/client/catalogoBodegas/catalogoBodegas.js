@@ -5,6 +5,7 @@ Template.catalogoBodegas.helpers({
 });
 Template.catalogoBodegas.events({
 	"click #btnVerMas":function(){
+		console.log(this._id);
 		Router.go("detalleBodega", {_id:this._id});
 	}
 });

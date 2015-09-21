@@ -1,4 +1,5 @@
 <template name="pantallaEmpleado">
+	<!--Menu de tabs -->
 			<div class="row">
 		    <div class="col s12">
 		      <ul class="tabs">
@@ -9,37 +10,27 @@
 		        <li class="tab col s3"><a href="/">Salir</a></li>
 		      </ul>
 		    </div>
+		    <!--Opciones de solicitudes-->
 		    <div id="solicitudes" class="col s12">
-			    <div id="opciones" class="col s12">
-			    	<div class="input-field col s6" id="CmbtipoSolicitud">
-					    <select>
-					      <option value="1">Pendientes</option>
-					      <option value="2">En proceso</option>
-					      <option value="3">Terminadas</option>
-					    </select>
-					    <label>¿Qué solicitudes desea ver?</label>
-					</div>
-			    	<div class="input-field col s6" id="CmbTipoProducto">
-					    <select>
-					      <option value="1">Bodegas</option>
-					      <!--<option value="2">Venta de Granos</option>
-					      <option value="3">Compra de Granos</option>-->
-					    </select>
-					    <label>¿De qué producto o servicio?</label>
-					</div>
+			    <div id="menuOpcionesSolicitudes">
+					<a class="waves-effect light-blue darken-2 btn" id="btnPendientes">Pendientes<i class="material-icons right">add</i></a>
+					<a class="waves-effect amber darken-2 btn" id="btnProceso">En Proceso<i class="material-icons right">edit</i></a>
+					<a class="waves-effect amber darken-2 btn" id="btnFinalizadas">Finalizadas<i class="material-icons right">edit</i></a>
 				</div>
-        <!--LA MISMA COLECCION SE USARA PARA SOLICITUDES PENDIENTES, EN PROCESO Y TERMINADAS-->
-				<div class="collection with-header" id="pantallaEmpleado">
-			      	 <ul class="collection with-header">
-				        <li class="collection-header"><h4>Pendientes</h4></li>
-				        <li class="collection-item"><div>Solicitud #1<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-				        <li class="collection-item"><div>Solicitud #2<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-				        <li class="collection-item"><div>Solicitud #3<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-				        <li class="collection-item"><div>Solicitud #4<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-			      </ul>
-			    </div>
+				<div id="solicitudesPendientes">
+					Solicitudes Pendientes
+					{{> verPendientes}}
+				</div>
+				<div id="solicitudesProceso">
+					Solicitudes en Proceso
+					{{> verEnProceso}}
+				</div>
+				<div id="solicitudesFinalizadas">
+					Solicitudes Finalizadas
+					{{> verFinalizadas}}
+				</div>
 		    </div>
-
+			<!-- Opciones de Bodegas -->
 		    <div id="bodegas" class="col s12">
 				<div id="menuOpcionesBodegas">
 					<a class="waves-effect light-blue darken-2 btn" id="btnNuevaBodega">Nueva<i class="material-icons right">add</i></a>
@@ -50,7 +41,6 @@
 				</div>
 				<div id="catalogoBodegas">
 					{{> mostrarBodegas}}
-
 				</div>
 				<!--NO FUNCIONA AUN CHECAR-->
 				<div id="editarBodega">
@@ -59,20 +49,23 @@
 			</div>
 		    <div id="usuarios" class="col s12">
 				<div id="menuOpcionesUsuarios">
-					<a class="waves-effect light-green darken-1 btn" id="btnNuevoUsuario">Nuevo<i class="material-icons right">add</i></a>
+					<a class="waves-effect light-green darken-1 btn" id="btnNuevoUsuario">Nuevo<i class="material-icons right">add</i></a> 
+					<!-- PARA ITERACIONES FUTURAS
 					<a class="waves-effect light-green darken-1 btn" id="btnEditarUsuario">Editar<i class="material-icons right">edit</i></a>
-					<a class="waves-effect light-green darken-1 btn" id="btnEliminarUsuario">Eliminar<i class="material-icons right">delete</i></a>
+					<a class="waves-effect light-green darken-1 btn" id="btnEliminarUsuario">Eliminar<i class="material-icons right">delete</i></a> -->
 				</div>
 				<div id="nuevoUsuario">
 					{{> registrarEmpleado}}
-				</div>
+				</div> 
+				<!-- PARA ITERACIONES FUTURAS
 				<div id="editarUsuario">
 					Editar Usuario
 				</div>
 				<div id="eliminarUsuario">
 					Eliminar Usuario
-				</div>
+				</div> -->
 	  	</div>
+	  	<!--Ver comentarios-->
 	  	<div id="comentarios">
 	  		{{> verComentarios}}
 	  	</div>

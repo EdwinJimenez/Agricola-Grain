@@ -2,7 +2,7 @@
 {
 	text-align: left;
 }
-#editarBodegas,#eliminarBodegas,#editarUsuario,#eliminarUsuario, #editarBodega
+#editarBodegas,#eliminarBodegas,#editarUsuario,#eliminarUsuario, #editarBodega,#solicitudesProceso,#solicitudesFinalizadas
 {
 	display:none;
 	border: 2px solid rgba(143,72,13,0.5);
