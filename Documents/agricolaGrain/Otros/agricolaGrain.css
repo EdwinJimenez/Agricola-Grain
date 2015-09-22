@@ -16,8 +16,6 @@ header
 {
 	background: #7cb342;
 	background: -moz-linear-gradient(top, rgba(161,179,86,1) 0%, rgba(81,137,47,0.79) 100%);
-	border-radius: 5px 5px 0px 0px;
-	border: 2px solid rgba(64, 119, 0, 0.9);
 	padding: 5px;
 	text-align: left;
 	max-width: 1024px;

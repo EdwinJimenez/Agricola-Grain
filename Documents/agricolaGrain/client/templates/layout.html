@@ -1,7 +1,6 @@
 <template name="layout">
 			<header>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<!--<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>-->
 				<div id="logo">
 					<img src="img/logo.png" alt="">
 				</div>
@@ -28,7 +27,9 @@
 		      </ul> 
 		    </div>
 		  </nav>
+		  <div id="contenidoDinamico">
 			{{> yield}}
+		</div>
 		<footer>
 		    <small>
 				<div class="row">
@@ -36,7 +37,7 @@
 						<p>
 							Contactanos
 						</p>
-						<p class="light center">
+						<p>
 							Tel (667) 710-1910 <br>Info@grain.com.mx <br>
 							<a href="http://twitter.com/AQUI_TU_USUARIO" target="_blank"><img src="https://lh6.googleusercontent.com/--aIk2uBwEKM/T3nN1x09jBI/AAAAAAAAAs8/qzDsbw3kEm8/s32/twitter32.png" width=32 height=32 alt="Síguenos en Twitter" /></a>
 							<a href="http://www.facebook.com/AQUI_TU_PAGINA" target="_blank"><img alt="Siguenos en Facebook" src="https://lh6.googleusercontent.com/-CYt37hfDnQ8/T3nNydojf_I/AAAAAAAAAr0/P5OtlZxV4rk/s32/facebook32.png" width=32 height=32  /></a>
@@ -53,7 +54,7 @@
 						</p>
 					</div>
 					<div class="col s4">
-						<a href="/comentarios" class="waves-effect light-green darken-1 btn" id="btnComentarios">Comentarios<i class="material-icons right">send</i></a>
+						<a href="/comentarios" class="waves-effect light-green darken-1 btn" id="btnComentarios">Comentarios<i class="material-icons right">message</i></a>
 					</div>
 					
 				</div>

@@ -14,7 +14,7 @@ Router.route('/pantallaEmpleado',{name:'pantallaEmpleado'});
 Router.route('/pantallaCliente',{name:'pantallaCliente'});
 Router.route('/detalleBodega/:_id',
 	{name:'detalleBodega',
-	data: function() {return Bodegas.findOne(this.params._id);}
+	data: function() {return Bodegas.findOne(new Meteor.Collection.ObjectID(this.params._id));}
 });
 
 /*SITIOS EN CONSTRUCCION*/
