@@ -22,10 +22,12 @@ Template.pantallaEmpleado.events({
 "click #btnNuevaBodega":function(event,template){
 	$("#altaBodega").show("slow");
 	$("#catalogoBodegas").hide("slow");
+	$("#editarBodega").hide("slow");
 },
 "click #btnCatalogoBodega": function(event,template){
 	$("#catalogoBodegas").show("slow");
 	$("#altaBodega").hide("slow");
+	$("#editarBodega").hide("slow");
 },
 "click #btnNuevoUsuario":function(event,template){
 	$("#nuevoUsuario").show("slow");
