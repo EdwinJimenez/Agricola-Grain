@@ -26,5 +26,5 @@ Template.detalleBodega.events({
 			}
 			Meteor.call("insertarRenta",renta);
 		}
-	}
+	},
 });

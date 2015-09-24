@@ -2,3 +2,13 @@
 {
 	background: white;
 }
+@media print {
+nav {display: none;}
+.collapsible{ display: none;}
+.btn{display: none;}
+.noImprimir{display: none;}
+	#direccionMatriz
+	{
+		float: right;
+	}
+}

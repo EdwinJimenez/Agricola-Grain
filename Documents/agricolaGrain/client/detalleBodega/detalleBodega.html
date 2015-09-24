@@ -1,7 +1,7 @@
 <template name="detalleBodega">
 	<form id="detalleBodega">
 		<div class="divider"></div>
-		  	<div class="section">
+		  	<div class="section noImprimir" >
 		    	<h5>Imagenes</h5>
 		    	<p>Stuff (Imagenes)</p>
 			</div>
@@ -117,7 +117,7 @@
 		      </div>
 		    </li>
 		</ul>
-		  <a class="waves-effect light-red darken-1 btn" id="btnVerPDF">Ver PDF<i class="material-icons right">picture_as_pdf</i></a>
+		  <a class="waves-effect light-red darken-1 btn" id="btnVerPDF" onClick="window.print();">Imprimir PDF<i class="material-icons right">picture_as_pdf</i></a>
 	  </form>
 </template>
 

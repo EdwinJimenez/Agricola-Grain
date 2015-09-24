@@ -16,7 +16,9 @@ Template.altaBodegas.events({
 			Materialize.toast("Se necesitan llenar todos los campos", 4000);
 		}
 		else
-		{	*/
+		{	*/ 
+			if (validarTexto("#txtNombre","Nombre"));
+			{
 			var bodega = {
 				nombreBodega:$("#txtNombre").val(),
 				descripcionBodega:$("#txtDescripcion").val(),
@@ -44,9 +46,19 @@ Template.altaBodegas.events({
 					Materialize.toast("Bodega registrada con exito!!",4000,'rounded');
 					$(":text").each(function(){	
 						$($(this)).val('');
+						$("#verComentarios").load();
 					});
 				}
 			});
+			}
 		//}	
 	}
 });
+ function validarTexto(id,campo)
+ {
+	if($(id).val() == "") 
+	{ 
+		Materialize.toast("Necesita llenar el campo "+ campo, 4000); 
+		return false ; 
+	}
+ }

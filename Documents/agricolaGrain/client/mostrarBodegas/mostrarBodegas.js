@@ -9,6 +9,7 @@ Template.pantallaEmpleado.events({
 		$("#altaBodega").hide("slow");
 		$("#catalogoBodegas").hide("slow");
 		$('#editarBodega').show("slow");
+		Session.set("idBodega",this._id);
 	},
 	"click #btnEliminar": function(){
 		Meteor.call("eliminarBodegas",this._id);
