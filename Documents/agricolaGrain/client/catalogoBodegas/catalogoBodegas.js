@@ -1,6 +1,6 @@
 Template.catalogoBodegas.helpers({
 	bodegas : function(){
-		return Bodegas.find({},{nombreBodega:true,descripcionBodega:true,imagenBodega:true,especificaciones:true});
+		return Bodegas.find({estatus:"A",situacion:"L"},{nombreBodega:true,descripcionBodega:true,imagenBodega:true,especificaciones:true});
 	}
 });
 Template.catalogoBodegas.events({

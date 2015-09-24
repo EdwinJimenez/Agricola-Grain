@@ -5,7 +5,7 @@ Template.Comentario.onRendered(function(){
 });
 Template.verComentarios.helpers({
 	verComentarios : function(){
-		return Comentarios.find({estatusComentario:"N"},{nombreCompleto:true,correo:true,comentario:true,createdAt:true});
+		return Comentarios.find({estatus:"N"},{nombreCompleto:true,correo:true,comentario:true,fechaCreacion:true});
 	}
 });
 Template.Comentario.events({

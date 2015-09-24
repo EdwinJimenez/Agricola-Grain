@@ -13,26 +13,27 @@
 			else
 			{
 				var usuario = {
-					nombreUsuario: $("#txtUsuario").val(),
+					usuario: $("#txtUsuario").val(),
 					contraseña: $("#txtContraseña").val(),
 					nombre: $("#txtNombre").val(),
 					apellido: $("#txtApellido").val(),
 					correo: $("#txtCorreo").val(),
 					telefono: $("#txtTelefono").val(),
 					estatus: "V",
-					esEmpleado: "No",
+					esEmpleado: false,
 					direccionUsuario: [
 						{
 							calle: $("#txtCalle").val(),
+							numero: $("#txtNumero").val(),
 							colonia:$("#txtColonia").val(),
 							rfc: $("#txtRFC").val(),
 							pais: $("#txtPais").val(),
 							estado: $("#txtEstado").val(),
 							ciudad: $("#txtCiudad").val(),
-							fiscal: "Si"
+							fiscal: true
 						}
 					],
-					createdAt: new Date()
+					fechaCreacion: new Date()
 				}
 				Meteor.call('insertarUsuario',usuario,function (error) {
 					if (error)

@@ -5,35 +5,24 @@ Template.altaBodegas.onRendered(function(){
 });
 Template.altaBodegas.events({
 	"click #btnRegistrar": function(){
-		/*var cont=0;
-		$(":text").each(function(){	
-			if($($(this)).val()=="" && cont<1)
-			{
-				cont++;
-			}
-		});
-		if (cont>0) {
-			Materialize.toast("Se necesitan llenar todos los campos", 4000);
-		}
-		else
-		{	*/ 
 			if (validarTexto("#txtNombre","Nombre"));
 			{
 			var bodega = {
-				nombreBodega:$("#txtNombre").val(),
-				descripcionBodega:$("#txtDescripcion").val(),
+				nombre:$("#txtNombre").val(),
+				descripcion:$("#txtDescripcion").val(),
 				precio:$("#txtPrecio").val(),
 				largo:$("#txtLargo").val(),
 				ancho:$("#txtAncho").val(),
 				alto:$("#txtAlto").val(),
-				imagenBodega:"img/bodega_refrigerada.jpg",
-				estatus:$("#txtEstatus").val(),
-				rentada:("Si"),
+				imagenes:"img/bodega_refrigerada.jpg",
+				estatus:"A",
+				situacion: "L",
 				especificaciones:$("#txtEspecificaciones").val(),
-				direccionBodega:{
+				direccion:{
 					calle:$("#txtCalle").val(),
 					colonia:$("#txtColonia").val(),
-					numero:$("#txtNumero").val(),
+					numero:$("#txtNumeroExterior").val(),
+					numeroInterior:$("#txtNumeroInterior").val(),
 					pais:$("#txtPais").val(),
 					estado:$("#txtEstado").val(),
 					ciudad:$("#txtCiudad").val()
@@ -50,8 +39,7 @@ Template.altaBodegas.events({
 					});
 				}
 			});
-			}
-		//}	
+		}
 	}
 });
  function validarTexto(id,campo)

@@ -1,19 +1,43 @@
 <template name="verPendientes">
       <form class="col s12 card-panel green lighten-5" id="verComentarios">
       <ul class="collapsible popout" data-collapsible="expandable">
-         <!--AQUI TAMBIEN-->
+        {{#each Pendientes}}
+          {{> Pendiente}}
+        {{/each}}
     </ul>
         </form>
 </template>
 
-<template name="Pendientes">
+<template name="Pendiente">
   <li>
-          <div class="collapsible-header"><i class="material-icons">comment</i><!--AQUI VA ALGO--></div>
+          <div class="collapsible-header"><i class="material-icons">comment</i>
+            {{idUsuario}} {{idBodega}}
+          </div>
             <div class="collapsible-body">
-              <div class="col s12">
-              <!--Aqui van los datos de la solicitud-->
+            <div class="row">
+              <p class="col s4">Inicio de contrato:</p>
+            <div class="col s2">
+              {{inicioContrato}}
             </div>
-              <a class="waves-effect light-red darken-1 btn" id="btnAtendido">Atendido<i class="material-icons right"></i></a>
-         </div>
+            <p class="col s4">Fin de contrato:</p>
+            <div class="col s2">
+              {{finContrato}}
+            </div>
+            <p class="col s4">Duración de contrato:</p>
+            <div class="col s2">
+              {{duracion}}
+            </div>
+
+            <p class="col s4">Importe total:</p>
+            <div class="col s2">
+              {{importe}}
+            </div>
+            <p class="col s12">Comentarios:</p>
+            <div class="col s12">
+              {{comentarios}}
+            </div>
+            </div>
+                <a class="waves-effect light-red darken-1 btn" id="btnAtendido">Atendido<i class="material-icons right"></i></a>
+            </div>
         </li>
 </template>

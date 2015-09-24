@@ -3,16 +3,22 @@ Meteor.methods({
 		return Bodegas.find({},{nombreBodega:true,descripcion:true,especificaciones:true}).fetch();
 	},
 	insertarBodegas: function(bodega){
-		var c = Bodegas.find({direccionBodega:{calle:bodega.direccionBodega.calle,colonia:bodega.direccionBodega.colonia,numero:bodega.direccionBodega.numero,pais:bodega.direccionBodega.pais,estado:bodega.direccionBodega.estado,ciudad:bodega.direccionBodega.ciudad}}).count();
+		var c = Bodegas.find({direccion:{calle:bodega.direccion.calle,colonia:bodega.direccion.colonia,numero:bodega.direccion.numero,pais:bodega.direccion.pais,estado:bodega.direccion.estado,ciudad:bodega.direccion.ciudad}}).count();
 		if(c==0)
 			Bodegas.insert(bodega);
 		else
 			throw new Meteor.Error("bRep", "La bodega ya existe");
 	},
-	eliminarBodegas: function(id){
-		Bodegas.remove(id);
+	modificarSituacionBodega : function(id,situacion){
+		Bodegas.update(id,{$set: {situacion:situacion}});
+	},
+	bajaBodegas: function(id){
+		Bodegas.update(id, {$set : {estatus:"B"}});
 	},
 	insertarRenta: function(renta){
 		Rentas.insert(renta);
+	},
+	modificarRenta: function(id,estatus){
+		Rentas.update(id,{$set : {estatus:estatus}});
 	}
 });

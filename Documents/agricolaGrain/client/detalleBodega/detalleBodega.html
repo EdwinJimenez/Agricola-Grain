@@ -13,7 +13,7 @@
 			    	<p>Nombre de la Bodega:</p>
 			    </div>
 			    <div class="col s3">
-			    	<p id="nombreBodega">{{nombreBodega}}</p>
+			    	<p id="nombreBodega">{{nombre}}</p>
 			    </div>
 			    <div class="col s3">
 			    	<p>Precio:</p>
@@ -22,7 +22,7 @@
 			    	<p id="descripcionBodega">{{precio}}</p>
 			    </div>
 			    <div class="col s12"> Descripción:</div>
-			    <div class="col s12"> <p id="descripcionBodega">{{descripcionBodega}}</p></div>
+			    <div class="col s12"> <p id="descripcionBodega">{{descripcion}}</p></div>
 		    </div>
 		</div>
 		  <div class="divider"></div>
@@ -59,22 +59,22 @@
 		    		<p>Calle y Número: </p>
 		    	</div>
 		    	<div class="col s6">
-		    		<p id="calleNumeroBodega"> {{direccionBodega.calle}} {{direccionBodega.numero}}</p>
+		    		<p id="calleNumeroBodega"> {{direccion.calle}} {{direccion.numero}}</p>
 		    	</div>
 		    	<div class="col s6">
 		    		<p>Colonia: </p>
 		    	</div>
 		    	<div class="col s6">
-		    		<p id="coloniaBodega">{{direccionBodega.colonia}}</p>
+		    		<p id="coloniaBodega">{{direccion.colonia}}</p>
 		    	</div>
 		    	<div class="col s6">
 		    		<p>Estado: </p>
 		    	</div>
 		    	<div class="col s6"> 
-		    		<p id="estadoBodega">{{direccionBodega.estado}}</p>
+		    		<p id="estadoBodega">{{direccion.estado}}</p>
 		    	</div>
 		    	<div class="col s6"><p>País:</p> </div>
-		    	<div class="col s6"> <p id="paisBodega">{{direccionBodega.pais}}</p></div>
+		    	<div class="col s6"> <p id="paisBodega">{{direccion.pais}}</p></div>
 		    </div>
 		  </div>
 		  <ul class="collapsible" data-collapsible="accordion">

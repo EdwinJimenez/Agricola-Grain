@@ -12,6 +12,8 @@ Router.route('/registrarme',{name: 'registro'});
 /*PANTALLAS DE USUARIO Y EMPLEADO*/
 Router.route('/pantallaEmpleado',{name:'pantallaEmpleado'});
 Router.route('/pantallaCliente',{name:'pantallaCliente'});
+
+/*PANTALAS BODEGAS*/
 Router.route('/detalleBodega/:_id',
 	{name:'detalleBodega',
 	data: function() {return Bodegas.findOne(new Meteor.Collection.ObjectID(this.params._id));}

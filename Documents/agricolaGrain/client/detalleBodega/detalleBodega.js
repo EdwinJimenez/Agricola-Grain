@@ -9,6 +9,8 @@ Template.detalleBodega.events({
 		var fecha= $("#dateFechaInicio").val();
 		var duracion = $("#cmbDuracionContrato").val();
 		var fechafin = $("#dateFechaInicio").val();
+		var vduracion = parseFloat($("#cmbDuracionContrato").val());
+		var vprecio = parseFloat(this.precio);
 		if(fecha=="")
 		{
 			Materialize.toast("No selecciono fecha de renta",4000);
@@ -21,10 +23,13 @@ Template.detalleBodega.events({
 				inicioContrato: fecha,
 				finContrato: fechafin,
 				duracion: duracion,
-				comentariosRenta: $("#txtComentarios").val(),
-				createdAt: new Date()
+				importe:vduracion*vprecio,
+				estatus:"P",
+				comentarios: $("#txtComentarios").val(),
+				fechaCreacion: new Date()
 			}
 			Meteor.call("insertarRenta",renta);
+			Meteor.call("modificarSituacionBodega",this._id,"A");
 		}
 	},
 });

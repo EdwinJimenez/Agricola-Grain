@@ -1,6 +1,13 @@
 <template name="editarBodega">
 	<section id="editaBodega">
-    	<form class="col s12 card-panel green lighten-5">
+    	{{#each frmBodega}}
+    		{{> editaBodega}}
+    	{{/each}}
+    </section>
+</template>
+
+<template name="editaBodega">
+	<form class="col s12 card-panel green lighten-5">
 		  <ul class="collapsible popout" data-collapsible="expandable">
 		  	<li>
 		  		<h3>Editar Bodega</h3>
@@ -11,19 +18,19 @@
 		      		<div class="row">
 		      			<div class="col s6">
 							<div class="input-field row">
-			                    <input id="txtNombre" type="text" class="validate" autofocus required>
+			                    <input id="txtNombre" type="text" class="validate" value={{nombre}} autofocus required>
 			                    <label for="txtNombre">Nombre de la Bodega</label>
 		                    </div> 					
 		 				</div>
 		 				<div class="col s6">
 							<div class="input-field row">
-			                    <input id="txtDescripcion" type="text" class="validate" required>
+			                    <input id="txtDescripcion" type="text" class="validate" value={{descripcion}} required>
 			                    <label for="txtDescripcion">Descripción</label>
 		                    </div> 					
 		 				</div>
 		 				<div class="col s6">
 							<div class="input-field row">
-			                    <input id="txtPrecio" type="text" class="validate" required>
+			                    <input id="txtPrecio" type="text" class="validate" value={{precio}} required>
 			                    <label for="txtPrecio" data-error="Escriba un correo válido.">Precio</label>
 		                    </div> 					
 		 				</div>	
@@ -36,25 +43,25 @@
 		      	<div class="row">
 		      		<div class="col s6">
 						<div class="input-field row">
-			                <input id="txtLargo" type="text" class="validate" required>
+			                <input id="txtLargo" type="text" class="validate" value={{largo}} required>
 			                <label for="txtLargo">Largo</label>
 		                </div> 					
 		 			</div>
 		 			<div class="col s6">
 						<div class="input-field row">
-			                <input id="txtAncho" type="text" class="validate" required>
+			                <input id="txtAncho" type="text" class="validate" value={{ancho}} required>
 			                <label for="txtAncho">Ancho</label>
 		            	</div> 					
 		 			</div>
 		 				<div class="col s6">
 							<div class="input-field row">
-			                    <input id="txtAlto" type="text" class="validate" required>
+			                    <input id="txtAlto" type="text" class="validate" value={{alto}} required>
 			                    <label for="txtAlto">Alto</label>
 		                    </div>
 		 				</div> 
 		 				<div class="col s6">
 							<div class="input-field row">
-			                    <input id="txtEspecificaciones" type="text" class="validate" required>
+			                    <input id="txtEspecificaciones" type="text" class="validate" value={{especificaciones}} required>
 			                    <label for="txtEspecificaciones">Especificaciones</label>
 		                    </div> 					
 		 				</div>	
@@ -67,43 +74,43 @@
 	      		<div class="row">
 	      			<div class="col s6">
 						<div class="input-field row">
-		                    <input id="txtCalle" type="text" class="validate" required>
+		                    <input id="txtCalle" type="text" class="validate" value={{direccion.calle}} required>
 		                    <label for="txtCalle">Calle</label>
 	                    </div> 					
 	 				</div>	 
 	 				<div class="col s6">
 						<div class="input-field row">
-		                    <input id="txtColonia" type="text" class="validate" required>
+		                    <input id="txtColonia" type="text" class="validate" value={{direccion.colonia}} required>
 		                    <label for="txtColonia">Colonia</label>
 	                    </div> 					
 	 				</div>		
 	 				<div class="col s6">
 						<div class="input-field row">
-		                    <input id="txtNumeroExterior" type="text" class="validate" required>
+		                    <input id="txtNumeroExterior" type="text" class="validate" value={{direccion.numero}} required>
 		                    <label for="txtNumeroExterior">Número exterior</label>
 	                    </div> 					
 	 				</div>
 	 				<div class="col s6">
 						<div class="input-field row">
-		                    <input id="txtNumeroInterior" type="text" class="validate" required>
+		                    <input id="txtNumeroInterior" type="text" class="validate" value={{direccion.numeroInterior}} required>
 		                    <label for="txtNumeroInterior">Número interior</label>
 	                    </div> 					
 	 				</div>
 	 				<div class="col s6">
 						<div class="input-field row">
-		                    <input id="txtPais" type="text" class="validate" required>
+		                    <input id="txtPais" type="text" class="validate" value={{direccion.pais}} required>
 		                    <label for="txtPais">País</label>
 	                    </div> 					
 	 				</div>	
 	 				<div class="col s6">
 						<div class="input-field row">
-		                    <input id="txtEstado" type="text" class="validate" required>
+		                    <input id="txtEstado" type="text" class="validate" value={{direccion.estado}} required>
 		                    <label for="txtEstado">Estado</label>
 	                    </div> 					
 	 				</div>	
 	 				<div class="col s6">
 						<div class="input-field row">
-		                    <input id="txtCiudad" type="text" class="validate" required>
+		                    <input id="txtCiudad" type="text" class="validate" value={{direccion.ciudad}} required>
 		                    <label for="txtCiudad">Ciudad</label>
 	                    </div> 					
 	 				</div>		
@@ -114,5 +121,4 @@
  			<a class="waves-effect light-green darken-1 btn" id="btnGuardar">Guardar<i class="material-icons right">save</i></a>
  			<a class="waves-effect red btn" id="btnCancelar">Cancelar<i class="material-icons right">clear</i></a> 
         </form>
-      </section>
 </template>

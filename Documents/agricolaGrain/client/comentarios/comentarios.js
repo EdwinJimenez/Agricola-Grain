@@ -16,8 +16,8 @@ Template.comentarios.events({
 				nombreCompleto : $("#txtNombre").val(),
 				correo: $("#txtCorreo").val(),
 				comentario: $("#textareaComentarios").val(),
-				estatusComentario:"N",
-				createdAt: new Date()
+				estatus:"N",
+				fechaCreacion: new Date()
 			}
 			Meteor.call("insertarCometario", comentario,function(error){
 				if(error)
