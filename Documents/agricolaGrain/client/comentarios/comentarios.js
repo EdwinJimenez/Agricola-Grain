@@ -1,6 +1,6 @@
 Template.comentarios.events({
 	"click #btnEnviarComentarios": function(){
-		var cont=0;
+		/*var cont=0;
 			$(":text").each(function(){	
 				if(($($(this)).val()=="" || $("#textareaComentarios").val()=="") && cont<1)
 				{
@@ -11,6 +11,8 @@ Template.comentarios.events({
 				Materialize.toast("Se nececitan llenar todos los campos", 4000);
 			}
 			else
+			{*/
+			if(Meteor.validaciones.validarVacios(frmComentarios)&&Meteor.validaciones.validarEmail(frmComentarios))
 			{
 			var comentario = {
 				nombreCompleto : $("#txtNombre").val(),
@@ -29,6 +31,7 @@ Template.comentarios.events({
 					$("#textareaComentarios").val("");
 				}
 			});
-		}
+			}
+		/*}*/
 	}
 });

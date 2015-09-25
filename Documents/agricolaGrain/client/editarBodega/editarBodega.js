@@ -4,18 +4,21 @@ Template.editBodega.onRendered(function(){
 	    });
 });
 Template.editarBodega.events({
-	"click #btnGuardar": function(){				
-		Meteor.call("modificarBodega",this._id,$("#txtNombreE").val(),$("#txtDescripcionE").val(),$("#txtPrecioE").val(),$("#txtLargoE").val(),$("#txtAnchoE").val(),$("#txtAltoE").val(),$("#txtCalleE").val(),$("#txtColoniaE").val(),$("#txtEspecificacionesE").val(),$("#txtNumeroExteriorE").val(),$("#txtNumeroInteriorE").val(),$("#txtPaisE").val(),$("#txtEstadoE").val(),$("#txtCiudadE").val(),function(error){
-				if(error)
-					Materialize.toast(error.reason,4000,'rounded');
-				else{
-					Materialize.toast("Bodega modificada con exito!!",4000,'rounded');
-					$("#altaBodega").hide("slow");
-					$('#editarBodega').hide("slow");
-					$("#catalogoBodegas").show("slow");
-				}
-			});
-	}
+	"click #btnGuardar": function(){	
+	if(Meteor.validaciones.validarVacios(frmEditarBodega)&&Meteor.validaciones.validarDecimales(frmEditarBodega))
+	{			
+			Meteor.call("modificarBodega",this._id,$("#txtNombreE").val(),$("#txtDescripcionE").val(),$("#txtPrecioE").val(),$("#txtLargoE").val(),$("#txtAnchoE").val(),$("#txtAltoE").val(),$("#txtCalleE").val(),$("#txtColoniaE").val(),$("#txtEspecificacionesE").val(),$("#txtNumeroExteriorE").val(),$("#txtNumeroInteriorE").val(),$("#txtPaisE").val(),$("#txtEstadoE").val(),$("#txtCiudadE").val(),function(error){
+					if(error)
+						Materialize.toast(error.reason,4000,'rounded');
+					else{
+						Materialize.toast("Bodega modificada con exito!!",4000,'rounded');
+						$("#altaBodega").hide("slow");
+						$('#editarBodega').hide("slow");
+						$("#catalogoBodegas").show("slow");
+					}
+				});
+		}
+}
 });
 Template.editarBodega.helpers({
 	frmBodega: function(){

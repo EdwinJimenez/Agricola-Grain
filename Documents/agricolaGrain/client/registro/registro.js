@@ -1,16 +1,6 @@
 	Template.registro.events({
 		"click #btnRegistrar": function(){
-			var cont=0;
-			$(":text").each(function(){	
-				if($($(this)).val()=="" && cont<1)
-				{
-					cont++;
-				}
-			});
-			if (cont==1) {
-				Materialize.toast("Se nececitan llenar todos los campos", 4000);
-			}
-			else
+			if(Meteor.validaciones.validarVacios(frmRegistrarCliente)&&Meteor.validaciones.validarEmail(frmRegistrarCliente)&&Meteor.validaciones.validarTelefono(frmRegistrarCliente))
 			{
 				var usuario = {
 					usuario: $("#txtUsuario").val(),

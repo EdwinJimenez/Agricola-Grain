@@ -1,7 +1,7 @@
 Meteor.methods({
 	//declarar metodos
 	insertarUsuario: function(usuario){
-		var c = Usuarios.find({usuario:usuario.nombre},{usuario:true,}).count();
+		var c = Usuarios.find({usuario:usuario.usuario},{usuario:true}).count();
 		if(c==0){
 			Usuarios.insert(usuario);	
 		}
