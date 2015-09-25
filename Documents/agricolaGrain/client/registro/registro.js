@@ -19,7 +19,7 @@
 					apellido: $("#txtApellido").val(),
 					correo: $("#txtCorreo").val(),
 					telefono: $("#txtTelefono").val(),
-					estatus: "V",
+					estatus: "A",
 					esEmpleado: false,
 					direccionUsuario: [
 						{

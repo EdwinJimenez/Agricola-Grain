@@ -8,11 +8,17 @@
         </form>
 </template>
 
+<template name="Encabezado">
+  <div class="collapsible-header"><i class="material-icons">comment</i>
+    {{nombre}}
+  </div>
+</template>
+
 <template name="Pendiente">
   <li>
-          <div class="collapsible-header"><i class="material-icons">comment</i>
-            {{idUsuario}} {{idBodega}}
-          </div>
+            {{#each Encabezados}}
+              {{> Encabezado}}
+            {{/each}}
             <div class="collapsible-body">
             <div class="row">
               <p class="col s4">Inicio de contrato:</p>

@@ -14,3 +14,8 @@ Template.verEnProceso.events({
 		Meteor.call("modificarSituacionBodega",this.idBodega,"L");
 	}
 });
+Template.enProceso.helpers({
+	encabezadoProcesos: function(){
+		return Bodegas.find(this.idBodega,{nombre:true});	
+	}
+});

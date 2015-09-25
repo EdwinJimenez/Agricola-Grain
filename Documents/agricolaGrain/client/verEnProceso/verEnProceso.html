@@ -7,37 +7,41 @@
     </ul>
         </form>
 </template>
-
+<template name="encabezadoProceso">
+  <div class="collapsible-header"><i class="material-icons">comment</i>
+    {{nombre}}
+  </div>
+</template>
 <template name="enProceso">
   <li>
-          <div class="collapsible-header"><i class="material-icons">comment</i>
-            {{idUsuario}} {{idBodega}}
+    {{#each encabezadoProcesos}}
+      {{> encabezadoProceso}}
+    {{/each}}
+      <div class="collapsible-body">
+        <div class="row">
+          <p class="col s4">Inicio de contrato:</p>
+          <div class="col s2">
+            {{inicioContrato}}
           </div>
-            <div class="collapsible-body">
-            <div class="row">
-              <p class="col s4">Inicio de contrato:</p>
-            <div class="col s2">
-              {{inicioContrato}}
-            </div>
-            <p class="col s4">Fin de contrato:</p>
-            <div class="col s2">
-              {{finContrato}}
-            </div>
+          <p class="col s4">Fin de contrato:</p>
+          <div class="col s2">
+            {{finContrato}}
+          </div>
             <p class="col s4">Duración de contrato:</p>
-            <div class="col s2">
-              {{duracion}}
-            </div>
+          <div class="col s2">
+            {{duracion}}
+          </div>
 
-            <p class="col s4">Importe total:</p>
+          <p class="col s4">Importe total:</p>
             <div class="col s2">
               {{importe}}
             </div>
-            <p class="col s12">Comentarios:</p>
+          <p class="col s12">Comentarios:</p>
             <div class="col s12">
               {{comentarios}}
             </div>
-            </div>
+          </div>
               <a class="waves-effect light-red darken-1 btn" id="btnLiberar">Liberar<i class="material-icons right"></i></a>
-            </div>
+      </div>
         </li>
 </template>

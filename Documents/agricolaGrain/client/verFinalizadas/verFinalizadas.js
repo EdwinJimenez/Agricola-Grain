@@ -8,3 +8,8 @@ Template.verFinalizadas.helpers({
 		return Rentas.find({estatus:"F"});
 	}
 });
+Template.Finalizada.helpers({
+	EncabezadoFinalizadas: function(){
+		return Bodegas.find(this.idBodega,{nombre:true});
+	}
+});

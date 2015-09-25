@@ -19,7 +19,6 @@ Template.editarBodega.events({
 });
 Template.editarBodega.helpers({
 	frmBodega: function(){
-		console.log(Bodegas.find(Session.get("idBodega")));
 		return Bodegas.find(Session.get("idBodega"));
 	}
 });

@@ -13,12 +13,12 @@ Template.detalleBodega.events({
 		var vprecio = parseFloat(this.precio);
 		if(fecha=="")
 		{
-			Materialize.toast("No selecciono fecha de renta",4000);
+			Materialize.toast("No selecciono fecha de renta",4000,'rounded');
 		}
 		else
 		{
 			var renta = {
-				idUsuario: "Cliente",
+				idUsuario: Session.get("idU"),
 				idBodega: this._id,
 				inicioContrato: new Date(fecha),
 				finContrato: fechafin,
@@ -28,8 +28,15 @@ Template.detalleBodega.events({
 				comentarios: $("#txtComentarios").val(),
 				fechaCreacion: new Date()
 			}
-			Meteor.call("insertarRenta",renta);
+			Meteor.call("insertarRenta",renta,function(error){
+				if(error)
+					Materialize.toast(error.reason,2000,'rounded');
+				else{
+					Materialize.toast('La solicitud de renta ha sido recibida, se le enviara un correo!!', 4000,'rounded');
+				}
+			});
 			Meteor.call("modificarSituacionBodega",this._id,"A");
+			$("#datosRenta").hide();
 		}
 	},
 });

@@ -3,9 +3,9 @@ Template.registrarEmpleado.onRendered(function(){
 	      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
 	    });
 });
-Template.registro.events({
+Template.registrarEmpleado.events({
 		"click #btnRegistrar": function(){
-			var cont=0;
+			/*var cont=0;
 			$(":text").each(function(){	
 				if($($(this)).val()=="" && cont<1)
 				{
@@ -16,16 +16,25 @@ Template.registro.events({
 				Materialize.toast("Se nececitan llenar todos los campos", 4000);
 			}
 			else
-			{
+			{*/
 				var usuario = {
-					usuario: $("#txtUsuario").val(),
-					contraseña: $("#txtContraseña").val(),
-					nombre: $("#txtNombre").val(),
-					apellido: $("#txtApellido").val(),
-					correo: $("#txtCorreo").val(),
-					telefono: $("#txtTelefono").val(),
-					estatus: "V",
-					puesto: $("#txtPuesto"),
+					usuario: $("#txtUsuarioRU").val(),
+					contraseña: $("#txtContraseñaRU").val(),
+					nombre: $("#txtNombreRU").val(),
+					apellido: $("#txtApellidoRU").val(),
+					correo: $("#txtCorreoRU").val(),
+					telefono: $("#txtTelefonoRU").val(),
+					estatus: "A",
+					esEmpleado: true,
+					direccionUsuario:
+						{
+							calle: $("#txtCalleRU").val(),
+							numero: $("#txtNumeroRU").val(),
+							colonia:$("#txtColoniaRU").val(),
+							pais: $("#txtPaisRU").val(),
+							estado: $("#txtEstadoRU").val(),
+							ciudad: $("#txtCiudadRU").val()
+						},
 					fechaCreacion: new Date()
 				}
 				Meteor.call('insertarUsuario',usuario,function (error) {
@@ -43,6 +52,6 @@ Template.registro.events({
 						$("#txtCorreo").val("");
 					}
 				});
-			}
+			//}
 		}
 	});	

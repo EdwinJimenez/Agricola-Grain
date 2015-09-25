@@ -7,12 +7,16 @@
     </ul>
         </form>
 </template>
-
+<template name="EncabezadoFinalizada">
+  <div class="collapsible-header"><i class="material-icons">comment</i>
+    {{nombre}}
+  </div>
+</template>
 <template name="Finalizada">
   <li>
-          <div class="collapsible-header"><i class="material-icons">comment</i>
-            {{idUsuario}} {{idBodega}}
-          </div>
+            {{#each EncabezadoFinalizadas}}
+              {{> EncabezadoFinalizada}}
+            {{/each}}
             <div class="collapsible-body">
             <div class="row">
               <p class="col s4">Inicio de contrato:</p>

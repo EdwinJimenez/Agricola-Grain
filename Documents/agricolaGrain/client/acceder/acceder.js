@@ -8,8 +8,15 @@ Template.acceder.events({
 		}
 		else
 		{
-			console.log(Usuarios.find({nombreUsuario:"hola",contraseña:"1234"},{nombreUsuario:true,esEmpleado:true}));
+			console.log(usuario + "   " + contraseña);
+			var u = Usuarios.find({usuario:usuario,contraseña:contraseña},{usuario:true,esEmpleado:true}).fetch();
+			Session.setPersistent("usuario",u[0].usuario);
+			Session.setPersistent("esEmpleado",u[0].esEmpleado);
+			Session.setPersistent("idU",u[0]._id);
+			if(u[0].esEmpleado)
+				Router.go("pantallaEmpleado");
+			else
+				Router.go("pantallaCliente");
 		}
-		
 	}
 });
