@@ -3,7 +3,7 @@ Template.registrarEmpleado.onRendered(function(){
 	      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
 	    });
 });
-Template.registro.events({
+Template.registrarEmpleado.events({
 		"click #btnRegistrar": function(){
 			var cont=0;
 			$(":text").each(function(){	
