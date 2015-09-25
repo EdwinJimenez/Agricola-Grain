@@ -6,9 +6,9 @@ Template.detalleBodega.onRendered(function(){
 });
 Template.detalleBodega.events({
 	"click #btnRentar":function(){
-		var fecha= $("#dateFechaInicio").val();
+		var fecha= Date.parse($("#dateFechaInicio").val());
 		var duracion = $("#cmbDuracionContrato").val();
-		var fechafin = $("#dateFechaInicio").val();
+		var fechafin = new Date(fecha+2629750000);
 		var vduracion = parseFloat($("#cmbDuracionContrato").val());
 		var vprecio = parseFloat(this.precio);
 		if(fecha=="")
@@ -20,10 +20,10 @@ Template.detalleBodega.events({
 			var renta = {
 				idUsuario: "no tiene",
 				idBodega: this._id,
-				inicioContrato: fecha,
+				inicioContrato: new Date(fecha),
 				finContrato: fechafin,
 				duracion: duracion,
-				importe:vduracion*vprecio,
+				importe: vduracion*vprecio,
 				estatus:"P",
 				comentarios: $("#txtComentarios").val(),
 				fechaCreacion: new Date()
