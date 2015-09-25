@@ -2,44 +2,36 @@
 			<div class="row">
 		    <div class="col s12">
 		      <ul class="tabs">
-		        <li class="tab col s4"><a class="active" href="#misBodegas">Mis Bodegas</a></li>
-		        <li class="tab col s4 disabled"><a href="#granosSemillas">Granos y Semillas</a></li>
-		        <li class="tab col s4 disable"><a href="#editarDatos">Editar mis Datos</a></li>
+		        <li class="tab col s3"><a class="active" href="#solicitudes">Rentas</a></li>
+		        <li class="tab col s3 disabled"><a href="#datosUsuario">Editar Datos</a></li>
+		        <li class="tab col s3"><a href="/">Salir</a></li>
 		      </ul>
 		    </div>
-		    <div id="misBodegas" class="col s12">
-			    <div id="opciones" class="col s12">
-			    	<div class="input-field col s6" id="CmbtipoSolicitud">
-					    <select>
-					      <option value="1">Rentadas</option>
-					      <option value="2">Pendientes</option>
-					    </select>
-					    <label>¿Qué bodegas desea ver?</label>
-					</div>
-				</div>
-        			MOSTRAR LAS BODEGAS QUE SE TIENEN RENTADAS O QUE TIENE SOLICITADAS(PENDIENTES).
-		    </div>
 
-		    <div id="granosSemillas" class="col s12">
-			    <div id="opciones" class="col s12">
-			    	<div class="input-field col s6" >
-					    <select id="cmbOpcionesBodega">
-					      <option value="1">Ver mis pedidos</option>
-					      <option value="2">Nuevo Pedido</option>
-					    </select>
-					    <label>¿Qué desea hacer?</label>
-					</div>
+		    <!--Opciones de solicitudes-->
+		    <div id="solicitudes" class="col s12">
+			    <div id="menuOpcionesSolicitudes">
+					<a class="waves-effect light-blue darken-2 btn" id="btnPendientesU">Pendientes<i class="material-icons right">info_outline</i></a>
+					<a class="waves-effect amber darken-2 btn" id="btnProcesoU">En Proceso<i class="material-icons right">loop</i></a>
+					<a class="waves-effect amber darken-2 btn" id="btnFinalizadasU">Finalizadas<i class="material-icons right">schedule</i></a>
 				</div>
-				<div id="altaBodegas">
-					VER PEDIDOS
+				<div id="solicitudesPendientesU">
+					Solicitudes Pendientes
+					{{> verPendientes}}
 				</div>
-				<div id="editarBodega">
-					NUEVO PEDIDO
+				<div id="solicitudesProcesoU">
+					Solicitudes en Proceso
+					{{> verEnProceso}}
 				</div>
-			</div>
-		    
-		    <div id="editarDatos" class="col s12">
-					{{>editarDatos}}
+				<div id="solicitudesFinalizadasU">
+					Solicitudes Finalizadas
+					{{> verFinalizadas}}
+				</div>
 		    </div>
+		    <div id="datosUsuario" class="col s12">
+				<div id="editarUsuario">
+					{{> registro}}
+				</div>
 	  	</div>
+	</div>
 </template>
