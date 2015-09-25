@@ -1,12 +1,12 @@
 <template name="editarBodega">
 	<section id="editaBodega">
     	{{#each frmBodega}}
-    		{{> editaBodega}}
+    		{{> editBodega}}
     	{{/each}}
     </section>
 </template>
 
-<template name="editaBodega">
+<template name="editBodega">
 	<form class="col s12 card-panel green lighten-5">
 		  <ul class="collapsible popout" data-collapsible="expandable">
 		  	<li>
@@ -18,20 +18,20 @@
 		      		<div class="row">
 		      			<div class="col s6">
 							<div class="input-field row">
-			                    <input id="txtNombre" type="text" class="validate" value={{nombre}} autofocus required>
-			                    <label for="txtNombre">Nombre de la Bodega</label>
+			                    <input id="txtNombreE" type="text" class="validate" value={{nombre}} autofocus required>
+			                    <label for="txtNombreE">Nombre de la Bodega</label>
 		                    </div> 					
 		 				</div>
 		 				<div class="col s6">
 							<div class="input-field row">
-			                    <input id="txtDescripcion" type="text" class="validate" value={{descripcion}} required>
-			                    <label for="txtDescripcion">Descripción</label>
+			                    <input id="txtDescripcionE" type="text" class="validate" value={{descripcion}} required>
+			                    <label for="txtDescripcionE">Descripción</label>
 		                    </div> 					
 		 				</div>
 		 				<div class="col s6">
 							<div class="input-field row">
-			                    <input id="txtPrecio" type="text" class="validate" value={{precio}} required>
-			                    <label for="txtPrecio" data-error="Escriba un correo válido.">Precio</label>
+			                    <input id="txtPrecioE" type="text" class="validate" value={{precio}} required>
+			                    <label for="txtPrecioE" data-error="Escriba un correo válido.">Precio</label>
 		                    </div> 					
 		 				</div>	
 		      		</div>
@@ -43,26 +43,26 @@
 		      	<div class="row">
 		      		<div class="col s6">
 						<div class="input-field row">
-			                <input id="txtLargo" type="text" class="validate" value={{largo}} required>
-			                <label for="txtLargo">Largo</label>
+			                <input id="txtLargoE" type="text" class="validate" value={{largo}} required>
+			                <label for="txtLargoE">Largo</label>
 		                </div> 					
 		 			</div>
 		 			<div class="col s6">
 						<div class="input-field row">
-			                <input id="txtAncho" type="text" class="validate" value={{ancho}} required>
-			                <label for="txtAncho">Ancho</label>
+			                <input id="txtAnchoE" type="text" class="validate" value={{ancho}} required>
+			                <label for="txtAnchoE">Ancho</label>
 		            	</div> 					
 		 			</div>
 		 				<div class="col s6">
 							<div class="input-field row">
-			                    <input id="txtAlto" type="text" class="validate" value={{alto}} required>
-			                    <label for="txtAlto">Alto</label>
+			                    <input id="txtAltoE" type="text" class="validate" value={{alto}} required>
+			                    <label for="txtAltoE">Alto</label>
 		                    </div>
 		 				</div> 
 		 				<div class="col s6">
 							<div class="input-field row">
-			                    <input id="txtEspecificaciones" type="text" class="validate" value={{especificaciones}} required>
-			                    <label for="txtEspecificaciones">Especificaciones</label>
+			                    <input id="txtEspecificacionesE" type="text" class="validate" value={{especificaciones}} required>
+			                    <label for="txtEspecificacionesE">Especificaciones</label>
 		                    </div> 					
 		 				</div>	
 		 			</div>
@@ -74,44 +74,44 @@
 	      		<div class="row">
 	      			<div class="col s6">
 						<div class="input-field row">
-		                    <input id="txtCalle" type="text" class="validate" value={{direccion.calle}} required>
-		                    <label for="txtCalle">Calle</label>
+		                    <input id="txtCalleE" type="text" class="validate" value={{direccion.calle}} required>
+		                    <label for="txtCalleE">Calle</label>
 	                    </div> 					
 	 				</div>	 
 	 				<div class="col s6">
 						<div class="input-field row">
-		                    <input id="txtColonia" type="text" class="validate" value={{direccion.colonia}} required>
-		                    <label for="txtColonia">Colonia</label>
+		                    <input id="txtColoniaE" type="text" class="validate" value={{direccion.colonia}} required>
+		                    <label for="txtColoniaE">Colonia</label>
 	                    </div> 					
 	 				</div>		
 	 				<div class="col s6">
 						<div class="input-field row">
-		                    <input id="txtNumeroExterior" type="text" class="validate" value={{direccion.numero}} required>
-		                    <label for="txtNumeroExterior">Número exterior</label>
+		                    <input id="txtNumeroExteriorE" type="text" class="validate" value={{direccion.numero}} required>
+		                    <label for="txtNumeroExteriorE">Número exterior</label>
 	                    </div> 					
 	 				</div>
 	 				<div class="col s6">
 						<div class="input-field row">
-		                    <input id="txtNumeroInterior" type="text" class="validate" value={{direccion.numeroInterior}} required>
-		                    <label for="txtNumeroInterior">Número interior</label>
+		                    <input id="txtNumeroInteriorE" type="text" class="validate" value={{direccion.numeroInterior}} required>
+		                    <label for="txtNumeroInteriorE">Número interior</label>
 	                    </div> 					
 	 				</div>
 	 				<div class="col s6">
 						<div class="input-field row">
-		                    <input id="txtPais" type="text" class="validate" value={{direccion.pais}} required>
-		                    <label for="txtPais">País</label>
+		                    <input id="txtPaisE" type="text" class="validate" value={{direccion.pais}} required>
+		                    <label for="txtPaisE">País</label>
 	                    </div> 					
 	 				</div>	
 	 				<div class="col s6">
 						<div class="input-field row">
-		                    <input id="txtEstado" type="text" class="validate" value={{direccion.estado}} required>
+		                    <input id="txtEstadoE" type="text" class="validate" value={{direccion.estado}} required>
 		                    <label for="txtEstado">Estado</label>
 	                    </div> 					
 	 				</div>	
 	 				<div class="col s6">
 						<div class="input-field row">
-		                    <input id="txtCiudad" type="text" class="validate" value={{direccion.ciudad}} required>
-		                    <label for="txtCiudad">Ciudad</label>
+		                    <input id="txtCiudadE" type="text" class="validate" value={{direccion.ciudad}} required>
+		                    <label for="txtCiudadE">Ciudad</label>
 	                    </div> 					
 	 				</div>		
 	 			</div>
