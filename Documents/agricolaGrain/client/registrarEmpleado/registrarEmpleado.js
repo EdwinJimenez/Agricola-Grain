@@ -5,18 +5,8 @@ Template.registrarEmpleado.onRendered(function(){
 });
 Template.registrarEmpleado.events({
 		"click #btnRegistrar": function(){
-			/*var cont=0;
-			$(":text").each(function(){	
-				if($($(this)).val()=="" && cont<1)
-				{
-					cont++;
-				}
-			});
-			if (cont==1) {
-				Materialize.toast("Se nececitan llenar todos los campos", 4000);
-			}
-			else
-			{*/
+			if(Meteor.validaciones.validarVacios(frmRegistrarEmpleado)&&Meteor.validaciones.validarEmail(frmRegistrarEmpleado)&&Meteor.validaciones.validarTelefono(frmRegistrarEmpleado))
+			{
 				var usuario = {
 					usuario: $("#txtUsuarioRU").val(),
 					contraseña: $("#txtContraseñaRU").val(),
@@ -52,6 +42,6 @@ Template.registrarEmpleado.events({
 						$("#txtCorreo").val("");
 					}
 				});
-			//}
+			}
 		}
 	});	

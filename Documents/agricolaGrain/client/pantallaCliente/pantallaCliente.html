@@ -3,8 +3,9 @@
 		    <div class="col s12">
 		      <ul class="tabs">
 		        <li class="tab col s3"><a class="active" href="#solicitudes">Rentas</a></li>
+		        <li class="tab col s3"><a href="#productos">Productos</a></li>
 		        <li class="tab col s3 disabled"><a href="#datosUsuario">Editar Datos</a></li>
-		        <li class="tab col s3"><a href="/">Salir</a></li>
+		        <li class="tab col s3"><a href="#salir">Salir</a></li>
 		      </ul>
 		    </div>
 
@@ -12,8 +13,8 @@
 		    <div id="solicitudes" class="col s12">
 			    <div id="menuOpcionesSolicitudes">
 					<a class="waves-effect light-blue darken-2 btn" id="btnPendientesU">Pendientes<i class="material-icons right">info_outline</i></a>
-					<a class="waves-effect amber darken-2 btn" id="btnProcesoU">En Proceso<i class="material-icons right">loop</i></a>
-					<a class="waves-effect amber darken-2 btn" id="btnFinalizadasU">Finalizadas<i class="material-icons right">schedule</i></a>
+					<a class="waves-effect  cyan lighten-2 btn" id="btnProcesoU">En Proceso<i class="material-icons right">loop</i></a>
+					<a class="waves-effect orange accent-3 btn" id="btnFinalizadasU">Finalizadas<i class="material-icons right">schedule</i></a>
 				</div>
 				<div id="solicitudesPendientesU">
 					Solicitudes Pendientes
@@ -28,10 +29,21 @@
 					{{> verFinalizadas}}
 				</div>
 		    </div>
+		    <div id="productos">
+		    	<div id="menuOpcionesSolicitudes">
+					<a class="waves-effect light-blue darken-2 btn" id="btnPendientesU">Bodegas<i class="material-icons right">info_outline</i></a>
+				</div>
+		    	<div id="Bodegas">
+		    		{{> catalogoBodegas}}
+		    	</div>
+		    </div>
 		    <div id="datosUsuario" class="col s12">
 				<div id="editarUsuario">
 					{{> registro}}
 				</div>
-	  	</div>
+	  		</div>
+	  		<div id="salir">
+	  			{{> salirSistema}}
+	  		</div>
 	</div>
 </template>

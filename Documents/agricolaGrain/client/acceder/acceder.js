@@ -1,22 +1,28 @@
 Template.acceder.events({
 	"click #btnEntrar": function(){
-		var usuario=$("#txtUsuario").val();
-		var contraseña=$("#txtContraseña").val();
-		if(usuario == ""||contraseña == "")
+		if(Meteor.validaciones.validarVacios(frmAcceder))
 		{
-			Materialize.toast("Se nececitan llenar todos los campos", 4000);
-		}
-		else
-		{
-			console.log(usuario + "   " + contraseña);
-			var u = Usuarios.find({usuario:usuario,contraseña:contraseña},{usuario:true,esEmpleado:true}).fetch();
-			Session.setPersistent("usuario",u[0].usuario);
-			Session.setPersistent("esEmpleado",u[0].esEmpleado);
-			Session.setPersistent("idU",u[0]._id);
-			if(u[0].esEmpleado)
-				Router.go("pantallaEmpleado");
-			else
-				Router.go("pantallaCliente");
+			var usuario=$("#txtUsuario").val();
+			var contraseña=$("#txtContraseña").val();
+				var u = Usuarios.find({usuario:usuario,contraseña:contraseña},{usuario:true,esEmpleado:true}).fetch();
+				if(u.length==0)
+				{
+					Materialize.toast("Usuario o contraseña incorrectos.",2000,'rounded');
+					return;
+				}
+					Session.setPersistent("usuario",u[0].usuario);
+					Session.setPersistent("esEmpleado",u[0].esEmpleado);
+					Session.setPersistent("idU",u[0]._id);
+					if(u[0].esEmpleado)
+					{
+						Router.go("pantallaEmpleado");
+						$("#menuPrincipal").hide("slow");
+					}
+					else
+					{
+						Router.go("pantallaCliente");
+						$("#menuPrincipal").hide("slow");
+					}
 		}
 	}
 });
