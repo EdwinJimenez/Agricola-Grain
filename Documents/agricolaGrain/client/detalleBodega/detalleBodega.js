@@ -18,7 +18,7 @@ Template.detalleBodega.events({
 		else
 		{
 			var renta = {
-				idUsuario: "no tiene",
+				idUsuario: "Cliente",
 				idBodega: this._id,
 				inicioContrato: fecha,
 				finContrato: fechafin,

@@ -1,11 +1,11 @@
 Template.altaBodegas.onRendered(function(){
 	$('.collapsible').collapsible({
-	      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+	      accordion : false
 	    });
 });
 Template.altaBodegas.events({
 	"click #btnRegistrar": function(){
-			if (validarTexto("#txtNombre","Nombre"));
+			if(Meteor.validaciones.validarVacios(frmAltaBodegas)&&Meteor.validaciones.validarEmail(frmAltaBodegas))
 			{
 			var bodega = {
 				nombre:$("#txtNombre").val(),
@@ -39,6 +39,8 @@ Template.altaBodegas.events({
 					});
 				}
 			});
+			$("input[type=text]").focus(function() { $(this).select(); });
+
 		}
 	}
 });

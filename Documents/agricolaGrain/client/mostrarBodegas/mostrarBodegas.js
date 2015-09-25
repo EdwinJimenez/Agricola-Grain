@@ -1,6 +1,6 @@
 Template.mostrarBodegas.helpers({
 	bodegasMostrar : function(){
-		return Bodegas.find({},{nombre:true,descripcion:true,imagenes:true,especificaciones:true});
+		return Bodegas.find({estatus:"A"},{nombre:true,descripcion:true,imagenes:true,especificaciones:true});
 	}
 });
 //No funciona CHECAR

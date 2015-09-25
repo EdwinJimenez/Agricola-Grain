@@ -1,6 +1,6 @@
 <template name="altaBodegas">
 	<section id="registroBodegas">
-    	<form class="col s12 card-panel green lighten-5" id="altaBodegas">
+    	<form class="col s12 card-panel green lighten-5" id="altaBodegas" name="frmAltaBodegas">
 		  <ul class="collapsible popout" data-collapsible="expandable">
 		  	<li>
 		  		<h3>Nueva Bodega</h3>
@@ -23,8 +23,8 @@
 		 				</div>
 		 				<div class="col s6">
 							<div class="input-field row">
-			                    <input id="txtPrecio" type="text" class="validate" required>
-			                    <label for="txtPrecio" data-error="Escriba un correo válido.">Precio</label>
+			                    <input id="txtPrecio" type="number" class="validate" required>
+			                    <label for="txtPrecio">Precio</label>
 		                    </div> 					
 		 				</div>	
 		      		</div>
@@ -36,19 +36,19 @@
 		      	<div class="row">
 		      		<div class="col s6">
 						<div class="input-field row">
-			                <input id="txtLargo" type="text" class="validate" required>
+			                <input id="txtLargo" type="number" class="validate" required>
 			                <label for="txtLargo">Largo</label>
 		                </div> 					
 		 			</div>
 		 			<div class="col s6">
 						<div class="input-field row">
-			                <input id="txtAncho" type="text" class="validate" required>
+			                <input id="txtAncho" type="number" class="validate" required>
 			                <label for="txtAncho">Ancho</label>
 		            	</div> 					
 		 			</div>
 		 				<div class="col s6">
 							<div class="input-field row">
-			                    <input id="txtAlto" type="text" class="validate" required>
+			                    <input id="txtAlto" type="number" class="validate" required>
 			                    <label for="txtAlto">Alto</label>
 		                    </div>
 		 				</div> 
@@ -79,13 +79,13 @@
 	 				</div>		
 	 				<div class="col s6">
 						<div class="input-field row">
-		                    <input id="txtNumeroExterior" type="text" class="validate" required>
+		                    <input id="txtNumeroExterior" type="number" class="validate" required>
 		                    <label for="txtNumeroExterior">Número exterior</label>
 	                    </div> 					
 	 				</div>
 	 				<div class="col s6">
 						<div class="input-field row">
-		                    <input id="txtNumeroInterior" type="text" class="validate" required>
+		                    <input id="txtNumeroInterior" type="number" class="validate" required>
 		                    <label for="txtNumeroInterior">Número interior</label>
 	                    </div> 					
 	 				</div>
