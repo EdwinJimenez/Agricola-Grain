@@ -1,8 +1,8 @@
-<template name="verPendientes">
+<template name="rentas">
       <form class="col s12 card-panel green lighten-5" id="verComentarios">
       <ul class="collapsible popout" data-collapsible="expandable">
-        {{#each Pendientes}}
-          {{> Pendiente}}
+        {{#each Rentas}}
+          {{> Renta}}
         {{/each}}
     </ul>
         </form>
@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<template name="Pendiente">
+<template name="Renta">
   <li>
             {{#each Encabezados}}
               {{> Encabezado}}
@@ -31,19 +31,26 @@
             </div>
             <p class="col s4">Duración de contrato:</p>
             <div class="col s2">
-              {{duracion}}
+              {{duracion}} Meses
             </div>
 
             <p class="col s4">Importe total:</p>
             <div class="col s2">
-              {{importe}}
+              {{importe}} Pesos
             </div>
             <p class="col s12">Comentarios:</p>
             <div class="col s12">
               {{comentarios}}
             </div>
             </div>
+              {{#if esEmpleado}}
+                {{#if esPendiente}}
                 <a class="waves-effect light-red darken-1 btn" id="btnAtendido">Atendido<i class="material-icons right"></i></a>
+                {{/if}}
+                {{#if esEnProceso}}
+                <a class="waves-effect light-red darken-1 btn" id="btnLiberar">Liberar<i class="material-icons right"></i></a>
+                {{/if}}
+              {{/if}}
             </div>
         </li>
 </template>

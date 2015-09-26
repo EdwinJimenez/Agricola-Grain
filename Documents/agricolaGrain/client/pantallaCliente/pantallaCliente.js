@@ -5,18 +5,18 @@ $("#solicitudesPendientesU").show("slow");
 });
 Template.pantallaCliente.events({
 "click #btnPendientesU":function(event,template){
-	$("#solicitudesPendientesU").show("slow");
-	$("#solicitudesProcesoU").hide("slow");
-	$("#solicitudesFinalizadasU").hide("slow");
+	$("#rentasUsuario").hide("slow");
+	$("#rentasUsuario").show("slow");
+	Session.setPersistent("estatusRenta","P");
 },
 "click #btnProcesoU":function(event,template){
-	$("#solicitudesPendientesU").hide("slow");
-	$("#solicitudesProcesoU").show("slow");
-	$("#solicitudesFinalizadasU").hide("slow");
+	$("#rentasUsuario").hide("slow");
+	$("#rentasUsuario").show("slow");
+	Session.setPersistent("estatusRenta","R");
 },
 "click #btnFinalizadasU":function(event,template){
-	$("#solicitudesPendientesU").hide("slow");
-	$("#solicitudesProcesoU").hide("slow");
-	$("#solicitudesFinalizadasU").show("slow");
+	$("#rentasUsuario").hide("slow");
+	$("#rentasUsuario").show("slow");
+	Session.setPersistent("estatusRenta","F");
 }
 });

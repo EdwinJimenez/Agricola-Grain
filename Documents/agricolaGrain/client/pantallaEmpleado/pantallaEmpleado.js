@@ -5,19 +5,19 @@ $("#catalogoBodegas").hide("slow");
 });
 Template.pantallaEmpleado.events({
 "click #btnPendientes":function(event,template){
-	$("#solicitudesPendientes").show("slow");
-	$("#solicitudesProceso").hide("slow");
-	$("#solicitudesFinalizadas").hide("slow");
+	$("#rentasUsuarios").hide("slow");
+	$("#rentasUsuarios").show("slow");
+	Session.setPersistent("estatusRenta","P");
 },
 "click #btnProceso":function(event,template){
-	$("#solicitudesPendientes").hide("slow");
-	$("#solicitudesProceso").show("slow");
-	$("#solicitudesFinalizadas").hide("slow");
+	$("#rentasUsuarios").hide("slow");
+	$("#rentasUsuarios").show("slow");
+	Session.setPersistent("estatusRenta","R");
 },
 "click #btnFinalizadas":function(event,template){
-	$("#solicitudesPendientes").hide("slow");
-	$("#solicitudesProceso").hide("slow");
-	$("#solicitudesFinalizadas").show("slow");
+	$("#rentasUsuarios").hide("slow");
+	$("#rentasUsuarios").show("slow");
+	Session.setPersistent("estatusRenta","F");
 },
 "click #btnNuevaBodega":function(event,template){
 	$("#altaBodega").show("slow");
