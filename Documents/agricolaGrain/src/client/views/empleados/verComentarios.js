@@ -10,7 +10,6 @@ Template.verComentarios.helpers({
 });
 Template.Comentario.events({
 	"click #btnAtendido":function(){
-		console.log("Aqui");
 		Meteor.call("actualizarEstatus",this._id);
 	}
 });
