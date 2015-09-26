@@ -9,23 +9,25 @@
 				</div>
 			</header>
 		<ul id="dropProductos" class="dropdown-content">
-		  <li><a href="/catalogoBodegas">Renta de Bodegas</a></li>
+		  <li><a href="/catalogoBodegas">Catálogo de Bodegas</a></li>
 		  <li class="divider"></li>
 		  <li><a href="/construccion">Maíz</a></li>
 		  <li><a href="/construccion">Frijol</a></li>
 		</ul>
 
 		  <nav class="light-green darken-1">
-		    <div class="nav-wrapper" id="menuPrincipal">
-		      <ul class="right show-on-med-and-down">
-		        <li><a href="/"><i class="material-icons left">home</i>Inicio</a></li>
-		        <li><a href="/informacion"><i class="material-icons left">view_module</i>Nosotros</a></li>
-		        <!-- Dropdown Trigger -->
-      			<li><a class="dropdown-button" href="#!" data-activates="dropProductos"><i class="material-icons left"> list </i>Productos<i class="material-icons right">arrow_drop_down</i></a></li>
-		        <li><a href="/construccion"><i class="material-icons left">shopping_cart</i>Servicios</a></li>
-		        <li><a href="/acceder"><i class="material-icons left">account_circle</i>Acceder</a></li>
-		      </ul> 
-		    </div>
+		  	{{#if noEstaLogueado}}
+			    <div class="nav-wrapper" id="menuPrincipal">
+			      <ul class="right show-on-med-and-down">
+			        <li><a href="/"><i class="material-icons left">home</i>Inicio</a></li>
+			        <li><a href="/informacion"><i class="material-icons left">view_module</i>Nosotros</a></li>
+			        <!-- Dropdown Trigger -->
+	      			<li><a class="dropdown-button" href="#!" data-activates="dropProductos"><i class="material-icons left"> list </i>Productos<i class="material-icons right">arrow_drop_down</i></a></li>
+			        <li><a href="/construccion"><i class="material-icons left">shopping_cart</i>Servicios</a></li>
+			        <li><a href="/acceder"><i class="material-icons left">account_circle</i>Acceder</a></li>
+			      </ul> 
+			    </div>
+			{{/if}}
 		  </nav>
 		  <div id="contenidoDinamico">
 			{{> yield}}

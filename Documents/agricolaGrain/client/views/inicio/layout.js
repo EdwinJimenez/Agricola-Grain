@@ -5,3 +5,8 @@ Template.layout.onRendered(function(){
   // Initialize collapsible (uncomment the line below if you use the dropdown variation)
   //$('.collapsible').collapsible();
 });
+Template.layout.helpers({
+	noEstaLogueado:function(){
+		return Session.get("idU")==null;
+	}
+});

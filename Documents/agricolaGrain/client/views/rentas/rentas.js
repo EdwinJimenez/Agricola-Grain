@@ -30,5 +30,9 @@ Template.rentas.events({
 	"click #btnAtendido": function(){
 		Meteor.call("modificarRenta",this._id,"R");
 		Meteor.call("modificarSituacionBodega",this.idBodega,"R");
+	},
+	"click #btnLiberar": function(){
+		Meteor.call("modificarRenta",this._id,"F");
+		Meteor.call("modificarSituacionBodega",this.idBodega,"L");
 	}
 });

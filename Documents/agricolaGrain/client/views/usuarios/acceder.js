@@ -13,6 +13,7 @@ Template.acceder.events({
 					Session.setPersistent("usuario",u[0].usuario);
 					Session.setPersistent("esEmpleado",u[0].esEmpleado);
 					Session.setPersistent("idU",u[0]._id);
+					Meteor.subscriptions.subscribeRentas();
 					if(u[0].esEmpleado)
 					{
 						Router.go("pantallaEmpleado");
