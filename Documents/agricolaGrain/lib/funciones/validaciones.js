@@ -53,11 +53,12 @@ Meteor.validaciones =
 		    if(formulario[i].type =='number') 
 		    {
 		    	console.log("VALIDAR DECIMALES");
-		        if(!(/^\d{1,3}(?:,\s?\d{3})*(?:\.\d*)?$/.test(formulario[i].value)))
+		        if(!(/^\d{1,15}(?:,\s?\d{3})*(?:\.\d*)?$/.test(formulario[i].value)))
 		        {
 		        	console.log("valido");
 		            if(todoCorrecto){
-		            	Materialize.toast("Ingrese una dirección de email valida.",2000,'rounded');
+		            	console.log(formulario[i].value);
+		            	Materialize.toast("Ingrese un numero valido.",2000,'rounded');
 		            }
 		            todoCorrecto=false;
 		        }

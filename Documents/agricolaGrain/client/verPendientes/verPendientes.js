@@ -10,7 +10,13 @@ Template.Pendiente.helpers({
 });
 Template.verPendientes.helpers({
 	Pendientes : function(){
-		return Rentas.find({estatus:"P"});
+		if(Session.get("esEmpleado"))
+			return Rentas.find({estatus:"P"});
+		else{
+			var a = Rentas.find({idUsuario:Session.get("idU"),estatus:"P"});
+			$("#btnAtendido").hide();
+			return a;
+		}
 	}
 });
 Template.verPendientes.events({

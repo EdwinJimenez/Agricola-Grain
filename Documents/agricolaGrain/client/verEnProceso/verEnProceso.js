@@ -5,7 +5,11 @@ Template.enProceso.onRendered(function(){
 });
 Template.verEnProceso.helpers({
 	enProcesos : function(){
-		return Rentas.find({estatus:"R"});
+		if(Session.get("esEmpleado"))
+			return Rentas.find({estatus:"R"});
+		else
+			return Rentas.find({idUsuario:Session.get("idU"),estatus:"R"});
+
 	}
 });
 Template.verEnProceso.events({
