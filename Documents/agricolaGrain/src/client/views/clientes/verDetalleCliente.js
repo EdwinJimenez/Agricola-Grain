@@ -46,6 +46,6 @@ Template.verDetalleCliente.events({
 });
 Template.verDetalleCliente.helpers({
 	detBodegas:function(){
-		return Bodegas.find(Session.get("idBodega"));
+		return Bodegas.find(Session.get("idBodega"))	
 	}
 });

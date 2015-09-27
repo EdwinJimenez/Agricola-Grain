@@ -13,3 +13,8 @@ Template.Comentario.events({
 		Meteor.call("actualizarEstatus",this._id);
 	}
 });
+Template.Comentario.helpers({
+	convFechaCom:function(){
+		return this.fechaCreacion.toLocaleDateString();
+	}
+});

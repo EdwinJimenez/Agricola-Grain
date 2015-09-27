@@ -15,6 +15,12 @@ Template.Renta.helpers({
 	},
 	esEnProceso:function(){
 		return Session.get("estatusRenta")=="R";
+	},
+	convFechaIni:function(){
+		return this.inicioContrato.toLocaleDateString("en-US");
+	},
+	convFechaFin:function(){
+		return this.finContrato.toLocaleDateString();
 	}
 });
 Template.rentas.helpers({
