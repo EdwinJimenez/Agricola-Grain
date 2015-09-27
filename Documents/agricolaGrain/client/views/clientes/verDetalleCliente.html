@@ -1,0 +1,129 @@
+<template name="verDetalleCliente">
+	<form id="detalleBodega">
+		{{#each detBodegas}}
+			{{> detBodega}}
+		{{/each}}
+	</form>
+</template>
+
+<template name="detBodega">
+	<div class="divider"></div>
+		  	<div class="section noImprimir" >
+		    	<h5>Imagenes</h5>
+		    	<p>Stuff (Imagenes)</p>
+			</div>
+		<div class="divider"></div>
+		<div class="section">
+		    <h5>Datos Generales</h5>
+		    <div class="row">
+			    <div class="col s3">
+			    	<p>Nombre de la Bodega:</p>
+			    </div>
+			    <div class="col s3">
+			    	<p id="nombreBodega">{{nombre}}</p>
+			    </div>
+			    <div class="col s3">
+			    	<p>Precio:</p>
+			    </div>
+			    <div class="col s3">
+			    	<p id="descripcionBodega">{{precio}}</p>
+			    </div>
+			    <div class="col s12"> Descripción:</div>
+			    <div class="col s12"> <p id="descripcionBodega">{{descripcion}}</p></div>
+		    </div>
+		</div>
+		  <div class="divider"></div>
+		  <div class="section">
+		    <h5>Caracteristicas</h5>
+		    <div class="row">
+		    	<div class="col s2">
+		    		<p>Largo: </p>
+		    	</div>
+		    	<div class="col s2">
+		    		<p id="largoBodega">{{largo}}</p>
+		    	</div>
+		    	<div class="col s2">
+		    		<p>Ancho: </p>
+		    	</div>
+		    	<div class="col s2">
+		    		<p id="anchoBodega"> {{ancho}}</p>
+		    	</div>
+		    	<div class="col s2">
+		    		<p>Alto: </p>
+		    	</div>
+		    	<div class="col s2"> 
+		    		<p id="altoBodega">{{alto}}</p>
+		    	</div>
+		    	<div class="col s12"> Especificaciones: </div>
+		    	<div class="col s12"> <p id="especificacionesBodega">{{especificaciones}}</p></div>
+		    </div>
+		  </div>
+		  <div class="divider"></div>
+		  <div class="section">
+		    <h5>Ubicación</h5>
+		    <div class="row">
+		    	<div class="col s6">
+		    		<p>Calle y Número: </p>
+		    	</div>
+		    	<div class="col s6">
+		    		<p id="calleNumeroBodega"> {{direccion.calle}} {{direccion.numero}}</p>
+		    	</div>
+		    	<div class="col s6">
+		    		<p>Colonia: </p>
+		    	</div>
+		    	<div class="col s6">
+		    		<p id="coloniaBodega">{{direccion.colonia}}</p>
+		    	</div>
+		    	<div class="col s6">
+		    		<p>Estado: </p>
+		    	</div>
+		    	<div class="col s6"> 
+		    		<p id="estadoBodega">{{direccion.estado}}</p>
+		    	</div>
+		    	<div class="col s6"><p>País:</p> </div>
+		    	<div class="col s6"> <p id="paisBodega">{{direccion.pais}}</p></div>
+		    </div>
+		  </div>
+		  <ul class="collapsible" id="datosRenta" data-collapsible="accordion">
+		    <li>
+		      <div class="collapsible-header"><i class="material-icons">shopping_cart</i>Rentar</div>
+		      <div class="collapsible-body">
+		      	<div class="row">
+		      		<div class="col s4">
+		      			Fecha de Inicio:
+		      		</div>
+		      		<div class="col s4"><input type="date" class="datepicker" id="dateFechaInicio"></div>
+		      		<div class="col s4">
+		      			<div class="input-field col s12">
+					    <select id="cmbDuracionContrato">
+					      <option value="1" selected>1 mes</option>
+					      <option value="2">2 meses</option>
+					      <option value="3">3 meses</option>
+					      <option value="4">4 meses</option>
+					      <option value="5">5 meses</option>
+					      <option value="6">6 meses</option>
+					      <option value="7">7 meses</option>
+					      <option value="8">8 meses</option>
+					      <option value="9">9 meses</option>
+					      <option value="10">10 meses</option>
+					      <option value="11">11 meses</option>
+					      <option value="12">12 meses</option>
+					    </select>
+					    <label>Duración</label>
+					</div>
+		      		</div>
+		      		<div class="col s12"> Comentarios: </div>
+		      		<div class="col s12">
+		      			<div class="input-field col s12">
+				          <textarea id="txtComentarios" class="materialize-textarea"></textarea>
+				          <label for="txtComentarios">Comentarios</label>
+				        </div>
+		      		</div>
+		      	</div>
+		      	<a class="waves-effect light-green darken-1 btn" id="btnRentar">Rentar<i class="material-icons right">done</i></a>
+		      </div>
+		    </li>
+		</ul>
+		  <a class="waves-effect light-red darken-1 btn" id="btnVerPDF" onClick="window.print();">Imprimir PDF<i class="material-icons right">picture_as_pdf</i></a>
+		  <a class="waves-effect light-red darken-1 btn" id="btnAtras">Volver<i class="material-icons right">picture_as_pdf</i></a>
+</template>

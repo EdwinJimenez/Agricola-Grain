@@ -1,0 +1,66 @@
+<template name="pantallaEmpleado">
+			<div class="row">
+		    <div class="col s12">
+		      <ul class="tabs">
+		        <li class="tab col s3"><a class="active" href="#solicitudes">Rentas</a></li>
+		        <li class="tab col s3"><a href="#bodegas">Bodegas</a></li>
+		        <li class="tab col s3"><a href="#usuarios">Usuarios</a></li>
+		        <li class="tab col s3"><a href="#comentarios">Comentarios</a></li>
+		        <li class="tab col s3"><a href="#salir">Salir</a></li>
+		      </ul>
+		    </div>
+		    <!--Opciones de solicitudes-->
+		    <div id="solicitudes" class="col s12">
+			    <div id="menuOpcionesSolicitudes">
+					<a class="waves-effect light-blue darken-2 btn" id="btnPendientes">Pendientes<i class="material-icons right">info_outline</i></a>
+					<a class="waves-effect amber darken-2 btn" id="btnProceso">Rentadas<i class="material-icons right">loop</i></a>
+					<a class="waves-effect amber darken-2 btn" id="btnFinalizadas">Finalizadas<i class="material-icons right">schedule</i></a>
+				</div>
+				<div id="rentasUsuarios">
+					{{labelRentas}}
+					{{> rentas}}
+				</div>
+		    </div>
+			<!-- Opciones de Bodegas -->
+		    <div id="bodegas" class="col s12">
+				<div id="menuOpcionesBodegas">
+					<a class="waves-effect light-blue darken-2 btn" id="btnNuevaBodega">Nueva<i class="material-icons right">add</i></a>
+					<a class="waves-effect amber darken-2 btn" id="btnCatalogoBodega">Catalogo<i class="material-icons right">local_library</i></a>
+				</div>
+				<div id="altaBodega">
+					{{> altaBodegas}}
+				</div>
+				<div id="catalogoBodegas">
+					{{> mostrarBodegas}}
+				</div>
+				<div id="editarBodega">
+					{{> editarBodega}}
+				</div>
+			</div>
+		    <div id="usuarios" class="col s12">
+				<div id="menuOpcionesUsuarios">
+					<a class="waves-effect light-green darken-1 btn" id="btnNuevoUsuario">Nuevo<i class="material-icons right">add</i></a> 
+					<!-- PARA ITERACIONES FUTURAS
+					<a class="waves-effect light-green darken-1 btn" id="btnEditarUsuario">Editar<i class="material-icons right">edit</i></a>
+					<a class="waves-effect light-green darken-1 btn" id="btnEliminarUsuario">Eliminar<i class="material-icons right">delete</i></a> -->
+				</div>
+				<div id="nuevoUsuario">
+					{{> registrarEmpleado}}
+				</div> 
+				<!-- PARA ITERACIONES FUTURAS
+				<div id="editarUsuario">
+					Editar Usuario
+				</div>
+				<div id="eliminarUsuario">
+					Eliminar Usuario
+				</div> -->
+	  	</div>
+	  	<!--Ver comentarios-->
+	  	<div id="comentarios">
+	  		{{> verComentarios}}
+	  	</div>
+	  	<div id="salir">
+	  		{{> salirSistema}}
+	  	</div>
+	</div>
+</template>
