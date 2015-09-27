@@ -1,6 +1,13 @@
 <template name="verDetalleCliente">
 	<form id="detalleBodega">
-		<div class="divider"></div>
+		{{#each detBodegas}}
+			{{> detBodega}}
+		{{/each}}
+	</form>
+</template>
+
+<template name="detBodega">
+	<div class="divider"></div>
 		  	<div class="section noImprimir" >
 		    	<h5>Imagenes</h5>
 		    	<p>Stuff (Imagenes)</p>
@@ -119,5 +126,4 @@
 		</ul>
 		  <a class="waves-effect light-red darken-1 btn" id="btnVerPDF" onClick="window.print();">Imprimir PDF<i class="material-icons right">picture_as_pdf</i></a>
 		  <a class="waves-effect light-red darken-1 btn" id="btnAtras">Volver<i class="material-icons right">picture_as_pdf</i></a>
-	  </form>
 </template>

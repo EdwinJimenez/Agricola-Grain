@@ -3,6 +3,6 @@ Meteor.methods({
 		Comentarios.insert(comentario);
 	},
 	actualizarEstatus:function(id){
-		Comentarios.update(id,{$set : {estatusComentario:"A"}});
+		Comentarios.update(id,{$set : {estatus:"A"}});
 	}
 });

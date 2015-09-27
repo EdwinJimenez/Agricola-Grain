@@ -6,6 +6,7 @@ Template.catBodegasCliente.helpers({
 Template.catBodegasCliente.events({
 	"click #btnVerMas":function(){
 		$("#verDetalle").show("slow");
-		$("#bodegas").hide("slow");
+		$("#Bodegas").hide("slow");
+		Session.setPersistent("idBodega",this._id);
 	}
 });
