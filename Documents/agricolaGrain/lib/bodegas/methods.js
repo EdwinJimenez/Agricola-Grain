@@ -16,7 +16,11 @@ Meteor.methods({
 		Bodegas.update(id, {$set : {estatus:"B"}});
 	},
 	insertarRenta: function(renta){
-		Rentas.insert(renta);
+		var b = Bodegas.find(renta.idBodega,{situacion:true}).fetch();
+		if(b[0].situacion=="L" || Session.get("idU")==null)
+			Rentas.insert(renta);
+		else
+			throw new Meteor.Error("bRen","La bodega ya esta rentada o no tiene una sesion iniciada!,lo sentimos :(");
 	},
 	modificarRenta: function(id,estatus){
 		Rentas.update(id,{$set : {estatus:estatus}});

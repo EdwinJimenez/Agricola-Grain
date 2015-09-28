@@ -1,4 +1,3 @@
-
 Meteor.subscriptions = {
 	subscribeRentas : function(){
 		if(Session.get("idU")==null)
@@ -9,7 +8,7 @@ Meteor.subscriptions = {
 		}
 		else{
 			var usuario_id = Session.get("idU");
-			Meteor.subscribe("rentas",usuario_id);
+			Meteor.subscribe("rentas-por-cliente",usuario_id);
 		}
 	}
 }

@@ -3,6 +3,8 @@ Template.detBodega.onRendered(function(){
 	      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
 	    });
 	$('select').material_select();
+
+    $('.materialboxed').materialbox();
 });
 Template.verDetalleCliente.events({
 	"click #btnAtras":function(){
@@ -10,9 +12,9 @@ Template.verDetalleCliente.events({
 		$("#Bodegas").show("slow");
 	},
 	"click #btnRentar":function(){
-		var fecha= Date.parse($("#dateFechaInicio").val());
+		var fecha= Date.parse($("#dateFechaInicio").val())+86400000;
 		var duracion = $("#cmbDuracionContrato").val();
-		var fechafin = new Date(fecha+2629750000);
+		var fechafin = new Date(fecha+(duracion*2629750000));
 		var vduracion = parseFloat($("#cmbDuracionContrato").val());
 		var vprecio = parseFloat(this.precio);
 		if(fecha=="")
@@ -33,8 +35,10 @@ Template.verDetalleCliente.events({
 				fechaCreacion: new Date()
 			}
 			Meteor.call("insertarRenta",renta,function(error){
-				if(error)
+				if(error){
 					Materialize.toast(error.reason,2000,'rounded');
+					location.reload();
+				}
 				else{
 					Materialize.toast('La solicitud de renta ha sido recibida, se le enviara un correo!!', 4000,'rounded');
 				}

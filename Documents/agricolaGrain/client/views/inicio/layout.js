@@ -11,5 +11,19 @@ Template.layout.helpers({
 	},
 	nombreUsuario:function(){
 		return Session.get("usuario");
+	},
+	esEmp:function(){
+		return Session.get("esEmpleado");
+	}
+});
+Template.layout.events({
+	"click #navAcceder":function(){
+		console.log("entramos!");
+		if(Session.get("idU")==null)
+			Router.go("/acceder");
+		else{
+			location.reload(true);
+			Router.go("/");
+		}
 	}
 });
