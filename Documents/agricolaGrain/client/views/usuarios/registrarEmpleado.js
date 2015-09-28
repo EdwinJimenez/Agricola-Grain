@@ -1,6 +1,6 @@
 Template.registrarEmpleado.onRendered(function(){
 	$('.collapsible').collapsible({
-	      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+	      accordion : false
 	    });
 });
 Template.registrarEmpleado.events({
@@ -30,11 +30,11 @@ Template.registrarEmpleado.events({
 				Meteor.call('insertarUsuario',usuario,function (error) {
 					if (error)
 					{
-						Materialize.toast(error.reason, 4000, 'rounded');
+						Materialize.toast(error.reason, 2000, 'rounded');
 					}
 					else
 					{
-					    Materialize.toast('Gracias por registrarse.!', 4000,'rounded');
+					    Materialize.toast('Gracias por registrarse.', 2000,'rounded');
 						$(":text").each(function(){	
 							$($(this)).val('');
 						});

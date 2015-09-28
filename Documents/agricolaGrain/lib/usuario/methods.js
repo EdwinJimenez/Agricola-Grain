@@ -6,7 +6,7 @@ Meteor.methods({
 			Usuarios.insert(usuario);	
 		}
 		else
-			throw new Meteor.Error("uRep", "El Usuario ya existe");
+			throw new Meteor.Error("uRep", "El Usuario ya existe.");
 	},
 	verificarUsuario: function(usuario,contraseña){
 		Usuarios.find({usuario:usuario,contraseña:contraseña},{usuario:true,esEmpleado:true});

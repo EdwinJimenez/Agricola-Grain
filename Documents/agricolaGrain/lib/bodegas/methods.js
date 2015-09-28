@@ -7,7 +7,7 @@ Meteor.methods({
 		if(c==0)
 			Bodegas.insert(bodega);
 		else
-			throw new Meteor.Error("bRep", "La bodega ya existe");
+			throw new Meteor.Error("bRep", "La bodega ya existe.");
 	},
 	modificarSituacionBodega : function(id,situacion){
 		Bodegas.update(id,{$set: {situacion:situacion}});
@@ -20,7 +20,7 @@ Meteor.methods({
 		if(b[0].situacion=="L" || Session.get("idU")==null)
 			Rentas.insert(renta);
 		else
-			throw new Meteor.Error("bRen","La bodega ya esta rentada o no tiene una sesion iniciada!,lo sentimos :(");
+			throw new Meteor.Error("bRen","La bodega ya esta rentada o no tiene una sesion iniciada,lo sentimos :(");
 	},
 	modificarRenta: function(id,estatus){
 		Rentas.update(id,{$set : {estatus:estatus}});

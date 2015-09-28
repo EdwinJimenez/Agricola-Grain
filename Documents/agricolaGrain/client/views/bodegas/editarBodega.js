@@ -9,9 +9,9 @@ Template.editarBodega.events({
 	{			
 			Meteor.call("modificarBodega",this._id,$("#txtNombreE").val(),$("#txtDescripcionE").val(),$("#txtPrecioE").val(),$("#txtLargoE").val(),$("#txtAnchoE").val(),$("#txtAltoE").val(),$("#txtCalleE").val(),$("#txtColoniaE").val(),$("#txtEspecificacionesE").val(),$("#txtNumeroExteriorE").val(),$("#txtNumeroInteriorE").val(),$("#txtPaisE").val(),$("#txtEstadoE").val(),$("#txtCiudadE").val(),function(error){
 					if(error)
-						Materialize.toast(error.reason,4000,'rounded');
+						Materialize.toast(error.reason,2000,'rounded');
 					else{
-						Materialize.toast("Bodega modificada con exito!!",4000,'rounded');
+						Materialize.toast("Bodega modificada con éxito.",2000,'rounded');
 						$("#altaBodega").hide("slow");
 						$('#editarBodega').hide("slow");
 						$("#catalogoBodegas").show("slow");
@@ -25,11 +25,3 @@ Template.editarBodega.helpers({
 		return Bodegas.find(Session.get("idBodega"));
 	}
 });
- function validarTexto(id,campo)
- {
-	if($(id).val() == "") 
-	{ 
-		Materialize.toast("Necesita llenar el campo "+ campo, 4000); 
-		return false ; 
-	}
- }

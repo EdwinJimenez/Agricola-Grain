@@ -2,15 +2,15 @@
 	<form id="detalleBodega">
 		<div class="divider"></div>
 		  	<div class="section noImprimir" >
-		    	<h5>Imagenes</h5>
+		    	<h5>Imágenes</h5>
 		    	<p><p><img class="materialboxed" width="650" align=center src={{imagenes}}></p></p>
 			</div>
 		<div class="divider"></div>
 		<div class="section">
-		    <h5>Datos Generales</h5>
+		    <h5>Datos generales</h5>
 		    <div class="row">
 			    <div class="col s3">
-			    	<p>Nombre de la Bodega:</p>
+			    	<p>Nombre de la bodega:</p>
 			    </div>
 			    <div class="col s3">
 			    	<p id="nombreBodega">{{nombre}}</p>
@@ -27,7 +27,7 @@
 		</div>
 		  <div class="divider"></div>
 		  <div class="section">
-		    <h5>Caracteristicas</h5>
+		    <h5>Características</h5>
 		    <div class="row">
 		    	<div class="col s2">
 		    		<p>Largo: </p>
@@ -56,7 +56,7 @@
 		    <h5>Ubicación</h5>
 		    <div class="row">
 		    	<div class="col s6">
-		    		<p>Calle y Número: </p>
+		    		<p>Calle y número: </p>
 		    	</div>
 		    	<div class="col s6">
 		    		<p id="calleNumeroBodega"> {{direccion.calle}} {{direccion.numero}}</p>
@@ -79,8 +79,4 @@
 		  </div>
 		  <a class="waves-effect light-red darken-1 btn" id="btnVerPDF" onClick="window.print();">Imprimir PDF<i class="material-icons right">picture_as_pdf</i></a>
 	  </form>
-</template>
-
-<template name="datosBodega">
-	
 </template>

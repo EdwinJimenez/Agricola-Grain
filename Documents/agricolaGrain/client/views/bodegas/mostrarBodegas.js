@@ -3,7 +3,6 @@ Template.mostrarBodegas.helpers({
 		return Bodegas.find({estatus:"A"},{nombre:true,descripcion:true,imagenes:true,especificaciones:true});
 	}
 });
-//No funciona CHECAR
 Template.mostrarBodegas.events({
 	"click #btnEditar":function(event,template){
 		$("#altaBodega").hide("slow");
@@ -13,6 +12,6 @@ Template.mostrarBodegas.events({
 	},
 	"click #btnEliminar": function(){
 		Meteor.call("bajaBodegas",this._id);
-		Materialize.toast("La bodega '"+this.nombre+"' fue eliminada exitosamente",4000);
+		Materialize.toast("La bodega '"+this.nombre+"' fue eliminada exitosamente",2000);
 	}
 });

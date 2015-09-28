@@ -30,9 +30,9 @@ Template.altaBodegas.events({
 			}
 			Meteor.call("insertarBodegas",bodega,function(error){
 				if(error)
-					Materialize.toast(error.reason,4000,'rounded');
+					Materialize.toast(error.reason,2000,'rounded');
 				else{
-					Materialize.toast("Bodega registrada con exito!!",4000,'rounded');
+					Materialize.toast("Bodega registrada con éxito.",2000,'rounded');
 					$(":text").each(function(){	
 						$($(this)).val('');
 						$("#verComentarios").load();
@@ -48,11 +48,3 @@ Template.altaBodegas.events({
 		}
 	}
 });
- function validarTexto(id,campo)
- {
-	if($(id).val() == "") 
-	{ 
-		Materialize.toast("Necesita llenar el campo "+ campo, 4000); 
-		return false ; 
-	}
- }

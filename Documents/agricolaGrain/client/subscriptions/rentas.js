@@ -12,5 +12,4 @@ Meteor.subscriptions = {
 		}
 	}
 }
-
 Meteor.subscriptions.subscribeRentas();

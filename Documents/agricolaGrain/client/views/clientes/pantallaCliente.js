@@ -19,7 +19,7 @@ Template.pantallaCliente.events({
 	"click #btnFinalizadasU":function(event,template){
 		$("#rentasUsuario").hide("slow");
 		$("#rentasUsuario").show("slow");
-		Session.setPersistent("PosisionMR","Rentas finalizads");
+		Session.setPersistent("PosisionMR","Rentas finalizadas");
 		Session.setPersistent("estatusRenta","F");
 	},
 	"click #Rentas":function(){

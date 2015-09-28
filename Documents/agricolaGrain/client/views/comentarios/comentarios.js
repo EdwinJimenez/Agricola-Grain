@@ -11,9 +11,9 @@ Template.comentarios.events({
 			}
 			Meteor.call("insertarCometario", comentario,function(error){
 				if(error)
-					Materialize.toast("Ocurrio un error", 4000, 'rounded');
+					Materialize.toast("Ocurrio un error.", 2000, 'rounded');
 				else{
-					Materialize.toast("Gracias por sus comentarios!",4000,'rounded');
+					Materialize.toast("Gracias por sus comentarios.",2000,'rounded');
 					$("#txtNombre").val("");
 					$("#txtCorreo").val("");
 					$("#textareaComentarios").val("");

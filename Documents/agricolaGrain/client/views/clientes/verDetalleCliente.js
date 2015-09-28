@@ -19,7 +19,7 @@ Template.verDetalleCliente.events({
 		var vprecio = parseFloat(this.precio);
 		if(fecha=="")
 		{
-			Materialize.toast("No selecciono fecha de renta",4000,'rounded');
+			Materialize.toast("No ha saleccionado fecha de renta",2000,'rounded');
 		}
 		else
 		{
@@ -40,7 +40,7 @@ Template.verDetalleCliente.events({
 					location.reload();
 				}
 				else{
-					Materialize.toast('La solicitud de renta ha sido recibida, se le enviara un correo!!', 4000,'rounded');
+					Materialize.toast('La solicitud de renta ha sido recibida, se le enviara un correo.', 2000,'rounded');
 				}
 			});
 			Meteor.call("modificarSituacionBodega",this._id,"A");

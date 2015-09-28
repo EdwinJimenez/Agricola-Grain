@@ -12,7 +12,7 @@ Meteor.validaciones =
 		        if (formulario[i].value == null || formulario[i].value.length == 0 || /^\s*$/.test(formulario[i].value))
 		        {
 		            if(todoCorrecto){
-		            	Materialize.toast("Necesita llenar todos los campos",2000,'rounded');
+		            	Materialize.toast("Necesita llenar todos los campos.",2000,'rounded');
 		            }
 		            todoCorrecto=false;
 		        }
@@ -31,7 +31,7 @@ Meteor.validaciones =
 		        if(!(/^\S+@\S+\.\S+$/.test(formulario[i].value)))
 		        {
 		            if(todoCorrecto){
-		            	Materialize.toast("Ingrese una dirección de email valida.",2000,'rounded');
+		            	Materialize.toast("Ingrese una dirección de email válida.",2000,'rounded');
 		            }
 		            todoCorrecto=false;
 		        }
@@ -51,7 +51,7 @@ Meteor.validaciones =
 		        if(!(/^\d{1,15}(?:,\s?\d{3})*(?:\.\d*)?$/.test(formulario[i].value)))
 		        {
 		            if(todoCorrecto){
-		            	Materialize.toast("Ingrese un numero valido.",2000,'rounded');
+		            	Materialize.toast("Ingrese un número válido.",2000,'rounded');
 		            }
 		            todoCorrecto=false;
 		        }
@@ -72,7 +72,7 @@ Meteor.validaciones =
 		        if(!(/^\d{10}$/.test(formulario[i].value)))
 		        {
 		            if(todoCorrecto){
-		            	Materialize.toast("Ingrese un telefono válido.",2000,'rounded');
+		            	Materialize.toast("Ingrese un teléfono válido.",2000,'rounded');
 		            }
 		            todoCorrecto=false;
 		        }
