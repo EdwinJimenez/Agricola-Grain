@@ -10,8 +10,8 @@ Router.route('/acceder',{name: 'acceder'});
 Router.route('/registrarme',{name: 'registro'});
 
 /*PANTALLAS DE USUARIO Y EMPLEADO*/
-Router.route('/pantallaEmpleado',{name:'pantallaEmpleado'});
-Router.route('/pantallaCliente',{name:'pantallaCliente'});
+Router.route('/94e74b909567e6d814df',{name:'pantallaEmpleado'});
+Router.route('/5bd3fc3583e504032106',{name:'pantallaCliente'});
 
 /*PANTALAS BODEGAS*/
 Router.route('/detalleBodega/:_id',

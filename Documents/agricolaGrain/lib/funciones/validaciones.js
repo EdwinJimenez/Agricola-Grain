@@ -62,7 +62,6 @@ Meteor.validaciones =
 	},
 	validarTelefono:function(formulario)
 	{
-
 		var todoCorrecto=true;
 		var contador=0;
 		for (var i=0; i<formulario.length; i++) 

@@ -22,11 +22,11 @@ Template.acceder.events({
 						Meteor.subscriptions.subscribeRentas();
 						if(u[0].esEmpleado)
 						{
-							Router.go("pantallaEmpleado");
+							Router.go("/94e74b909567e6d814df");
 						}
 						else
 						{
-							Router.go("pantallaCliente");
+							Router.go("/5bd3fc3583e504032106");
 						}
 			}
 	}
