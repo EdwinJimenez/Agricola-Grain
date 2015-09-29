@@ -8,3 +8,8 @@ Template.catalogoBodegas.events({
 		Router.go("detalleBodega", {_id:this._id._str});
 	}
 });
+Template.bodega.helpers({
+	precioConFormato:function(){
+		return Meteor.formato.moneda2(this.precio);
+	}
+});

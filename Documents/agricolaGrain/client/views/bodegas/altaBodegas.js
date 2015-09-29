@@ -18,6 +18,7 @@ Template.altaBodegas.events({
 					estatus:"A",
 					situacion: "L",
 					especificaciones:$("#txtEspecificaciones").val(),
+					tipoAcceso:$("#txtTipoAcceso").val(),
 					direccion:{
 						calle:$("#txtCalle").val(),
 						colonia:$("#txtColonia").val(),

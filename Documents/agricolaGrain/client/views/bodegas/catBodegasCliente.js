@@ -10,3 +10,8 @@ Template.catBodegasCliente.events({
 		Session.setPersistent("idBodega",this._id);
 	}
 });
+Template.bodegaCliente.helpers({
+	precioConFormato:function(){
+		return Meteor.formato.moneda2(this.precio);
+	}
+});

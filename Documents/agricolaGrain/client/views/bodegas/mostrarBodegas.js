@@ -15,3 +15,8 @@ Template.mostrarBodegas.events({
 		Materialize.toast("La bodega '"+this.nombre+"' fue eliminada exitosamente",2000);
 	}
 });
+Template.bodegaMostrar.helpers({
+	precioConFormato:function(){
+		return Meteor.formato.moneda2(this.precio);
+	}
+});

@@ -53,3 +53,10 @@ Template.verDetalleCliente.helpers({
 		return Bodegas.find(Session.get("idBodega"))	
 	}
 });
+Template.detBodega.helpers({
+	precioConFormato:function(){
+		var pre = Meteor.formato.moneda2(this.precio);
+		console.log(pre);
+		return pre;
+	}
+});

@@ -25,7 +25,7 @@ Meteor.methods({
 	modificarRenta: function(id,estatus){
 		Rentas.update(id,{$set : {estatus:estatus}});
 	}, 
-	modificarBodega: function(id,nombre,descripcion,precio,largo,ancho,alto,especificaciones,calle,colonia,numeroExt,numeroInt,pais,estado,ciudad){
-		Bodegas.update(id, {$set:{nombre:nombre,descripcion:descripcion,precio:precio,largo:largo,ancho:ancho,alto:alto,especificaciones:especificaciones,direccion: {calle:calle,colonia:colonia,numero:numeroExt,numeroInterior:numeroInt,pais:pais,estado:estado,ciudad:ciudad}}});
+	modificarBodega: function(id,nombre,descripcion,precio,largo,ancho,alto,especificaciones,tipoAcceso,calle,colonia,numeroExt,numeroInt,pais,estado,ciudad){
+		Bodegas.update(id, {$set:{nombre:nombre,descripcion:descripcion,precio:precio,largo:largo,ancho:ancho,alto:alto,especificaciones:especificaciones,tipoAcceso:tipoAcceso,direccion: {calle:calle,colonia:colonia,numero:numeroExt,numeroInterior:numeroInt,pais:pais,estado:estado,ciudad:ciudad}}});
 	}
 });

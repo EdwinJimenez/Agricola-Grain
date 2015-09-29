@@ -5,3 +5,8 @@ Template.detalleBodega.onRendered(function(){
 	$('select').material_select();
 	 $('.materialboxed').materialbox();
 });
+Template.detalleBodega.helpers({
+	precioConFormato:function(){
+		return Meteor.formato.moneda2(this.precio);
+	}
+});
