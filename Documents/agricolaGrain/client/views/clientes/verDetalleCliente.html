@@ -55,8 +55,8 @@
 			    <div class="col s2"> 
 			    	<p id="altoBodega">{{alto}}</p>
 			    </div>
-			    <div class="col s12"><b>Especificaciones:</b></div>
-			    <div class="col s12"> <p id="especificacionesBodega">{{especificaciones}}</p></div>
+			    <div class="col s12"><b>Tipo de acceso:</b></div>
+			    <div class="col s12"> <p id="especificacionesBodega">{{tipoAcceso}}</p></div>
 			</div>
 	      </p></div>
 	    </li>
@@ -92,11 +92,11 @@
 			<div class="collapsible-header no Imprimir"><i class="material-icons">shopping_cart</i>Rentar</div>
 		      <div class="collapsible-body">
 		      	<div class="row">
-		      		<div class="col s4">
+		      		<div class="col s2" id="lblFechaInicio">
 		    			Fecha de inicio:
 		      		</div>
-		      		<div class="col s4"><input type="date" class="datepicker" id="dateFechaInicio"></div>
-		     		<div class="col s4">
+		      		<div class="col s2"><input type="date" class="datepicker" id="dateFechaInicio"></div>
+		     		<div class="col s6">
 		      			<div class="input-field col s12">
 						    <select id="cmbDuracionContrato">
 						      <option value="1" selected>1 mes</option>
