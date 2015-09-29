@@ -8,7 +8,8 @@ Template.acceder.events({
 			if(Meteor.validaciones.validarVacios(frmAcceder))
 			{
 				var usuario=$("#txtUsuario").val();
-				var contraseña=$("#txtContraseña").val();
+				var contraseña=CryptoJS.MD5($("#txtContraseña").val()).toString();
+				console.log(CryptoJS.MD5($("#txtContraseña").val()).toString());
 					var u = Usuarios.find({usuario:usuario,contraseña:contraseña},{usuario:true,esEmpleado:true}).fetch();
 					if(u.length==0)
 					{

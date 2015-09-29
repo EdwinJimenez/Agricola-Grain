@@ -4,7 +4,7 @@
 			{
 				var usuario = {
 					usuario: $("#txtUsuario").val(),
-					contraseña: $("#txtContraseña").val(),
+					contraseña: CryptoJS.MD5($("#txtContraseña").val()).toString(),
 					nombre: $("#txtNombre").val(),
 					apellido: $("#txtApellido").val(),
 					correo: $("#txtCorreo").val(),

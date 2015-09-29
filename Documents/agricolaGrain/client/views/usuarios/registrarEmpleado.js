@@ -9,7 +9,7 @@ Template.registrarEmpleado.events({
 			{
 				var usuario = {
 					usuario: $("#txtUsuarioRU").val(),
-					contraseña: $("#txtContraseñaRU").val(),
+					contraseña:CryptoJS.MD5($("#txtContraseñaRU").val()).toString(),
 					nombre: $("#txtNombreRU").val(),
 					apellido: $("#txtApellidoRU").val(),
 					correo: $("#txtCorreoRU").val(),
