@@ -1,0 +1,28 @@
+#tmpDetalleBodega, .collapsible-body
+{
+	background: white;
+}
+@media print {
+nav {display: none;}
+.btn{display: none;}
+.noImprimir{display: none;}
+	#direccionMatriz
+	{
+		float: right;
+	}
+footer {page-break-after: auto;}
+}
+ul.collapsible.popout
+{
+	background: white;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+#contenidoDinamico
+{
+	margin-top: 0px;
+}
+nav
+{
+	margin-bottom: 0px;
+}

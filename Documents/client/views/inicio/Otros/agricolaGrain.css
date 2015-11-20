@@ -1,0 +1,32 @@
+body
+{
+	background:-webkit-gradient(radial, 376 0, 101, 220 -257, 465, from(#ffab40), to(#fff9c4));
+	color: black;
+	max-width: 1024px;
+	margin: 0 auto;
+	border-radius: 5px 5px 0px 0px;
+	border: 2px solid rgba(64, 119, 0, 0.9);
+	background: url(img/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+header
+{
+	background: #7cb342;
+	background: -moz-linear-gradient(top, rgba(161,179,86,1) 0%, rgba(81,137,47,0.79) 100%);
+	padding: 5px;
+	text-align: left;
+	max-width: 1024px;
+	height: 100px;
+}
+footer
+{
+	border-radius: 0px 0px 5px 5px;
+	border: 2px solid rgba(64, 119, 0, 0.9);
+	text-align: center;	
+}
+blockquote
+{
+	border-left: 5px solid #7cb342;
+}

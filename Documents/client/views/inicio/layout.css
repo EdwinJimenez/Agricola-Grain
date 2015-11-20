@@ -1,0 +1,19 @@
+#logo img
+{
+	width: 12%;
+	float: left;
+}
+#slogan img
+{
+	width: 70%;
+	float: right;
+}
+#btnComentarios
+{
+	margin-top: 30px;
+}
+#contenidoDinamico
+{
+	/*height: 785px;
+	background: white;*/
+}

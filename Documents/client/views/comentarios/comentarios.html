@@ -1,0 +1,24 @@
+<template name="comentarios">
+		<section id="comantarios">
+        <form class="col s12 card-panel green lighten-5" id="comentarios" name="frmComentarios">
+            <p class="flow-text">Proporcione los siguientes datos:</p>
+                <div class="row">
+                    <div class="input-field row">
+	                    <i class="material-icons prefix">accessibility</i>
+	                    <input id="txtNombre" type="text" class="validate" autofocus  required>
+	                    <label for="txtNombre">Nombre completo</label>
+                    </div>
+                    <div class="input-field row">
+	                    <i class="material-icons prefix">mail</i>
+	                    <input id="txtCorreo" type="email" class="validate">
+	                    <label for="txtCorreo">Correo</label>
+                    </div>
+                    <div class="input-field row">
+                        <input id="textareaComentarios" type="text" class="validate" autofocus  required>
+                        <label for="textareaComentarios">Comentarios</label>
+                    </div>
+                </div>
+            <a class="waves-effect light-green darken-1 btn" id="btnEnviarComentarios">Enviar<i class="material-icons right">send</i></a>
+        </form>
+      </section>
+</template>

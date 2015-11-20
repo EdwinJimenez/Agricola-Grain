@@ -1,0 +1,9 @@
+#quienes
+{
+	text-align: left;
+}
+#imgMision,#imgVision,#imgValores
+{
+	/*width: 38%;*/
+	width: 50%;
+}

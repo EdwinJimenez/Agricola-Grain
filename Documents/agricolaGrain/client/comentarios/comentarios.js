@@ -1,1 +1,0 @@
-//Materialize.toast('Gracias por escribirnos', 4000)

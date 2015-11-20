@@ -1,0 +1,90 @@
+<template name="detalleBodega" id="tmpDetalleBodega">
+	<form id="detalleBodega">
+	<ul class="collapsible popout" data-collapsible="expandable">
+    <li class="noImprimir">
+      <div class="collapsible-header active"><i class="material-icons">photo</i><b>Imágen</b></div>
+      <div class="collapsible-body"><p class="imagenBodega"><img class="materialboxed" width="650" align=center src={{imagenes}}></p></div>
+    </li>
+    <li>
+      <div class="collapsible-header active"><i class="material-icons">view_headline</i><b>Datos generales</b></div>
+      <div class="collapsible-body"><p>
+      	<div class="row">
+			    <div class="col s3">
+			    	<p><b>Nombre de la bodega:</b></p>
+			    </div>
+			    <div class="col s4">
+			    	<p id="nombreBodega" name="nombre">{{nombre}}</p>
+			    </div>
+			    <div class="col s1 offset-s2">
+			    	<p><b>Precio:</b></p>
+			    </div>
+			    <div class="col s2">
+			    	<p id="descripcionBodega">{{precioConFormato}}</p>
+			    </div>
+			    <div class="col s12"><b>Descripción:</b></div>
+			    <div class="col s12"> <p id="descripcionBodega">{{descripcion}}</p></div>
+		    </div>
+      </p>
+  </div>
+   </li>
+    <li>
+      <div class="collapsible-header active"><i class="material-icons">settings</i><b>Características</b></div>
+      <div class="collapsible-body"><p>
+      	<div class="row">
+		   <div class="col s2">
+		    	<p><b>Largo:</b></p>
+		    </div>
+		    <div class="col s2">
+		    	<p id="largoBodega">{{largo}}</p>
+		    </div>
+		    <div class="col s2">
+		    	<p><b>Ancho:</b></p>
+		    </div>
+		    <div class="col s2">
+		    	<p id="anchoBodega"> {{ancho}}</p>
+		    </div>
+		    <div class="col s2">
+		    	<p><b>Alto:</b></p>
+		    </div>
+		    <div class="col s2"> 
+		    	<p id="altoBodega">{{alto}}</p>
+		    </div>
+		    <div class="col s12"><b>Especificaciones:</b></div>
+		    <div class="col s12"> <p id="especificacionesBodega">{{especificaciones}}</p></div>
+		    <div class="col s12"><b>Tipo de acceso:</b></div>
+		    <div class="col s12"> <p id="tipoAcceso">{{tipoAcceso}}</p></div>
+		</div>
+      </p></div>
+    </li>
+
+    <li>
+      <div class="collapsible-header active"><i class="material-icons">location_on</i><b>Ubicación</b></div>
+      <div class="collapsible-body"><p>
+      	<div class="row">
+		    	<div class="col s3">
+		    		<p><b>Calle y número:</b></p>
+		    	</div>
+		    	<div class="col s3">
+		    		<p id="calleNumeroBodega"> {{direccion.calle}} {{direccion.numero}}</p>
+		    	</div>
+		    	<div class="col s2">
+		    		<p><b>Colonia:</b></p>
+		    	</div>
+		    	<div class="col s4">
+		    		<p id="coloniaBodega">{{direccion.colonia}}</p>
+		    	</div>
+		    	<div class="col s3">
+		    		<p><b>Estado:</b></p>
+		    	</div>
+		    	<div class="col s3"> 
+		    		<p id="estadoBodega">{{direccion.estado}}</p>
+		    	</div>
+		    	<div class="col s2"><p><b>País:</b></p></div>
+		    	<div class="col s4"> <p id="paisBodega">{{direccion.pais}}</p></div>
+		    </div>
+      </p></div>
+    </li>
+    <a class="waves-effect light-red darken-1 btn" id="btnVerPDF" onClick="window.print();" >Imprimir PDF<i class="material-icons right">picture_as_pdf</i></a>
+  </ul>
+  </form>
+</template>

@@ -1,0 +1,71 @@
+<template name="layout">
+	<header>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<div id="logo">
+			<img src="img/logo.png" alt="">
+		</div>
+		<div id="slogan">
+			<img src="img/slogan.png">
+		</div>
+	</header>
+		<ul id="dropProductos" class="dropdown-content">
+		  <li><a href="/catalogoBodegas">Catálogo de bodegas</a></li>
+		  <li class="divider"></li>
+		  <li><a href="/catalogoGranos">Catalogo de Granos</a></li>
+		</ul>
+
+		  <nav class="light-green darken-1">
+			    <div class="nav-wrapper" id="menuPrincipal">
+			      <ul class="right show-on-med-and-down">
+			        <li><a href="/"><i class="material-icons left breadcrumb">home</i>Inicio</a></li>
+			        <li><a href="/informacion"><i class="material-icons left breadcrumb">view_module</i>Nosotros</a></li>
+			        <!-- Dropdown Trigger -->
+	      			<li><a class="dropdown-button breadcrumb" href="#!" data-activates="dropProductos"><i class="material-icons left"> list </i>Productos<i class="material-icons right">arrow_drop_down</i></a></li>
+			        {{#if noEstaLogueado}}
+			        	<li><a id="navAcceder"><i class="material-icons left breadcrumb">account_circle</i>Acceder</a></li>
+			        {{else}}
+			        	{{#if esEmp}}
+			        		<li><a href="/94e74b909567e6d814df"><i class="material-icons left">account_circle</i>{{nombreUsuario}}</a></li>
+			        	{{else}}
+			        	<!--Lo que esta dentro del span lo cambiaremos por el contador de articulos en el carrito de compras-->
+			        		<li><a href="/carrito"><span><sup>3 ítem</sup></span><i class="material-icons left breadcrumb">shopping_cart</i></a></li>
+			        		<li><a href="/5bd3fc3583e504032106"><i class="material-icons left">account_circle</i>{{nombreUsuario}}</a></li>
+			        	{{/if}}
+			        {{/if}}
+			      </ul> 
+			    </div>
+		  </nav>
+		<div id="contenidoDinamico">
+			{{> yield}}
+		</div>
+		<footer>
+		    <small>
+				<div class="row">
+					<div class="col s4">
+						<p>
+							Contáctanos
+						</p>
+						<p>
+							Tel (667) 710-1910 <br>Info@grain.com.mx <br>
+							<a class="noImprimir" href="http://twitter.com/AQUI_TU_USUARIO" target="_blank"><img src="https://lh6.googleusercontent.com/--aIk2uBwEKM/T3nN1x09jBI/AAAAAAAAAs8/qzDsbw3kEm8/s32/twitter32.png" width=32 height=32 alt="Síguenos en Twitter" /></a>
+							<a class="noImprimir" href="https://www.facebook.com/agricola.grain" target="_blank"><img alt="Siguenos en Facebook" src="https://lh6.googleusercontent.com/-CYt37hfDnQ8/T3nNydojf_I/AAAAAAAAAr0/P5OtlZxV4rk/s32/facebook32.png" width=32 height=32  /></a>
+						</p>
+					</div>
+					<div class="col s4" id="direccionMatriz">
+						<p>
+								Dirección
+						</p>
+						<p class="white">
+						<p>Agrícola Grain S.A. DE C.V. <br> 
+						Carretera a Navolato, Acera Sur #13916-C Poniente <br>
+						Col. Centro Aguaruto, Culiacán, Sinaloa, México <br> </p>
+						</p>
+					</div>
+					<div class="col s4">
+						<a href="/comentarios" class="waves-effect light-green darken-1 btn" id="btnComentarios">Comentarios<i class="material-icons right">message</i></a>
+					</div>
+					
+				</div>
+		    </small>
+		</footer>
+	</template>
