@@ -8,6 +8,9 @@ Router.route('/catalogoBodegas',{name: 'catalogoBodegas'});
 Router.route('/comentarios',{name: 'comentarios'});
 Router.route('/acceder',{name: 'acceder'});
 Router.route('/registrarme',{name: 'registro'});
+Router.route('/frijol',{name:'frijol'});
+Router.route('/catalogoGranos',{name:'catalogoGranos'});
+Router.route('/carrito',{name:'carrito'});
 
 /*PANTALLAS DE USUARIO Y EMPLEADO*/
 Router.route('/94e74b909567e6d814df',{name:'pantallaEmpleado'});

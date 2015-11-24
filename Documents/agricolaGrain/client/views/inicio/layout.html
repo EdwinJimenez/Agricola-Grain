@@ -11,24 +11,24 @@
 		<ul id="dropProductos" class="dropdown-content">
 		  <li><a href="/catalogoBodegas">Catálogo de bodegas</a></li>
 		  <li class="divider"></li>
-		  <li><a href="/construccion">Maíz</a></li>
-		  <li><a href="/construccion">Frijol</a></li>
+		  <li><a href="/catalogoGranos">Catalogo de Granos</a></li>
 		</ul>
 
 		  <nav class="light-green darken-1">
 			    <div class="nav-wrapper" id="menuPrincipal">
 			      <ul class="right show-on-med-and-down">
-			        <li><a href="/"><i class="material-icons left">home</i>Inicio</a></li>
-			        <li><a href="/informacion"><i class="material-icons left">view_module</i>Nosotros</a></li>
+			        <li><a href="/"><i class="material-icons left breadcrumb">home</i>Inicio</a></li>
+			        <li><a href="/informacion"><i class="material-icons left breadcrumb">view_module</i>Nosotros</a></li>
 			        <!-- Dropdown Trigger -->
-	      			<li><a class="dropdown-button" href="#!" data-activates="dropProductos"><i class="material-icons left"> list </i>Productos<i class="material-icons right">arrow_drop_down</i></a></li>
-			        <li><a href="/construccion"><i class="material-icons left">shopping_cart</i>Servicios</a></li>
+	      			<li><a class="dropdown-button breadcrumb" href="#!" data-activates="dropProductos"><i class="material-icons left"> list </i>Productos<i class="material-icons right">arrow_drop_down</i></a></li>
 			        {{#if noEstaLogueado}}
-			        	<li><a id="navAcceder"><i class="material-icons left">account_circle</i>Acceder</a></li>
+			        	<li><a id="navAcceder"><i class="material-icons left breadcrumb">account_circle</i>Acceder</a></li>
 			        {{else}}
 			        	{{#if esEmp}}
 			        		<li><a href="/94e74b909567e6d814df"><i class="material-icons left">account_circle</i>{{nombreUsuario}}</a></li>
 			        	{{else}}
+			        	<!--Lo que esta dentro del span lo cambiaremos por el contador de articulos en el carrito de compras-->
+			        		<li><a href="/carrito"><span><sup>3 ítem</sup></span><i class="material-icons left breadcrumb">shopping_cart</i></a></li>
 			        		<li><a href="/5bd3fc3583e504032106"><i class="material-icons left">account_circle</i>{{nombreUsuario}}</a></li>
 			        	{{/if}}
 			        {{/if}}

@@ -4,6 +4,7 @@
 		      <ul class="tabs">
 		        <li class="tab col s3"><a class="active" href="#solicitudes">Rentas</a></li>
 		        <li class="tab col s3"><a href="#bodegas">Bodegas</a></li>
+		        <li class="tab col s3"><a href="#compras">Granos</a></li>
 		        <li class="tab col s3"><a href="#usuarios">Usuarios</a></li>
 		        <li class="tab col s3"><a href="#comentarios">Comentarios</a></li>
 		        <li class="tab col s3"><a href="#salir">Salir</a></li>
@@ -37,6 +38,17 @@
 					{{> editarBodega}}
 				</div>
 			</div>
+			<!--Opciones de compras-->
+			<div id="compras" class="col s12">
+				<div id="menuOpcionesGranos">
+					<a class="waves-effect light-blue darken-2 btn" id="btnNuevaCompra">Nueva<i class="material-icons right">add</i></a>
+					<a class="waves-effect light-blue darken-2 btn" id="btnNuevaCompra">Existencias<i class="material-icons right">add</i></a>
+				</div>
+				<div id="nuevaCompra">
+					{{> nuevaCompra}}
+				</div>
+			</div>
+			<!--Opciones usuarios-->
 		    <div id="usuarios" class="col s12">
 				<div id="menuOpcionesUsuarios">
 					<a class="waves-effect light-green darken-1 btn" id="btnNuevoUsuario">Nuevo<i class="material-icons right">add</i></a> 

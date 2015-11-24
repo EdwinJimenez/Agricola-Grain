@@ -1,0 +1,161 @@
+<template name="nuevaCompra">
+	<section id="registroBodegas">
+    	<form class="col s12 card-panel green lighten-5" id="altaBodegas" name="frmAltaBodegas">
+		  <ul class="collapsible popout" data-collapsible="expandable">
+		  	<li>
+		  		<h3>Nueva Compra</h3>
+		  	</li>
+		    <li>
+		      <div class="collapsible-header active"><i class="material-icons">description</i>Datos generales</div>
+		      	<div class="collapsible-body">
+		      		<div class="row">
+		      			<div class="col s4 offset-s8">
+							<div class="input-field row">
+			                    <input id="txtFecha" type="text" class="validate" autofocus required>
+			                    <label for="txtFecha">Fecha</label>
+		                    </div> 					
+		 				</div>
+		 				<div class="col s5 offset-s1">
+							<div class="input-field row">
+			                    <input id="txtProveedor" type="text" class="validate" required>
+			                    <label for="txtProveedor">Proveedor</label>
+		                    </div> 					
+		 				</div>	
+		 				<div class="col s5 offset-s1">
+							<div class="input-field row">
+			                    <input id="txtComentarios" type="text" class="validate" required>
+			                    <label for="txtComentarios">Comentarios</label>
+		                    </div> 					
+		 				</div>
+		      		</div>
+		 		 </div>
+		    </li>
+	    	<li>
+		      <div class="collapsible-header active"><i class="material-icons">list</i>Detalle Compra</div>
+		      <div class="collapsible-body">
+		      	<div class="row">
+		<div class="col s10 offset-s1">
+			<table class="">
+				<thead>
+					<tr>
+						<th data-field="number">Producto</th>
+						<th data-field="text">Descripción</th>
+						<th data-field="number">Cantidad</th>
+						<th data-field="price">Precio de compra</th>
+						<th data-field="price">Importe</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<div class="input-field row">
+			                    <input id="txtCodigo" type="text" class="validate" autofocus required>
+			                    <label for="txtCodigo">Codigo</label>
+		                    </div> 					
+		 				</td>
+		 				<td>Frijol</td>
+						<td>
+							<div class="input-field row">
+			                    <input id="txtCantidad" type="number" class="validate" autofocus required>
+			                    <label for="txtCantidad">Cantidad</label>
+			                </div>
+			            </td>
+						<td>
+							<div class="input-field row">
+			                    <input id="txtPrecioCompra" type="text" class="validate" autofocus required>
+			                    <label for="txtPrecioCompra">Precio compra</label>
+							</div>
+			                </td>
+
+						<td>$80.00</td>
+						
+					</tr>
+					<tr>
+						<td>
+							<div class="input-field row">
+			                    <input id="txtCodigo" type="text" class="validate" autofocus required>
+			                    <label for="txtCodigo">Codigo</label>
+		                    </div> 					
+		 				</td>
+		 				<td>Maíz</td>
+						<td>
+							<div class="input-field row">
+			                    <input id="txtCantidad" type="number" class="validate" autofocus required>
+			                    <label for="txtCantidad">Cantidad</label>
+			                </div>
+			            </td>
+						<td>
+							<div class="input-field row">
+			                    <input id="txtPrecioCompra" type="text" class="validate" autofocus required>
+			                    <label for="txtPrecioCompra">Precio compra</label>
+							</div>
+			                </td>
+
+						<td>$80.00</td>
+						
+					</tr>
+					<tr>
+						<td>
+							<div class="input-field row">
+			                    <input id="txtCodigo" type="text" class="validate" autofocus required>
+			                    <label for="txtCodigo">Codigo</label>
+		                    </div> 					
+		 				</td>
+		 				<td>Sorgo</td>
+						<td>
+							<div class="input-field row">
+			                    <input id="txtCantidad" type="number" class="validate" autofocus required>
+			                    <label for="txtCantidad">Cantidad</label>
+			                </div>
+			            </td>
+						<td>
+							<div class="input-field row">
+			                    <input id="txtPrecioCompra" type="text" class="validate" autofocus required>
+			                    <label for="txtPrecioCompra">Precio compra</label>
+							</div>
+			                </td>
+
+						<td>$80.00</td>
+						
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>Subtotal</td>
+						<td>$119.28</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>IVA</td>
+						<td>$19.08</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>Total</td>
+						<td>$138.36</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<!--Cancelar borrara toda la tabla compras-->
+						<td><p><a class="waves-effect light-green darken-1 btn" id="btnAgregarProducto">Cancelar<i class="material-icons right">done</i></a></p></td>
+						<!--Comprar generara la compra-->
+						<td><p><a class="waves-effect light-green darken-1 btn" id="btnAgregarProducto">Agregar<i class="material-icons right">done</i></a></p></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+		      </div>
+	    </li>
+	  </ul>
+ 			<a class="waves-effect light-green darken-1 btn" id="btnRegistrarCompra">Registrar<i class="material-icons right">done</i></a>
+        </form>
+      </section>
+</template>
