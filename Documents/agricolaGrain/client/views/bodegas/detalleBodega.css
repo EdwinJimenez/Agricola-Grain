@@ -4,13 +4,23 @@
 }
 @media print {
 nav {display: none;}
+header{display: none;}
 .btn{display: none;}
 .noImprimir{display: none;}
 	#direccionMatriz
 	{
 		float: right;
 	}
-footer {page-break-after: auto;}
+footer {display: none;}
+p{
+	font-size: 90%;
+	font-family: "Times New Roman", Times, serif;
+	margin-top: -20px;
+}
+.collapsible-header
+{
+	display: none;
+}
 }
 ul.collapsible.popout
 {
