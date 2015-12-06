@@ -46,6 +46,14 @@ Template.pantallaEmpleado.events({
 	$("#eliminarUsuario").show("slow");
 	$("#nuevoUsuario").hide("slow");
 	$("#editarUsuario").hide("slow");
+},
+"click #btnAltaGrano": function(event,template){
+	$("#altaGrano").show("slow");
+	$("#nuevaCompra").hide("slow");
+},
+"click #btnNuevaCompra": function(event,template){
+	$("#nuevaCompra").show("slow");
+	$("#altaGrano").hide("slow");
 }
 });
 Template.pantallaEmpleado.helpers({
