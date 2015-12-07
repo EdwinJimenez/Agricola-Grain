@@ -1,15 +1,6 @@
 <template name="catalogoGranos">
 	<div class="row">
 		<div class="granos">
-			<div class="input-field col s6 offset-s6">
-				<select>
-					<option value="" disabled selected>Elija una opción porfavor.</option>
-					{{#each opciones}}
-					{{> opcion}}
-					{{/each}}
-				</select>
-				<label>Filtrar por:</label>
-			</div>
 			<div class="row">
 				{{#each productos}}
 				{{> producto}}
@@ -18,11 +9,6 @@
 		</div>
 	</div> 
 </template>
-
-<template name="opcion">
-	<option value="{{nombre}}">{{nombre}}</option>
-</template>
-
 <template name="producto">
 	<div class="col s3">
 		<div class="card small">

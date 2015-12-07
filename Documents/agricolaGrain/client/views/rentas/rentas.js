@@ -28,7 +28,7 @@ Template.rentas.helpers({
 		if(Session.get("esEmpleado"))
 			return Rentas.find({estatus:Session.get("estatusRenta")});
 		else{ 
-			return Rentas.find({idUsuario:Session.get("idU"),estatus:Session.get("estatusRenta")});;
+			return Rentas.find({idUsuario:Session.get("idU"),estatus:Session.get("estatusRenta")});
 		}
 	}
 });

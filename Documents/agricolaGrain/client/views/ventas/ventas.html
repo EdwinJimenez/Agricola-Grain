@@ -1,23 +1,23 @@
-<template name="compras">
-  <form class="col s12 card-panel green lighten-5" id="verComentarios">
+<template name="ventas">
+  <form class="col s12 card-panel green lighten-5" id="verVentas">
     <ul class="collapsible popout" data-collapsible="expandable">
-      {{#each comprasUsu}}
-      {{> compra}}
+      {{#each ventasUsu}}
+      {{> venta}}
       {{/each}}
     </ul>
   </form>
 </template>
 
-<template name="EncabezadoCompras">
+<template name="EncabezadoVentas">
   <div class="collapsible-header"><i class="material-icons">comment</i>
     {{nombre}}
   </div>
 </template>
 
-<template name="compra">
+<template name="venta">
   <li>
     {{#each Encabezados}}
-    {{> EncabezadoCompras}}
+    {{> EncabezadoVentas}}
     {{/each}}
     <div class="collapsible-body">
       <div class="row">

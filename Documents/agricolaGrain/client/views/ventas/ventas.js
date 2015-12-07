@@ -1,9 +1,9 @@
-Template.compra.onRendered(function(){
+Template.ventas.onRendered(function(){
 	$('.collapsible').collapsible({
 	      accordion : false
 	});
 });
-Template.compra.helpers({
+Template.venta.helpers({
 	Encabezados:function(){
 		return Bodegas.find(this.idBodega,{nombre:true});
 	},
@@ -14,11 +14,11 @@ Template.compra.helpers({
 		return this.finContrato.toLocaleDateString();
 	}
 });
-Template.compras.helpers({
-	comprasUsu : function(){
+Template.ventas.helpers({
+	ventasUsu : function(){
 		if(Session.get("esEmpleado"))
-			return Compras.find({});
+			return Ventas.find({});
 		else
-			return Compras.find({idUsuario:Session.get("idU")});
+			return Ventas.find({idUsuario:Session.get("idU")});
 	}
 });

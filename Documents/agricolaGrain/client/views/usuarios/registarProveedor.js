@@ -2,7 +2,6 @@ Template.registrarProveedor.events({
 	"click #btnRegistrarProveedor": function(){
 		var proveedor = {
 			nombre: $("#txtNombreP").val(),
-			apellido: $("#txtApellidoP").val(),
 			correo: $("#txtCorreoP").val(),
 			telefono: $("#txtTelefonoP").val(),
 			direccion: {
@@ -20,6 +19,16 @@ Template.registrarProveedor.events({
 				Materialize.toast(error.reason,2000,'rounded');
 			else{
 				Materialize.toast("proveedor registrado con éxito.",2000,'rounded');
+				$("#txtNombreP").val("");
+				$("#txtCorreoP").val(""),
+				$("#txtTelefonoP").val(""),
+				$("#txtCalleP").val(""),
+				$("#txtNumeroP").val(""),
+				$("#txtColoniaP").val(""),
+				$("#txtRFCP").val(""),
+				$("#txtPaisP").val(""),
+				$("#txtEstadoP").val(""),
+				$("#txtCiudadP").val("")
 			}
 		});
 	}

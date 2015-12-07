@@ -4,6 +4,7 @@ Template.carrito.onRendered(function(){
 	$('.modal-trigger').leanModal();
 	$('select').material_select();
 	sub = 0;
+	iva = 0;
 	$("#pagoTarjeta").hide();
 });
 Template.carrito.events({
@@ -12,6 +13,7 @@ Template.carrito.events({
 	},
 	"click #btnLimpiar":function(){
 		Meteor.call("deleteCarrito",Session.get("idU"));
+		location.reload(true);
 	},
 	"click #btnAceptarDireccion": function(){
 		var direccion = {
@@ -25,9 +27,26 @@ Template.carrito.events({
 			pais: $("#txtPais").val(),
 			estado: $("#txtEstado").val(),
 			ciudad: $("#txtCiudad").val(),
+			telefono: $("#txtTelefono").val(),
 			fiscal: false
 		}
-		Meteor.call("insertarDireccion",direccion);
+		Meteor.call("insertarDireccion",direccion,function(error){
+				if(error)
+					Materialize.toast(error.reason,2000,'rounded');
+				else{
+					Materialize.toast("Dirección registrada con éxito.",2000,'rounded');
+					$("#txtNombreConsignatario").val("");
+					$("#txtCalle").val("");
+					$("#txtNumero").val("");
+					$("#txtColonia").val("");
+					$("#txtRFC").val("");
+					$("#txtCp").val("");
+					$("#txtPais").val("");
+					$("#txtEstado").val("");
+					$("#txtCiudad").val("");
+					$("#txtTelefono").val("");
+				}
+			});
 	}
 });
 Template.carrito.helpers({
@@ -46,7 +65,7 @@ Template.carrito.helpers({
 		return Meteor.formato.moneda2(String(iva));
 	},
 	total:function(){
-		return sub + iva;
+		return Meteor.formato.moneda2(String(sub + iva));
 	}
 });
 Template.articulo.helpers({
@@ -67,6 +86,7 @@ Template.articulo.helpers({
 });
 Template.articulo.events({
 	"click #btnEliminarCar":function(){
-		Meteor.call("deleteArtCarrito",Session.get("idU"),this.idProducto);
+		Meteor.call("deleteArtCarrito",this._id);
+		location.reload(true);
 	}
 });

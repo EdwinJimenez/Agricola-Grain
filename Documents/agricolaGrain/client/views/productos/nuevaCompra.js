@@ -1,10 +1,19 @@
+var sub = 0;
+var iva = 0;
 Template.nuevaCompra.onRendered(function(){
 	$('.collapsible').collapsible({
 	      accordion : false
 	    });
 	$("#altaGrano").hide();
 	$("#nuevaCompra").show("slow");
-});
+	sub = 0;
+	iva = 0;
+},
+$('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  })
+);
 
 Template.nuevaCompra.helpers({
 	opcionesTipo:function(){
@@ -18,6 +27,16 @@ Template.nuevaCompra.helpers({
 	},
 	detallesCompra:function(){
 		return DetCompra.find({idUsuario:Session.get("idU")});
+	},
+	subTot:function(){
+		return Meteor.formato.moneda2(String(sub));
+	},
+	iva:function(){
+		iva = sub * 0.16;
+		return Meteor.formato.moneda2(String(iva));
+	},
+	total:function(){
+		return Meteor.formato.moneda2(String(sub + iva));
 	}
 });
 
@@ -31,7 +50,6 @@ Template.nuevaCompra.events({
 		}
 		Meteor.call("insertarDetCompra",detCompra);
 	}
-	
 });
 
 Template.detCompra.events({
@@ -40,5 +58,15 @@ Template.detCompra.events({
 		var unidades = document.getElementById("txtCan"+this.producto).value;
 		var precio = document.getElementById("txtPre"+this.producto).value;
 		Meteor.call("updateDetCompra",producto,Session.get("idU"),unidades,precio);
+	},
+	"click #btnEliminar":function(){
+		Meteor.call("deleteDetCompra",this._id);
+	}
+});
+
+Template.detCompra.helpers({
+	precioAux:function(){
+		sub = sub + (parseFloat(this.precio) * parseFloat(this.unidades));
+		return this.precio;
 	}
 });

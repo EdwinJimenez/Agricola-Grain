@@ -9,10 +9,10 @@
 					<div class="collapsible-header active"><i class="material-icons">description</i>Datos generales</div>
 					<div class="collapsible-body">
 						<div class="row">
-							<div class="col">
+							<div class="col s6">
 								<h6>Tipo de compra</h6>
 								<form>
-									<div>
+									<div class="col s2">
 										<input name="group1" type="radio" id="btnNacional" />
 										<label for="btnNacional">Nacional</label>
 									</div>
@@ -22,10 +22,10 @@
 									</div>
 								</form>
 							</div>
-							<div class="col">
+							<div class="col s6">
 								<h6>Tipo de pago</h6>
 								<form action="#">
-									<div>
+									<div class="col s2">
 										<input name="group2" type="radio" id="btnDeposito" />
 										<label for="btnDeposito">Deposito</label>
 									</div>
@@ -35,13 +35,7 @@
 									</div>
 								</form>
 							</div>
-							<div class="col s8 offset-s8">
-								<div class="col s2" id="lblFecha">
-									Fecha:
-								</div>
-								<div class="col s3"><input type="date" class="datepicker" id="dateFechaInicio"></div>
-							</div>
-							<div class="col s5 offset-s1">
+							<div class="col s3">
 								<div class="input-field row">
 									<select id="selectProvedor">
 										<option value="" disabled selected>Proveedor</option>
@@ -51,7 +45,10 @@
 									</select>
 									<label>Filtrar por:</label>
 								</div> 					
-							</div>	
+							</div>
+							<div class="col s8 offset-s1">
+								<div class="col s3"><input type="date" class="datepicker" id="dateFechaInicio"></div>
+							</div>
 						</div>
 					</div>
 				</li>
@@ -66,7 +63,6 @@
 											<th data-field="text">Nombre</th>
 											<th data-field="number">Cantidad</th>
 											<th data-field="price">Precio de compra</th>
-											<th data-field="price">Importe</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -94,17 +90,9 @@
 												</div>
 											</td>
 										</tr>
-										<tr>
-											<td></td>
-											<td></td>
-											<td></td>
-											<!--Cancelar borrara toda la tabla compras-->
-											<td><p><a class="waves-effect light-green darken-1 btn" id="btnCancelarProducto">Cancelar<i class="material-icons right">done</i></a></p></td>
-											<!--Comprar generara la compra-->
-											<td><p><a class="waves-effect light-green darken-1 btn" id="btnAgregarProducto">Agregar<i class="material-icons right">done</i></a></p></td>
-										</tr>
 									</tbody>
 								</table>
+								<a class="waves-effect light-green darken-1 btn" id="btnAgregarProducto">Agregar<i class="material-icons right">done</i></a>
 							</div>
 						</div>
 					</div>
@@ -120,8 +108,6 @@
 											<th data-field="text">Nombre</th>
 											<th data-field="number">Cantidad</th>
 											<th data-field="price">Precio de compra</th>
-											<th data-field="text">Modificar</th>
-											<th data-field="text">Eliminar</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -133,21 +119,21 @@
 											<td></td>
 											<td></td>
 											<td>Subtotal</td>
-											<td>$119.28</td>
+											<td>{{subTot}}</td>
 										</tr>
 										<tr>
 											<td></td>
 											<td></td>
 											<td></td>
 											<td>IVA</td>
-											<td>$19.08</td>
+											<td>{{iva}}</td>
 										</tr>
 										<tr>
 											<td></td>
 											<td></td>
 											<td></td>
 											<td>Total</td>
-											<td>$138.36</td>
+											<td>{{total}}</td>
 										</tr>
 									</tbody>
 								</table>
@@ -179,7 +165,7 @@
 		</td>
 		<td>
 			<div class="input-field row">
-				<input id="txtPre{{producto}}" type="text" class="validate" value="{{precio}}" autofocus required>
+				<input id="txtPre{{producto}}" type="text" class="validate" value="{{precioAux}}" autofocus required>
 				<label for="txtPre{{producto}}" class="active">Precio compra</label>
 			</div>
 		</td>

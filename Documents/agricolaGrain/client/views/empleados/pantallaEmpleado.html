@@ -4,6 +4,7 @@
 		      <ul class="tabs">
 		        <li class="tab col s3"><a class="active" href="#solicitudes">Rentas</a></li>
 		        <li class="tab col s3"><a href="#bodegas">Bodegas</a></li>
+		        <li class="tab col s3"><a href="#productos">Productos</a></li>
 		        <li class="tab col s3"><a href="#compras">Granos</a></li>
 		        <li class="tab col s3"><a href="#usuarios">Usuarios</a></li>
 		        <li class="tab col s3"><a href="#proveedores">Proveedores</a></li>
@@ -39,6 +40,19 @@
 					{{> editarBodega}}
 				</div>
 			</div>
+			<!-- Opciones de Bodegas -->
+			<div id="productos" class="col s12">
+				<div id="menuOpcionesProductos">
+					<a class="waves-effect light-blue darken-2 btn" id="btnCompras">Compras<i class="material-icons right">add</i></a>
+					<a class="waves-effect amber darken-2 btn" id="btnVentas">Ventas<i class="material-icons right">local_library</i></a>
+				</div>
+				<div id="comprasGranos">
+					{{> compras}}
+				</div>
+				<div id="ventasGranos">
+					<h5>ventas</h5>
+				</div>
+			</div>
 			<!--Opciones de compras-->
 			<div id="compras" class="col s12">
 				<div id="menuOpcionesGranos">
@@ -54,12 +68,12 @@
 			</div>
 			<!--Opciones usuarios-->
 		    <div id="usuarios" class="col s12">
-				<div id="menuOpcionesUsuarios">
+				<!-- <div id="menuOpcionesUsuarios">
 					<a class="waves-effect light-green darken-1 btn" id="btnNuevoUsuario">Nuevo<i class="material-icons right">add</i></a> 
-					<!-- PARA ITERACIONES FUTURAS
+					PARA ITERACIONES FUTURAS
 					<a class="waves-effect light-green darken-1 btn" id="btnEditarUsuario">Editar<i class="material-icons right">edit</i></a>
-					<a class="waves-effect light-green darken-1 btn" id="btnEliminarUsuario">Eliminar<i class="material-icons right">delete</i></a> -->
-				</div>
+					<a class="waves-effect light-green darken-1 btn" id="btnEliminarUsuario">Eliminar<i class="material-icons right">delete</i></a> 
+				</div>-->
 				<div id="nuevoUsuario">
 					{{> registrarEmpleado}}
 				</div> 
@@ -73,12 +87,12 @@
 	  	</div>
 	  	<!--Opciones proveedores-->
 		    <div id="proveedores" class="col s12">
-				<div id="menuOpcionesProveedores">
+				<!-- <div id="menuOpcionesProveedores">
 					<a class="waves-effect light-green darken-1 btn" id="btnNuevoProveedor">Nuevo<i class="material-icons right">add</i></a> 
-					<!-- PARA ITERACIONES FUTURAS
+					PARA ITERACIONES FUTURAS
 					<a class="waves-effect light-green darken-1 btn" id="btnEditarUsuario">Editar<i class="material-icons right">edit</i></a>
-					<a class="waves-effect light-green darken-1 btn" id="btnEliminarUsuario">Eliminar<i class="material-icons right">delete</i></a> -->
-				</div>
+					<a class="waves-effect light-green darken-1 btn" id="btnEliminarUsuario">Eliminar<i class="material-icons right">delete</i></a> 
+				</div>-->
 				<div id="nuevoProveedor">
 					{{> registrarProveedor}}
 				</div> 
