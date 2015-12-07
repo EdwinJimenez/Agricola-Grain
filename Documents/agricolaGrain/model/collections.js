@@ -7,3 +7,4 @@ Tipos = new Mongo.Collection("tipoGrano",{idGeneration:'MONGO'});
 Carrito = new Mongo.Collection("carrito",{idGeneration:'MONGO'});
 Proveedores = new Mongo.Collection("proveedores",{idGeneration:'MONGO'});
 DetCompra = new Mongo.Collection("detCompraAux",{idGeneration:'MONGO'});
+DireccionesUsu = new Mongo.Collection("direccionesUsu",{idGeneration:'MONGO'});

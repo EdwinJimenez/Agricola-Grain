@@ -4,6 +4,7 @@ Template.carrito.onRendered(function(){
 	$('.modal-trigger').leanModal();
 	$('select').material_select();
 	sub = 0;
+	$("#pagoTarjeta").hide();
 });
 Template.carrito.events({
 	"click #btnAgregarDireccion":function(){
@@ -11,6 +12,22 @@ Template.carrito.events({
 	},
 	"click #btnLimpiar":function(){
 		Meteor.call("deleteCarrito",Session.get("idU"));
+	},
+	"click #btnAceptarDireccion": function(){
+		var direccion = {
+			idUsuario: Session.get("idU"),
+			nomConsig:$("#txtNombreConsignatario").val(),
+			calle: $("#txtCalle").val(),
+			numero: $("#txtNumero").val(),
+			colonia:$("#txtColonia").val(),
+			rfc: $("#txtRFC").val(),
+			codigoPostal:$("#txtCp").val(),
+			pais: $("#txtPais").val(),
+			estado: $("#txtEstado").val(),
+			ciudad: $("#txtCiudad").val(),
+			fiscal: false
+		}
+		Meteor.call("insertarDireccion",direccion);
 	}
 });
 Template.carrito.helpers({
@@ -18,8 +35,8 @@ Template.carrito.helpers({
 		return Carrito.find({idUsuario:Session.get("idU")});
 	},
 	opcionesDireccion:function(){
-		var j = Usuarios.find({Session.get("idU")},{direccionUsuario:true});
-		console.log(j);
+		return DireccionesUsu.find({idUsuario:Session.get("idU")});
+		
 	},
 	subTot:function(){
 		return Meteor.formato.moneda2(String(sub));

@@ -53,20 +53,49 @@
 	<!-- Modal Structure -->
 	<div id="modal2" class="modal bottom-sheet">
 		<div class="modal-content">
-			<h4>Ingrese los siguientes datos</h4>
+			<h4>Seleccione los siguientes datos</h4>
 			<p>
-				<div class="input-field row">
-					<input id="txtTarjeta" type="text" class="validate">
-					<label for="txtTarjeta">Número de tarjeta</label>
-				</div> 
-				<div class="input-field row">
-					<input id="txtNip" type="password" class="validate">
-					<label for="txtNip">NIP</label>
+				<div class="col">
+					<h6>Tipo de compra</h6>
+					<form>
+						<div>
+							<input name="group1" type="radio" id="btnNacional" />
+							<label for="btnNacional">Nacional</label>
+						</div>
+						<div>
+							<input name="group1" type="radio" id="btnExtranjero" />
+							<label for="btnExtranjero">Extranjero</label>
+						</div>
+					</form>
+				</div>
+				<div class="col">
+					<h6>Tipo de pago</h6>
+					<form action="#">
+						<div>
+							<input name="group2" type="radio" id="btnDeposito" />
+							<label for="btnDeposito">Deposito</label>
+						</div>
+						<div>
+							<input name="group2" type="radio" id="btnTarjeta" />
+							<label for="btnTarjeta">Tarjeta</label>
+						</div>
+					</form>
 				</div>
 			</p>
 		</div>
 		<div class="modal-footer">
 			<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+		</div>
+	</div>
+	<div id="pagoTarjeta">
+		<h4>Ingrese los siguientes datos</h4>
+		<div class="input-field row">
+			<input id="txtTarjeta" type="text" class="validate">
+			<label for="txtTarjeta">Número de tarjeta</label>
+		</div> 
+		<div class="input-field row">
+			<input id="txtNip" type="password" class="validate">
+			<label for="txtNip">NIP</label>
 		</div>
 	</div>
 	<!-- Modal Structure -->
@@ -78,7 +107,7 @@
 					<select>
 						<option value="" disabled selected>Elija una opción porfavor.</option>
 						{{#each opcionesDireccion}}
-						<option value="2">Alvaro Obregon S/N Culiacan</option>
+						<option value="2">{{calle}} {{numero}} {{colonia}}</option>
 						{{/each}}
 					</select>
 					<label>Dirección de envio:</label>

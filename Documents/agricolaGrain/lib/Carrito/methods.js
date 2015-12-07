@@ -10,5 +10,8 @@ Meteor.methods({
 	},
 	deleteCarrito:function(idUsu){
 		Carrito.remove({idUsuario:idUsu});
+	},
+	insertDireccion:function(idUsuario,calle,num,col,pais,estado,ciudad,nombreconsig,cp,tel){
+		db.Usuarios.update({ usuario: "judi" },{ $push: {calle:"pro",numero:"pro",colonia:"pro",pais:"pro",ciudad:"pro",nombreconsig:"pro",codigoPostal:"no",telefono:"nose" } })
 	}
 });

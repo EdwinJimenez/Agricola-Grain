@@ -3,6 +3,7 @@
 		    <div class="col s12">
 		      <ul class="tabs noImprimir">
 		        <li id="Rentas" class="tab col s3"><a class="active" href="#solicitudes">Rentas</a></li>
+		        <li id="Compras" class="tab col s3"><a class="active" href="#comprasGranos">Compras</a></li>
 		        <li class="tab col s3"><a href="#productos">Productos</a></li>
 		        <li class="tab col s3 disabled"><a href="#datosUsuario">Editar datos</a></li>
 		        <li class="tab col s3"><a href="#salir">Salir</a></li>
@@ -21,10 +22,15 @@
 					{{> rentas}}
 				</div>
 		    </div>
+		     <div id="comprasGranos">
+		    	<div id="Comras">
+		    		{{> compras}}
+		    	</div>
+		    </div>
 		    <div id="productos">
 		    	<div id="menuOpcionesSolicitudes">
 					<a class="waves-effect light-blue darken-2 btn" id="btnBodegas">Bodegas<i class="material-icons right">info_outline</i></a>
-					<a class="waves-effect light-blue darken-2 btn" id="btnProductos">Productos<i class="material-icons right">info_outline</i></a>
+					<a class="waves-effect light-blue darken-2 btn" id="btnProductos">Granos<i class="material-icons right">info_outline</i></a>
 				</div>
 		    	<div id="Bodegas">
 		    		{{> catBodegasCliente}}

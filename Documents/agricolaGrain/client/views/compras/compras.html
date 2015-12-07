@@ -1,0 +1,56 @@
+<template name="rentas">
+      <form class="col s12 card-panel green lighten-5" id="verComentarios">
+      <ul class="collapsible popout" data-collapsible="expandable">
+        {{#each Rentas}}
+          {{> Renta}}
+        {{/each}}
+    </ul>
+        </form>
+</template>
+
+<template name="Encabezado">
+  <div class="collapsible-header"><i class="material-icons">comment</i>
+    {{nombre}}
+  </div>
+</template>
+
+<template name="Renta">
+  <li>
+            {{#each Encabezados}}
+              {{> Encabezado}}
+            {{/each}}
+            <div class="collapsible-body">
+            <div class="row">
+              <p class="col s4">Inicio de contrato:</p>
+            <div class="col s2">
+              {{convFechaIni}}
+            </div>
+            <p class="col s4">Fin de contrato:</p>
+            <div class="col s2">
+              {{convFechaFin}}
+            </div>
+            <p class="col s4">Duración de contrato:</p>
+            <div class="col s2">
+              {{duracion}} Meses
+            </div>
+
+            <p class="col s4">Importe total:</p>
+            <div class="col s2">
+              {{importe}} Pesos
+            </div>
+            <p class="col s12">Comentarios:</p>
+            <div class="col s12">
+              {{comentarios}}
+            </div>
+            </div>
+              {{#if esEmpleado}}
+                {{#if esPendiente}}
+                <a class="waves-effect light-red darken-1 btn" id="btnAtendido">Atendido<i class="material-icons right"></i></a>
+                {{/if}}
+                {{#if esEnProceso}}
+                <a class="waves-effect light-red darken-1 btn" id="btnLiberar">Liberar<i class="material-icons right"></i></a>
+                {{/if}}
+              {{/if}}
+            </div>
+        </li>
+</template>

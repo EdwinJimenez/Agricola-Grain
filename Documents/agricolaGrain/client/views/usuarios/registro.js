@@ -11,8 +11,19 @@
 					telefono: $("#txtTelefono").val(),
 					estatus: "A",
 					esEmpleado: false,
-					direccionUsuario: [
-						{
+					fechaCreacion: new Date()
+				}
+				
+				Meteor.call('insertarUsuario',usuario,function (error,result) {
+					if (error)
+					{
+						Materialize.toast(error.reason, 2000, 'rounded');
+					}
+					else
+					{
+						console.log(result);
+						var	direccionUsuario = {
+							idUsuario : result,
 							calle: $("#txtCalle").val(),
 							numero: $("#txtNumero").val(),
 							colonia:$("#txtColonia").val(),
@@ -22,16 +33,13 @@
 							ciudad: $("#txtCiudad").val(),
 							fiscal: true
 						}
-					],
-					fechaCreacion: new Date()
-				}
-				Meteor.call('insertarUsuario',usuario,function (error) {
-					if (error)
-					{
-						Materialize.toast(error.reason, 2000, 'rounded');
-					}
-					else
-					{
+						Meteor.call('insertarDireccion',direccionUsuario,function (error){
+							if (error)
+							{
+
+								Materialize.toast(error.reason, 2000, 'rounded');
+							}
+						});
 					    Materialize.toast('Gracias por registrarse.', 2000,'rounded');
 						$(":text").each(function(){	
 							$($(this)).val('');
@@ -42,6 +50,7 @@
 						$("#txtNumero").val("");
 					}
 				});
+				
 			}
 		}
 	});	
