@@ -10,6 +10,9 @@ Template.layout.helpers({
 	},
 	esEmp:function(){
 		return Session.get("esEmpleado");
+	},
+	ArtCarrito:function(){
+		return Carrito.find({idUsuario:Session.get("idU")}).count();
 	}
 });
 Template.layout.events({

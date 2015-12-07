@@ -1,0 +1,15 @@
+
+		console.log("Prueba compra");
+		var compra = new Compra();
+		compra.introducirFormaPago("T");
+		compra.setFecha("20151206");
+		compra.setEsImportacion(true);
+		var granos = Meteor.call("obtenerGranos");
+		console.log(granos);
+		granos.forEach(function(grano){
+			compra.introducirGrano(grano._id, 13, 30);
+		});
+		compra.pagoCompra(compra.getTotal());
+		console.log(compra);
+		compra.actualizaInventario();
+		compra.setEsCompletado(true);

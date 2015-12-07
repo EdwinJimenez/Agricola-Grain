@@ -1,0 +1,14 @@
+Meteor.methods({
+	insertarCarrito:function(carrito){
+		Carrito.insert(carrito);
+	},
+	updateUniCarrito:function(idUsu,idProd,uniNuevas){
+		Carrito.update({idUsuario:idUsu,idProducto:idProd},{$set:{unidades:uniNuevas}});
+	},
+	deleteArtCarrito:function(idUsu,idProd){
+		Carrito.remove({idUsuario:idUsu,idProducto:idProd});
+	},
+	deleteCarrito:function(idUsu){
+		Carrito.remove({idUsuario:idUsu});
+	}
+});

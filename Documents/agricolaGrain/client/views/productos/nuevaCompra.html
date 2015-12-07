@@ -1,161 +1,197 @@
 <template name="nuevaCompra">
 	<section id="registroBodegas">
-    	<form class="col s12 card-panel green lighten-5" id="altaBodegas" name="frmAltaBodegas">
-		  <ul class="collapsible popout" data-collapsible="expandable">
-		  	<li>
-		  		<h3>Nueva Compra</h3>
-		  	</li>
-		    <li>
-		      <div class="collapsible-header active"><i class="material-icons">description</i>Datos generales</div>
-		      	<div class="collapsible-body">
-		      		<div class="row">
-		      			<div class="col s4 offset-s8">
-							<div class="input-field row">
-			                    <input id="txtFecha" type="text" class="validate" autofocus required>
-			                    <label for="txtFecha">Fecha</label>
-		                    </div> 					
-		 				</div>
-		 				<div class="col s5 offset-s1">
-							<div class="input-field row">
-			                    <input id="txtProveedor" type="text" class="validate" required>
-			                    <label for="txtProveedor">Proveedor</label>
-		                    </div> 					
-		 				</div>	
-		 				<div class="col s5 offset-s1">
-							<div class="input-field row">
-			                    <input id="txtComentarios" type="text" class="validate" required>
-			                    <label for="txtComentarios">Comentarios</label>
-		                    </div> 					
-		 				</div>
-		      		</div>
-		 		 </div>
-		    </li>
-	    	<li>
-		      <div class="collapsible-header active"><i class="material-icons">list</i>Detalle Compra</div>
-		      <div class="collapsible-body">
-		      	<div class="row">
-		<div class="col s10 offset-s1">
-			<table class="">
-				<thead>
-					<tr>
-						<th data-field="number">Producto</th>
-						<th data-field="text">Descripción</th>
-						<th data-field="number">Cantidad</th>
-						<th data-field="price">Precio de compra</th>
-						<th data-field="price">Importe</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>
-							<div class="input-field row">
-			                    <input id="txtCodigo" type="text" class="validate" autofocus required>
-			                    <label for="txtCodigo">Codigo</label>
-		                    </div> 					
-		 				</td>
-		 				<td>Frijol</td>
-						<td>
-							<div class="input-field row">
-			                    <input id="txtCantidad" type="number" class="validate" autofocus required>
-			                    <label for="txtCantidad">Cantidad</label>
-			                </div>
-			            </td>
-						<td>
-							<div class="input-field row">
-			                    <input id="txtPrecioCompra" type="text" class="validate" autofocus required>
-			                    <label for="txtPrecioCompra">Precio compra</label>
+		<form class="col s12 card-panel green lighten-5" id="altaBodegas" name="frmAltaBodegas">
+			<ul class="collapsible popout" data-collapsible="expandable">
+				<li>
+					<h3>Nueva Compra</h3>
+				</li>
+				<li>
+					<div class="collapsible-header active"><i class="material-icons">description</i>Datos generales</div>
+					<div class="collapsible-body">
+						<div class="row">
+							<div class="col">
+								<h6>Tipo de compra</h6>
+								<form>
+									<div>
+										<input name="group1" type="radio" id="btnNacional" />
+										<label for="btnNacional">Nacional</label>
+									</div>
+									<div>
+										<input name="group1" type="radio" id="btnExtranjero" />
+										<label for="btnExtranjero">Extranjero</label>
+									</div>
+								</form>
 							</div>
-			                </td>
-
-						<td>$80.00</td>
-						
-					</tr>
-					<tr>
-						<td>
-							<div class="input-field row">
-			                    <input id="txtCodigo" type="text" class="validate" autofocus required>
-			                    <label for="txtCodigo">Codigo</label>
-		                    </div> 					
-		 				</td>
-		 				<td>Maíz</td>
-						<td>
-							<div class="input-field row">
-			                    <input id="txtCantidad" type="number" class="validate" autofocus required>
-			                    <label for="txtCantidad">Cantidad</label>
-			                </div>
-			            </td>
-						<td>
-							<div class="input-field row">
-			                    <input id="txtPrecioCompra" type="text" class="validate" autofocus required>
-			                    <label for="txtPrecioCompra">Precio compra</label>
+							<div class="col">
+								<h6>Tipo de pago</h6>
+								<form action="#">
+									<div>
+										<input name="group2" type="radio" id="btnDeposito" />
+										<label for="btnDeposito">Deposito</label>
+									</div>
+									<div>
+										<input name="group2" type="radio" id="btnTarjeta" />
+										<label for="btnTarjeta">Tarjeta</label>
+									</div>
+								</form>
 							</div>
-			                </td>
-
-						<td>$80.00</td>
-						
-					</tr>
-					<tr>
-						<td>
-							<div class="input-field row">
-			                    <input id="txtCodigo" type="text" class="validate" autofocus required>
-			                    <label for="txtCodigo">Codigo</label>
-		                    </div> 					
-		 				</td>
-		 				<td>Sorgo</td>
-						<td>
-							<div class="input-field row">
-			                    <input id="txtCantidad" type="number" class="validate" autofocus required>
-			                    <label for="txtCantidad">Cantidad</label>
-			                </div>
-			            </td>
-						<td>
-							<div class="input-field row">
-			                    <input id="txtPrecioCompra" type="text" class="validate" autofocus required>
-			                    <label for="txtPrecioCompra">Precio compra</label>
+							<div class="col s8 offset-s8">
+								<div class="col s2" id="lblFecha">
+									Fecha:
+								</div>
+								<div class="col s3"><input type="date" class="datepicker" id="dateFechaInicio"></div>
 							</div>
-			                </td>
+							<div class="col s5 offset-s1">
+								<div class="input-field row">
+									<select id="selectProvedor">
+										<option value="" disabled selected>Proveedor</option>
+										{{#each opcionesProveedor}}
+										<option value="{{_id}}">{{nombre}}</option>
+										{{/each}}
+									</select>
+									<label>Filtrar por:</label>
+								</div> 					
+							</div>	
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="collapsible-header active"><i class="material-icons">list</i>Agregar granos</div>
+					<div class="collapsible-body">
+						<div class="row">
+							<div class="col s10 offset-s1">
+								<table class="">
+									<thead>
+										<tr>
+											<th data-field="text">Nombre</th>
+											<th data-field="number">Cantidad</th>
+											<th data-field="price">Precio de compra</th>
+											<th data-field="price">Importe</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>
+												<div class="input-field row">									<select id="selectNombre">
+														<option value="" disabled selected>Grano</option>
+														{{#each opcionesNombre}}
+															<option value="{{nombre}}">{{nombre}}</option>
+														{{/each}}
+													</select>
+													<label>Filtrar por:</label>
+												</div> 	
+											</td>
+											<td>
+												<div class="input-field row">
+													<input id="txtCantidad" type="number" class="validate" autofocus required>
+													<label for="txtCantidad">Cantidad</label>
+												</div>
+											</td>
+											<td>
+												<div class="input-field row">
+													<input id="txtPrecioCompra" type="text" class="validate" autofocus required>
+													<label for="txtPrecioCompra">Precio compra</label>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td></td>
+											<td></td>
+											<td></td>
+											<!--Cancelar borrara toda la tabla compras-->
+											<td><p><a class="waves-effect light-green darken-1 btn" id="btnCancelarProducto">Cancelar<i class="material-icons right">done</i></a></p></td>
+											<!--Comprar generara la compra-->
+											<td><p><a class="waves-effect light-green darken-1 btn" id="btnAgregarProducto">Agregar<i class="material-icons right">done</i></a></p></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="collapsible-header active"><i class="material-icons">list</i>Detalle Compra</div>
+					<div class="collapsible-body">
+						<div class="row">
+							<div class="col s10 offset-s1">
+								<table class="">
+									<thead>
+										<tr>
+											<th data-field="text">Nombre</th>
+											<th data-field="number">Cantidad</th>
+											<th data-field="price">Precio de compra</th>
+											<th data-field="text">Modificar</th>
+											<th data-field="text">Eliminar</th>
+										</tr>
+									</thead>
+									<tbody>
+										{{#each detallesCompra}}
+										{{> detCompra}}
+										{{/each}}
+										<tr>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td>Subtotal</td>
+											<td>$119.28</td>
+										</tr>
+										<tr>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td>IVA</td>
+											<td>$19.08</td>
+										</tr>
+										<tr>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td>Total</td>
+											<td>$138.36</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<a class="waves-effect light-green darken-1 btn" id="btnRegistrarCompra">Registrar<i class="material-icons right">done</i></a>
+		</form>
+	</section>
+</template>
 
-						<td>$80.00</td>
-						
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td>Subtotal</td>
-						<td>$119.28</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td>IVA</td>
-						<td>$19.08</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td>Total</td>
-						<td>$138.36</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<!--Cancelar borrara toda la tabla compras-->
-						<td><p><a class="waves-effect light-green darken-1 btn" id="btnAgregarProducto">Cancelar<i class="material-icons right">done</i></a></p></td>
-						<!--Comprar generara la compra-->
-						<td><p><a class="waves-effect light-green darken-1 btn" id="btnAgregarProducto">Agregar<i class="material-icons right">done</i></a></p></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
-		      </div>
-	    </li>
-	  </ul>
- 			<a class="waves-effect light-green darken-1 btn" id="btnRegistrarCompra">Registrar<i class="material-icons right">done</i></a>
-        </form>
-      </section>
+
+
+<template name="detCompra">
+	<tr>
+		<td>
+			<div class="input-field row">									
+				<input id="txtNom{{producto}}" type="text" class="validate" value="{{producto}}" autofocus required disabled>
+				<label for="txtNom{{producto}}" class="active">Nombre</label>
+			</div> 	
+		</td>
+		<td>
+			<div class="input-field row">
+				<input id="txtCan{{producto}}" type="number" class="validate" value="{{unidades}}" autofocus required>
+				<label for="txtCan{{producto}}" class="active">Cantidad</label>
+			</div>
+		</td>
+		<td>
+			<div class="input-field row">
+				<input id="txtPre{{producto}}" type="text" class="validate" value="{{precio}}" autofocus required>
+				<label for="txtPre{{producto}}" class="active">Precio compra</label>
+			</div>
+		</td>
+		<td>
+			<div class="input-field row">
+				<p><a class="btn-floating btn-small waves-effect waves-light orange" id="btnEditar"><i class="material-icons">edit</i></a></p>
+			</div>
+		</td>
+		<td>
+			<div class="input-field row">
+				<p><a class="btn-floating btn-small waves-effect waves-light red" id="btnEliminar"><i class="material-icons">delete</i></a></p>
+			</div>
+		</td>
+	</tr>
 </template>

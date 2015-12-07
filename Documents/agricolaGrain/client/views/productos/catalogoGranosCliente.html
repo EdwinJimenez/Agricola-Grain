@@ -1,29 +1,29 @@
-<template name="catalogoGranos">
+<template name="catalogoGranosCliente">
 	<div class="row">
 		<div class="granos">
 			<div class="input-field col s6 offset-s6">
 				<select>
 					<option value="" disabled selected>Elija una opción porfavor.</option>
 					{{#each opciones}}
-					{{> opcion}}
+						{{> opcionCliente}}
 					{{/each}}
 				</select>
 				<label>Filtrar por:</label>
 			</div>
 			<div class="row">
 				{{#each productos}}
-				{{> producto}}
+					{{> productoCliente}}
 				{{/each}} 
 			</div>
 		</div>
-	</div> 
+	</div>
 </template>
 
-<template name="opcion">
+<template name="opcionCliente">
 	<option value="{{nombre}}">{{nombre}}</option>
 </template>
 
-<template name="producto">
+<template name="productoCliente">
 	<div class="col s3">
 		<div class="card small">
 			<div class="card-image waves-effect waves-block waves-light">
@@ -31,6 +31,9 @@
 			</div>
 			<div class="card-content">
 				<span class="card-title activator grey-text text-darken-4">{{nombre}}<i class="material-icons right">more_vert</i></span>
+					<p><input id="txtToneladas{{nombre}}" type="number" class="validate col s4">
+					<a class="waves-effect light-green darken-1 btn col s6" id="btnAgregar">Agregar<i class="material-icons right">shopping_cart</i></a>
+				</p>
 			</div>
 			<div class="card-reveal">
 				<span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{precioConFormato}}</span>
