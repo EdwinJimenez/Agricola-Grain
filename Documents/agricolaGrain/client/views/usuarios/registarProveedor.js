@@ -1,5 +1,7 @@
 Template.registrarProveedor.events({
 	"click #btnRegistrarProveedor": function(){
+		if(Meteor.validaciones.validarVacios(frmRegistrarProveedor)&&Meteor.validaciones.validarEmail(frmRegistrarProveedor)&&Meteor.validaciones.validarTelefono(frmRegistrarProveedor))
+		{
 		var proveedor = {
 			nombre: $("#txtNombreP").val(),
 			correo: $("#txtCorreoP").val(),
@@ -18,7 +20,7 @@ Template.registrarProveedor.events({
 			if(error)
 				Materialize.toast(error.reason,2000,'rounded');
 			else{
-				Materialize.toast("proveedor registrado con éxito.",2000,'rounded');
+				Materialize.toast("Proveedor registrado con éxito.",2000,'rounded');
 				$("#txtNombreP").val("");
 				$("#txtCorreoP").val(""),
 				$("#txtTelefonoP").val(""),
@@ -31,5 +33,6 @@ Template.registrarProveedor.events({
 				$("#txtCiudadP").val("")
 			}
 		});
+	}
 	}
 });
