@@ -7,10 +7,16 @@ Template.altaGrano.events({
 	"click #btnRegistrarGrano": function(){
 		var tipo = Tipos.find({nombre:$("#tipoGrano").val()}).fetch();
 		if(tipo.length==0){
-			Materialize.toast("Seleccione el tipo de grano!!",2000,'rounded');
+			Materialize.toast("Seleccione el tipo de grano.",2000,'rounded');
 			return;
 		}
-
+		if($("#txtPrecioVenta").val()=="")
+		{
+			Materialize.toast("Ingrese un precio de venta.",2000,'rounded');
+			return;
+		}
+		if(Meteor.validaciones.validarVacios(frmAltaGrano)&&Meteor.validaciones.validarDecimales(frmAltaBodegas))
+		{
 		var grano = {
 			clave:"Clave portillo",
 			nombre: $("#txtNombreGrano").val(),
@@ -20,6 +26,7 @@ Template.altaGrano.events({
 			descripcion: $("#txtDescripcionGrano").val(),
 			idTipo: tipo[0]._id,
 			imagen: "img/"+$("#tipoGrano").val()+".png"
+
 		}
 		Meteor.call("InsertGrano",grano,function(error){
 			if(error)
@@ -33,5 +40,6 @@ Template.altaGrano.events({
 				$("#tipoGrano").value("")
 			}
 		});
+	}
 	}
 });

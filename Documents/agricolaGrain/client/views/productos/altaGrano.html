@@ -1,6 +1,6 @@
 <template name="altaGrano">
 	<section id="registroBodegas">
-		<form class="col s12 card-panel green lighten-5" id="altaBodegas" name="frmAltaBodegas">
+		<form class="col s12 card-panel green lighten-5" id="altaBodegas" name="frmAltaGrano">
 			<ul class="collapsible popout" data-collapsible="expandable">
 				<li>
 					<h3>Alta Grano</h3>
@@ -17,7 +17,7 @@
 							</div>
 							<div class="col s5 offset-s1">
 								<div class="input-field row">
-									<input id="txtPrecioVenta" type="text" class="validate" required>
+									<input id="txtPrecioVenta" type="number" class="validate" required pattern="[0-9]">
 									<label for="txtPrecioVenta">Precio de Venta</label>
 								</div> 					
 							</div>
