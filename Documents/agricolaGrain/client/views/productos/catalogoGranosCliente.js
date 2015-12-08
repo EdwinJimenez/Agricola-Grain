@@ -18,9 +18,9 @@ Template.productoCliente.helpers({
 });
 Template.productoCliente.events({
 	"click #btnAgregar": function(){
-		if("#txtToneladas".value=="")
+		if($("#txtToneladas").val(""))
 		{
-			console.log("no toneladas");
+			Materialize.toast("Ingrese porfavor un número de toneladas.",2000,'rounded');
 		}
 		else
 		{

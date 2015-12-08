@@ -17,7 +17,7 @@
 			</div>
 			<div class="card-content">
 				<span class="card-title activator grey-text text-darken-4">{{nombre}}<i class="material-icons right">more_vert</i></span>
-					<p><input id="txtToneladas{{nombre}}" type="number" class="validate col s4">
+					<p><input id="txtToneladas{{nombre}}" type="number" min="1" class="validate col s4" value="1" required pattern="[0-9]">
 					<a class="waves-effect light-green darken-1 btn col s6" id="btnAgregar">Agregar<i class="material-icons right">shopping_cart</i></a>
 				</p>
 			</div>

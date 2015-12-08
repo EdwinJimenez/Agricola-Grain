@@ -99,7 +99,7 @@ Template.carrito.helpers({
 	},
 	iva:function(){
 		iva = sub * 0.16;
-		return Meteor.formato.moneda2(String(iva));
+		return Meteor.formato.moneda2(String(iva.toFixed(2)));
 	},
 	total:function(){
 		return Meteor.formato.moneda2(String(sub + iva));
