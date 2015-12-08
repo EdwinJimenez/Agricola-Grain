@@ -54,11 +54,11 @@
 	<div id="modal2" class="modal bottom-sheet">
 		<div class="modal-content">
 			<h4>Seleccione los siguientes datos</h4>
-			<p>
-				<div class="col">
+			<div class="row">
+				<div class="col s6">
 					<h6>Tipo de compra</h6>
 					<form>
-						<div>
+						<div class="col s2">
 							<input name="group1" type="radio" id="btnNacional" />
 							<label for="btnNacional">Nacional</label>
 						</div>
@@ -68,10 +68,9 @@
 						</div>
 					</form>
 				</div>
-				<div class="col">
+				<div class="col s6">
 					<h6>Tipo de pago</h6>
-					<form action="#">
-						<div>
+						<div class="col s2">
 							<input name="group2" type="radio" id="btnDeposito" />
 							<label for="btnDeposito">Deposito</label>
 						</div>
@@ -79,12 +78,11 @@
 							<input name="group2" type="radio" id="btnTarjeta" />
 							<label for="btnTarjeta">Tarjeta</label>
 						</div>
-					</form>
 				</div>
-			</p>
+			</div>
 		</div>
 		<div class="modal-footer">
-			<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+			<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id="btnAceptarDireccionEnvio">Aceptar</a>
 		</div>
 	</div>
 	<div id="pagoTarjeta">

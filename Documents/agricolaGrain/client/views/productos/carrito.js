@@ -1,5 +1,6 @@
 var sub = 0;
 var iva = 0;
+var banderaDireccion=false;
 Template.carrito.onRendered(function(){
 	$('.modal-trigger').leanModal();
 	$('select').material_select();
@@ -10,6 +11,14 @@ Template.carrito.onRendered(function(){
 Template.carrito.events({
 	"click #btnAgregarDireccion":function(){
 		$("#nuevaDireccion").show("slow");
+	},
+	"click #btnComprar":function(){
+		if(banderaDireccion==false)
+			console.log("Ingrese la dirección porfavor.");
+	},
+		"click #btnAceptarDireccionEnvio":function(){
+		banderaDireccion=true;
+		console.log("Bandera Direccion"+banderaDireccion);
 	},
 	"click #btnLimpiar":function(){
 		Meteor.call("deleteCarrito",Session.get("idU"));
@@ -62,7 +71,7 @@ Template.carrito.helpers({
 	},
 	iva:function(){
 		iva = sub * 0.16;
-		return Meteor.formato.moneda2(String(iva));
+		return Meteor.formato.moneda2(String(iva.toFixed(2)));
 	},
 	total:function(){
 		return Meteor.formato.moneda2(String(sub + iva));

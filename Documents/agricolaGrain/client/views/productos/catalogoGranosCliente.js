@@ -18,6 +18,12 @@ Template.productoCliente.helpers({
 });
 Template.productoCliente.events({
 	"click #btnAgregar": function(){
+		if("#txtToneladas".value=="")
+		{
+			console.log("no toneladas");
+		}
+		else
+		{
 		uniNuevas = document.getElementById("txtToneladas"+this.nombre).value;
 		document.getElementById("txtToneladas"+this.nombre).value="";
 		var uni = Carrito.find({idProducto:this._id,idUsuario:Session.get("idU")},{unidades:true}).fetch();
@@ -47,5 +53,6 @@ Template.productoCliente.events({
 			}
 		});
 		
+	}
 	}
 });

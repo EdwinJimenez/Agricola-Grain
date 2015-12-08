@@ -9,8 +9,7 @@ Template.acceder.events({
 			{
 				var usuario=$("#txtUsuario").val();
 				var contraseña=CryptoJS.MD5($("#txtContraseña").val()).toString();
-				console.log(CryptoJS.MD5($("#txtContraseña").val()).toString());
-					var u = Usuarios.find({usuario:usuario,contraseña:contraseña},{usuario:true,esEmpleado:true}).fetch();
+				var u = Usuarios.find({usuario:usuario,contraseña:contraseña},{usuario:true,esEmpleado:true}).fetch();
 					if(u.length==0)
 					{
 						Materialize.toast("Usuario o contraseña incorrectos.",2000,'rounded');
