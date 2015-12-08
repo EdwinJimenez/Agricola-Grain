@@ -84,6 +84,12 @@ Template.nuevaCompra.events({
 			Materialize.toast("No tiene productos para comprar!",2000,'rounded');
 			return;
 		}
+	},
+	"change #dateFechaCompra":function(){
+		console.log(new Date($("#dateFechaCompra").val()));
+	},
+	"change #selectProveedor":function(){
+		console.log($("#selectProveedor").val());
 	}
 });
 
