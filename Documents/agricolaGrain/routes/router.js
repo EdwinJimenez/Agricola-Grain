@@ -11,6 +11,8 @@ Router.route('/registrarme',{name: 'registro'});
 Router.route('/frijol',{name:'frijol'});
 Router.route('/catalogoGranos',{name:'catalogoGranos'});
 Router.route('/carrito',{name:'carrito'});
+Router.route('/productos',{name:'productos'});
+
 
 /*PANTALLAS DE USUARIO Y EMPLEADO*/
 Router.route('/94e74b909567e6d814df',{name:'pantallaEmpleado'});
