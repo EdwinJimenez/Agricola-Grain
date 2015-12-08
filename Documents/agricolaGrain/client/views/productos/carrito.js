@@ -6,6 +6,15 @@ Template.carrito.onRendered(function(){
 	sub = 0;
 	iva = 0;
 	$("#pagoTarjeta").hide();
+	var detCarrito = Carrito.find({idUsuario:Session.get("idU")}).fetch();
+	if(detCarrito.length!=0){
+		for(var i=0; i<detCarrito.length; i++)
+		{
+			detCarrito[i].idProducto;
+			detCarrito[i].unidades;
+			console.log("Entro");
+		} 	
+	}
 });
 Template.carrito.events({
 	"click #btnAgregarDireccion":function(){
@@ -84,6 +93,9 @@ Template.carrito.events({
 					fVenta;
 				}
 		});
+	},
+	"change #direccionEnvio": function(){
+		console.log($("#direccionEnvio").val());
 	}
 });
 Template.carrito.helpers({

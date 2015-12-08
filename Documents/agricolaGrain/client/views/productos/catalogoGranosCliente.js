@@ -18,7 +18,7 @@ Template.productoCliente.helpers({
 });
 Template.productoCliente.events({
 	"click #btnAgregar": function(){
-		if($("#txtToneladas").val(""))
+		if(document.getElementById("txtToneladas"+this.nombre).value=="")
 		{
 			Materialize.toast("Ingrese porfavor un número de toneladas.",2000,'rounded');
 		}
