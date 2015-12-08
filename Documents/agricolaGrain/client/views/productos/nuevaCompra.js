@@ -51,32 +51,39 @@ Template.nuevaCompra.events({
 		Meteor.call("insertarDetCompra",detCompra);
 	},
 	"click #btnRegistrarCompra":function(){
-		var tCompra;
-		var tPago;
-		var idProv;
-		if(document.getElementById("rdoNacional").checked)
-			tCompra = "N";
-		else
-			tCompra = "E";
-
-		if(document.getElementById("rdoDeposito").checked)
-			tPago = "D";
-		else
-			tPago = "TR";
-
-		idProv = $("#selectProveedor").val();
-
-		var fecha = new Date($("#dateFechaCompra").val());
-
 		var dc = DetCompra.find({idUsuario:Session.get("idU")}).fetch();
-		for(var i=0; i<dc.length; i++)
-		{
-			dc[i].producto;
-			dc[i].unidades;
-			dc[i].precio;
-		} 
+		if(dc.length!=0){
+			var tCompra;
+			var tPago;
+			var idProv;
+			if(document.getElementById("rdoNacional").checked)
+				tCompra = "N";
+			else
+				tCompra = "E";
 
+			if(document.getElementById("rdoDeposito").checked)
+				tPago = "D";
+			else
+				tPago = "TR";
 
+			idProv = $("#selectProveedor").val();
+			if(idProv==null || $("#dateFechaCompra").val()==""){
+				Materialize.toast("Asegurece de seleccionar un proveedor y fecha, porfavor!",2000,'rounded');
+				return;
+			}
+			var fecha = new Date($("#dateFechaCompra").val());
+			
+			console.log(fecha);
+			for(var i=0; i<dc.length; i++)
+			{
+				dc[i].producto;
+				dc[i].unidades;
+				dc[i].precio;
+			} 
+		}else{
+			Materialize.toast("No tiene productos para comprar!",2000,'rounded');
+			return;
+		}
 	}
 });
 
