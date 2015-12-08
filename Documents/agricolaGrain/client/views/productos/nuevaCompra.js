@@ -49,6 +49,34 @@ Template.nuevaCompra.events({
 			precio:$("#txtPrecioCompra").val()
 		}
 		Meteor.call("insertarDetCompra",detCompra);
+	},
+	"click #btnRegistrarCompra":function(){
+		var tCompra;
+		var tPago;
+		var idProv;
+		if(document.getElementById("rdoNacional").checked)
+			tCompra = "N";
+		else
+			tCompra = "E";
+
+		if(document.getElementById("rdoDeposito").checked)
+			tPago = "D";
+		else
+			tPago = "TR";
+
+		idProv = $("#selectProveedor").val();
+
+		var fecha = new Date($("#dateFechaCompra").val());
+
+		var dc = DetCompra.find({idUsuario:Session.get("idU")}).fetch();
+		for(var i=0; i<dc.length; i++)
+		{
+			dc[i].producto;
+			dc[i].unidades;
+			dc[i].precio;
+		} 
+
+
 	}
 });
 

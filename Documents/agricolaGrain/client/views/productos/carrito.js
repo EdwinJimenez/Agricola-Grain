@@ -1,6 +1,5 @@
 var sub = 0;
 var iva = 0;
-var banderaDireccion=false;
 Template.carrito.onRendered(function(){
 	$('.modal-trigger').leanModal();
 	$('select').material_select();
@@ -12,17 +11,13 @@ Template.carrito.events({
 	"click #btnAgregarDireccion":function(){
 		$("#nuevaDireccion").show("slow");
 	},
-	"click #btnComprar":function(){
-		if(banderaDireccion==false)
-			console.log("Ingrese la dirección porfavor.");
-	},
-		"click #btnAceptarDireccionEnvio":function(){
-		banderaDireccion=true;
-		console.log("Bandera Direccion"+banderaDireccion);
-	},
 	"click #btnLimpiar":function(){
 		Meteor.call("deleteCarrito",Session.get("idU"));
 		location.reload(true);
+	},
+		"click #btnAceptarCompra":function(){
+		$('#modal2').closeModal();
+		console.log("evento");
 	},
 	"click #btnAceptarDireccion": function(){
 		var direccion = {
@@ -56,6 +51,39 @@ Template.carrito.events({
 					$("#txtTelefono").val("");
 				}
 			});
+	},
+	"click #btnAceptarCompra":function(){
+		var tCompra;
+		var tPago;
+		var idDireccion;
+
+		if(document.getElementById("rdoNacional").checked)
+			tCompra = "N";
+		else
+			tCompra = "E";
+
+		if(document.getElementById("rdoDeposito").checked)
+			tPago = "D";
+		else
+			tPago = "T";
+
+		//Direccion de envio(ID)
+		idDireccion = document.getElementById("direccionEnvio").value;
+		//Detalle de la venta
+		var dv = Carrito.find({idUsuario:Session.get("idU")}).fetch();
+		for(var i=0; i<dv.length; i++)
+		{
+			dv[i].idProducto;
+			dv[i].unidades;
+		} 
+		//Folios
+		Meteor.call("obtenSigFolio","V",function(error,fVenta){
+				if(error)
+					Materialize.toast(error.reason,2000,'rounded');
+				else{
+					fVenta;
+				}
+		});
 	}
 });
 Template.carrito.helpers({
@@ -71,7 +99,7 @@ Template.carrito.helpers({
 	},
 	iva:function(){
 		iva = sub * 0.16;
-		return Meteor.formato.moneda2(String(iva.toFixed(2)));
+		return Meteor.formato.moneda2(String(iva));
 	},
 	total:function(){
 		return Meteor.formato.moneda2(String(sub + iva));

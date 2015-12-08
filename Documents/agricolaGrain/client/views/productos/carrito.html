@@ -59,30 +59,30 @@
 					<h6>Tipo de compra</h6>
 					<form>
 						<div class="col s2">
-							<input name="group1" type="radio" id="btnNacional" />
-							<label for="btnNacional">Nacional</label>
+							<input name="group1" type="radio" id="rdoNacional" checked/>
+							<label for="rdoNacional">Nacional</label>
 						</div>
 						<div>
-							<input name="group1" type="radio" id="btnExtranjero" />
-							<label for="btnExtranjero">Extranjero</label>
+							<input name="group1" type="radio" id="rdoExtranjero" />
+							<label for="rdoExtranjero">Extranjero</label>
 						</div>
 					</form>
 				</div>
 				<div class="col s6">
 					<h6>Tipo de pago</h6>
 						<div class="col s2">
-							<input name="group2" type="radio" id="btnDeposito" />
-							<label for="btnDeposito">Deposito</label>
+							<input name="group2" type="radio" id="rdoDeposito" checked/>
+							<label for="rdoDeposito">Deposito</label>
 						</div>
 						<div>
-							<input name="group2" type="radio" id="btnTarjeta" />
-							<label for="btnTarjeta">Tarjeta</label>
+							<input name="group2" type="radio" id="rdoTarjeta"/>
+							<label for="rdoTarjeta">Tarjeta</label>
 						</div>
 				</div>
 			</div>
 		</div>
 		<div class="modal-footer">
-			<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id="btnAceptarDireccionEnvio">Aceptar</a>
+			<a href="#!" class="btn-flat" id="btnAceptarCompra">Aceptar</a>
 		</div>
 	</div>
 	<div id="pagoTarjeta">
@@ -102,10 +102,10 @@
 			<h4>Seleccione la dirección de envio</h4>
 			<p>
 				<div class="input-field col s6 offset-s6">
-					<select>
+					<select id="direccionEnvio">
 						<option value="" disabled selected>Elija una opción porfavor.</option>
 						{{#each opcionesDireccion}}
-						<option value="2">{{calle}} {{numero}} {{colonia}}</option>
+						<option value={{_id}}>{{calle}} {{numero}} {{colonia}}</option>
 						{{/each}}
 					</select>
 					<label>Dirección de envio:</label>
@@ -173,7 +173,7 @@
 			</div>
 		</div>
 		<div class="modal-footer">
-			<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+			<a id="btAceptarDir" href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
 		</div>
 	</div>
 </template>

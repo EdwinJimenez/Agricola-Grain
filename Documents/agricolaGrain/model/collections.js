@@ -9,3 +9,4 @@ Proveedores = new Mongo.Collection("proveedores",{idGeneration:'MONGO'});
 DetCompra = new Mongo.Collection("detCompraAux",{idGeneration:'MONGO'});
 DireccionesUsu = new Mongo.Collection("direccionesUsu",{idGeneration:'MONGO'});
 Compras = new Mongo.Collection("compras",{idGeneration:'MONGO'});
+folios = new Mongo.Collection("folios",{idGeneration:'MONGO'});

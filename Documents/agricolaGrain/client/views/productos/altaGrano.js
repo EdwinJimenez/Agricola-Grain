@@ -10,7 +10,9 @@ Template.altaGrano.events({
 			Materialize.toast("Seleccione el tipo de grano!!",2000,'rounded');
 			return;
 		}
+
 		var grano = {
+			clave:"Clave portillo",
 			nombre: $("#txtNombreGrano").val(),
 			precioVenta: $("#txtPrecioVenta").val(),
 			estatus: "A",
@@ -24,6 +26,11 @@ Template.altaGrano.events({
 				Materialize.toast(error.reason,2000,'rounded');
 			else{
 				Materialize.toast("Grano registrado con éxito.",2000,'rounded');
+				$("#txtNombreGrano").val("");
+				$("#txtPrecioVenta").val("");
+				$("#txtUnidadMedida").val("");
+				$("#txtDescripcionGrano").val("");
+				$("#tipoGrano").value("")
 			}
 		});
 	}
