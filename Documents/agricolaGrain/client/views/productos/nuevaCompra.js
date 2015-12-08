@@ -8,6 +8,15 @@ Template.nuevaCompra.onRendered(function(){
 	$("#nuevaCompra").show("slow");
 	sub = 0;
 	iva = 0;
+	var detCompra = DetCompra.find({idUsuario:Session.get("idU")}).fetch();
+	if(detCompra.length!=0){
+		for(var i=0; i<detCompra.length; i++)
+		{
+			detCompra[i].producto;
+			detCompra[i].unidades;
+			console.log("Entro");
+		} 	
+	}
 },
 $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
