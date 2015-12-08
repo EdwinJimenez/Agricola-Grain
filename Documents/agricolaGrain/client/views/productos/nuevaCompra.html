@@ -37,13 +37,13 @@
 							</div>
 							<div class="col s3">
 								<div class="input-field row">
-									<select id="selectProvedor">
+									<select id="selectProveedor">
 										<option value="" disabled selected>Proveedor</option>
 										{{#each opcionesProveedor}}
 										<option value="{{_id}}">{{nombre}}</option>
 										{{/each}}
 									</select>
-									<label>Filtrar por:</label>
+									<label>Proveedor</label>
 								</div> 					
 							</div>
 							<div class="col s8 offset-s1">
@@ -74,7 +74,7 @@
 															<option value="{{nombre}}">{{nombre}}</option>
 														{{/each}}
 													</select>
-													<label>Filtrar por:</label>
+													<label>Nombre</label>
 												</div> 	
 											</td>
 											<td>
@@ -86,7 +86,7 @@
 											<td>
 												<div class="input-field row">
 													<input id="txtPrecioCompra" type="text" class="validate" autofocus required>
-													<label for="txtPrecioCompra">Precio compra</label>
+													<label for="txtPrecioCompra">Costo</label>
 												</div>
 											</td>
 										</tr>
@@ -142,6 +142,7 @@
 					</div>
 				</li>
 			</ul>
+			<a class="waves-effect light-red darken-1 btn" id="btnCancelarCompra">Cancelar<i class="material-icons right">cancel</i></a>
 			<a class="waves-effect light-green darken-1 btn" id="btnRegistrarCompra">Registrar<i class="material-icons right">done</i></a>
 		</form>
 	</section>
