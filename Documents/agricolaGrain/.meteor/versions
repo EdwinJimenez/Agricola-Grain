@@ -29,6 +29,7 @@ jparker:crypto-core@0.1.0
 jparker:crypto-md5@0.1.1
 jquery@1.11.3_2
 json@1.0.3
+jspdf:core@1.1.135
 launch-screen@1.0.2
 livedata@1.0.13
 logging@1.0.7

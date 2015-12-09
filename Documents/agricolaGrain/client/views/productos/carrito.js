@@ -1,5 +1,3 @@
-var sub = 0;
-var iva = 0;
 var v; //venta
 Template.carrito.onRendered(function(){
 	//creanuevaVenta()
@@ -7,9 +5,6 @@ Template.carrito.onRendered(function(){
 
 	$('.modal-trigger').leanModal();
 	$('select').material_select();
-
-	sub = 0;
-	iva = 0;
 	$("#pagoTarjeta").hide();
 	var detCarrito = Carrito.find({idUsuario:Session.get("idU")}).fetch();
 	if(detCarrito.length!=0){
@@ -57,6 +52,54 @@ Template.carrito.events({
 			return;
 		}
 	},
+	"click #rdoDeposito":function(){
+		$("#pagoTarjeta").hide("slow");
+		$("#pagoDeposito").show("slow");
+		$("#btnVerFicha").show("slow");
+	},
+	"click #btnVerFicha":function(){
+		//obtener importe total
+		var a = Carrito.find({idUsuario:Session.get("idU")}).fetch();
+		var cont= a.length;
+		var total = 0;
+		var importe = 0;
+		if(cont!=0){
+			for(var i=0; i<cont; i++){
+				var b=granos.find({_id:a[i].idProducto}).fetch();
+				importe = parseFloat(b[0].precioVenta * parseFloat(a[i].unidades));
+				total = total+importe;
+			}
+		}
+		var doc = new jsPDF();
+		doc.rect(10, 10, 190, 280);
+		doc.text(80, 20, 'Datos para el deposito');
+		doc.text(93, 30, 'BANAMEX');
+		doc.setFontSize(14);
+		doc.text(20, 50, 'Numero de cuenta:');
+		doc.text(80,50, '456328763097235')
+		doc.text(20, 60, 'Referencia:');
+		doc.text(80,60, 'GENERAR')
+		doc.rect(10, 63, 190, 1);
+		doc.setFontSize(16);
+		doc.text(80, 70, 'Datos para el deposito');
+		doc.text(93, 80, 'BANORTE');
+		doc.setFontSize(14);
+		doc.text(20, 100, 'Numero de cuenta:');
+		doc.text(80,100, '345698762345631')
+		doc.text(20, 110, 'Referencia:');
+		doc.text(80,110, 'GENERAR')
+		doc.rect(10, 113, 190, 1);
+		doc.setFontSize(16);
+		doc.text(75, 123, 'Importe:');
+		doc.text(98, 123,Meteor.formato.moneda2(String(total)));
+			// Output as Data URI
+			doc.output('dataurlnewwindow');
+		},
+		"click #rdoTarjeta":function(){
+			$("#pagoTarjeta").show("slow");
+			$("#pagoDeposito").hide("slow");
+			$("#btnVerFicha").hide("slow");
+		},
 	"change #direccionEnvio": function(){
 		var idDireccion = document.getElementById("direccionEnvio").value;
 		v.setDireccion(idDireccion);
@@ -97,9 +140,7 @@ Template.carrito.events({
 				}
 			});
 		});
-
 },
-
 });
 Template.carrito.helpers({
 	articulos:function(){
@@ -109,16 +150,20 @@ Template.carrito.helpers({
 		return DireccionesUsu.find({idUsuario:Session.get("idU")});
 		
 	},
-	subTot:function(){
-		return Meteor.formato.moneda2(String(sub));
-	},
-	iva:function(){
-		iva = sub * 0.16;
-		return Meteor.formato.moneda2(String(iva.toFixed(2)));
-	},
-	total:function(){
-		return Meteor.formato.moneda2(String(sub + iva));
-	}
+total:function(){
+		var a = Carrito.find({idUsuario:Session.get("idU")}).fetch();
+		var cont= a.length;
+		var total = 0;
+		var importe = 0;
+		if(cont!=0){
+			for(var i=0; i<cont; i++){
+				var b=granos.find({_id:a[i].idProducto}).fetch();
+				importe = parseFloat(b[0].precioVenta * parseFloat(a[i].unidades));
+				total = total+importe;
+			}
+		}
+		return Meteor.formato.moneda2(String(total));
+	} 
 });
 Template.articulo.helpers({
 	pUnitario:function(){
@@ -128,7 +173,6 @@ Template.articulo.helpers({
 	},
 	importeProd:function(){
 		var totalprod = (parseFloat(Session.get("precio"))*parseFloat(this.unidades));
-		sub = sub + totalprod;
 		return Meteor.formato.moneda2(String(totalprod));
 	},
 	nombre: function(){

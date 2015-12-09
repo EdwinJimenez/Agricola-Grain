@@ -115,6 +115,15 @@ Template.nuevaCompra.events({
 	"change #selectProveedor":function(){
 		c.setProveedor($("#selectProveedor").val());
 		console.log($("#selectProveedor").val());
+	},
+	"click #btnCancelarCompra":function(){
+		Meteor.call("eliminarDetCompra",function(error){		
+			if(error)
+				Materialize.toast(error.reason,2000,'rounded');
+			else{
+				Materialize.toast("Detalle de compra cancelado con éxito.",2000,'rounded');
+			}
+		});
 	}
 });
 
@@ -165,5 +174,8 @@ Template.detCompra.helpers({
 	precioAux:function(){
 		sub = sub + (parseFloat(this.precio) * parseFloat(this.unidades));
 		return this.precio;
+	},
+		importeDet:function(){
+		return this.importe;
 	}
 });

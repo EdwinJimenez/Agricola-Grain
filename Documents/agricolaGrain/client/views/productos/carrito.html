@@ -68,18 +68,21 @@
 			</div>
 		</div>
 		<div class="modal-footer">
-			<a href="#!" class="btn-flat" id="btnAceptarCompra">Aceptar</a>
-		</div>
-	</div>
-	<div id="pagoTarjeta">
-		<h4>Ingrese los siguientes datos</h4>
-		<div class="input-field row">
-			<input id="txtTarjeta" type="text" class="validate">
-			<label for="txtTarjeta">Número de tarjeta</label>
-		</div> 
-		<div class="input-field row">
-			<input id="txtNip" type="password" class="validate">
-			<label for="txtNip">NIP</label>
+			<div class="row">
+				<div class="col s12" id="pagoTarjeta">
+					<h5>Datos de tarjeta</h5>
+					<div class="input-field row col s4 offset-s1">
+						<input id="txtTarjeta" type="text" class="validate">
+						<label for="txtTarjeta">Número de tarjeta</label>
+					</div> 
+					<div class="input-field row col s4 offset-s1">
+						<input id="txtNip" type="password" class="validate">
+						<label for="txtNip">NIP</label>
+					</div>
+				</div>
+				<a class="btn-flat" id="btnVerFicha">Ver ficha</a>
+				<a class="btn-flat" id="btnAceptarCompra">Aceptar</a>
+			</div>
 		</div>
 	</div>
 	<!-- Modal Structure -->
