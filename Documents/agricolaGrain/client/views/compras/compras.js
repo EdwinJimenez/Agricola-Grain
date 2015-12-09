@@ -8,17 +8,17 @@ Template.compra.helpers({
 		return Bodegas.find(this.idBodega,{nombre:true});
 	},
 	convFechaIni:function(){
-		return this.inicioContrato.toLocaleDateString();
+		//return this.inicioContrato.toLocaleDateString();
 	},
 	convFechaFin:function(){
-		return this.finContrato.toLocaleDateString();
+		//return this.finContrato.toLocaleDateString();
 	}
 });
 Template.compras.helpers({
 	comprasUsu : function(){
 		if(Session.get("esEmpleado"))
-			return Compras.find({});
+			return compras.find({});
 		else
-			return Compras.find({idUsuario:Session.get("idU")});
+			return compras.find({idUsuario:Session.get("idU")});
 	}
 });

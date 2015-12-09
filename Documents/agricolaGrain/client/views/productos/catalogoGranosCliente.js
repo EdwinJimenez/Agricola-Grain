@@ -7,7 +7,7 @@ Template.catalogoGranosCliente.helpers({
 		return Tipos.find({});
 	},
 	productos: function(){
-		return Granos.find({estatus:"A"});
+		return granos.find({estatus:"A"});
 	}
 });
 Template.productoCliente.helpers({
@@ -30,7 +30,7 @@ Template.productoCliente.events({
 		if(uni.length==0){
 			var carrito = {
 				idProducto:this._id,
-				unidades: uniNuevas,
+				unidades: parseFloat(uniNuevas),
 				idUsuario: Session.get("idU"),
 				fecha: new Date()
 			}
@@ -45,7 +45,7 @@ Template.productoCliente.events({
 			return;
 		}
 		uniNuevas = parseInt(uniNuevas) + parseInt(uni[0].unidades)
-		Meteor.call("updateUniCarrito",Session.get("idU"),this._id,String(uniNuevas),function(error){
+		Meteor.call("updateUniCarrito",Session.get("idU"),this._id,uniNuevas,function(error){
 			if(error)
 				Materialize.toast(error.reason,2000,'rounded');
 			else{

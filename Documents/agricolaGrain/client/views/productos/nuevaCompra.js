@@ -1,20 +1,27 @@
 var sub = 0;
 var iva = 0;
+var c; // compra
 Template.nuevaCompra.onRendered(function(){
+	//crearnuevaCompra()
+	c = new Compra();
+
 	$('.collapsible').collapsible({
 	      accordion : false
 	    });
 	$("#altaGrano").hide();
 	$("#nuevaCompra").show("slow");
+
+
 	sub = 0;
 	iva = 0;
-	var detCompra = DetCompra.find({idUsuario:Session.get("idU")}).fetch();
+
+	var g;
+	var detCompra = DetCompraAux.find({idUsuario:Session.get("idU")}).fetch();
 	if(detCompra.length!=0){
 		for(var i=0; i<detCompra.length; i++)
 		{
-			detCompra[i].producto;
-			detCompra[i].unidades;
-			console.log("Entro");
+			g =granos.find({nombre:detCompra[i].producto},{_id:true}).fetch();
+			c.introducirGrano(g[0]._id, detCompra[i].unidades,detCompra[i].precio);
 		} 	
 	}
 },
@@ -29,13 +36,13 @@ Template.nuevaCompra.helpers({
 		return Tipos.find({});
 	},
 	opcionesNombre:function(){
-		return Granos.find({},{nombre:true});
+		return granos.find({},{nombre:true});
 	},
 	opcionesProveedor:function(){
 		return Proveedores.find({},{nombre:true});
 	},
 	detallesCompra:function(){
-		return DetCompra.find({idUsuario:Session.get("idU")});
+		return DetCompraAux.find({idUsuario:Session.get("idU")});
 	},
 	subTot:function(){
 		return Meteor.formato.moneda2(String(sub));
@@ -54,21 +61,21 @@ Template.nuevaCompra.events({
 		var detCompra = {
 			idUsuario:Session.get("idU"),
 			producto:$("#selectNombre").val(),
-			unidades:$("#txtCantidad").val(),
-			precio:$("#txtPrecioCompra").val()
+			unidades:parseFloat($("#txtCantidad").val()),
+			precio:parseFloat($("#txtPrecioCompra").val())
 		}
 		Meteor.call("insertarDetCompra",detCompra);
+		var g =granos.find({nombre:detCompra.producto},{_id:true}).fetch();
+		c.introducirGrano(g[0]._id, detCompra.unidades,detCompra.precio);
+	
 	},
 	"click #btnRegistrarCompra":function(){
-		var dc = DetCompra.find({idUsuario:Session.get("idU")}).fetch();
+		var dc = DetCompraAux.find({idUsuario:Session.get("idU")}).fetch();
 		if(dc.length!=0){
-			var tCompra;
+			var esImportacion;
 			var tPago;
 			var idProv;
-			if(document.getElementById("rdoNacional").checked)
-				tCompra = "N";
-			else
-				tCompra = "E";
+			esImportacion = !document.getElementById("rdoNacional").checked;
 
 			if(document.getElementById("rdoDeposito").checked)
 				tPago = "D";
@@ -80,24 +87,33 @@ Template.nuevaCompra.events({
 				Materialize.toast("Asegurece de seleccionar un proveedor y fecha, porfavor!",2000,'rounded');
 				return;
 			}
-			var fecha = new Date($("#dateFechaCompra").val());
+			c.setEsImportacion(esImportacion);
+			c.introducirFormaPago(tPago);
+
+			var cantidad = c.getTotal();
+			c.pagoCompra(cantidad);
+
+			if(c.actualizaInventario()){
+				c.setEsCompletado(true);
+				Materialize.toast("Compra de realizada con éxito!",2000,'rounded');		
+			}
+			else{
+				Materialize.toast("No hay bodegas donde almacenar los granos!",2000,'rounded');
+				return;
+			}
 			
-			console.log(fecha);
-			for(var i=0; i<dc.length; i++)
-			{
-				dc[i].producto;
-				dc[i].unidades;
-				dc[i].precio;
-			} 
+
 		}else{
 			Materialize.toast("No tiene productos para comprar!",2000,'rounded');
 			return;
 		}
 	},
 	"change #dateFechaCompra":function(){
+		c.setFecha(new Date($("#dateFechaCompra").val()));
 		console.log(new Date($("#dateFechaCompra").val()));
 	},
 	"change #selectProveedor":function(){
+		c.setProveedor($("#selectProveedor").val());
 		console.log($("#selectProveedor").val());
 	}
 });
@@ -105,11 +121,42 @@ Template.nuevaCompra.events({
 Template.detCompra.events({
 	"click #btnEditar":function(){
 		var producto = document.getElementById("txtNom"+this.producto).value;
-		var unidades = document.getElementById("txtCan"+this.producto).value;
-		var precio = document.getElementById("txtPre"+this.producto).value;
+		var unidades = parseFloat(document.getElementById("txtCan"+this.producto).value);
+		var precio = parseFloat(document.getElementById("txtPre"+this.producto).value);
+
 		Meteor.call("updateDetCompra",producto,Session.get("idU"),unidades,precio);
+
+		var g =granos.find({nombre:producto},{_id:true}).fetch()[0];
+		var indexToRemove;
+		c.detalle.some(function(dc,index,_detalle){
+			if(dc.producto==g._id){
+				indexToRemove = index;
+				return true;
+			}
+		});
+		c.detalle.splice(indexToRemove,1);
+		c.introducirGrano(g._id, unidades,precio);
+		/*
+		c.detalle.some(function(dc,index,_detalle){
+			if(dc.producto==g._id){
+				dc.unidades = unidades;
+				dc.precio = precio;
+				return true;
+			}
+		});
+		*/
 	},
 	"click #btnEliminar":function(){
+
+		var g =granos.find({nombre:this.producto},{_id:true}).fetch()[0];
+		var indexToRemove;
+		c.detalle.some(function(dc,index,_detalle){
+			if(dc.producto==g._id){
+				indexToRemove = index;
+				return true;
+			}
+		});
+		c.detalle.splice(indexToRemove,1);
 		Meteor.call("deleteDetCompra",this._id);
 	}
 });

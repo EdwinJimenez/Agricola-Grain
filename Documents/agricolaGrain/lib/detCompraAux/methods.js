@@ -1,11 +1,11 @@
 Meteor.methods({
 	insertarDetCompra: function(detCompra){
-		DetCompra.insert(detCompra);
+		DetCompraAux.insert(detCompra);
 	},
 	updateDetCompra:function(prod,idU,uni,pre){
-		DetCompra.update({producto:prod,idUsuario:idU},{$set : {unidades:uni,precio:pre}});
+		DetCompraAux.update({producto:prod,idUsuario:idU},{$set : {unidades:uni,precio:pre}});
 	},
 	deleteDetCompra:function(id){
-		DetCompra.remove(id);
+		DetCompraAux.remove(id);
 	}
 });

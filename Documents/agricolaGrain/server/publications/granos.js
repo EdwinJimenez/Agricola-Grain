@@ -1,3 +1,3 @@
 Meteor.publish("granos",function(){
-	return Granos.find();
+	return granos.find();
 });

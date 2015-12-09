@@ -1,3 +1,3 @@
 Meteor.publish("detCompraAux",function(){
-	return DetCompra.find();
+	return DetCompraAux.find();
 });

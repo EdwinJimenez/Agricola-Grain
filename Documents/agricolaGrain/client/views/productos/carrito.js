@@ -1,8 +1,13 @@
 var sub = 0;
 var iva = 0;
+var v; //venta
 Template.carrito.onRendered(function(){
+	//creanuevaVenta()
+	v = new Venta();
+
 	$('.modal-trigger').leanModal();
 	$('select').material_select();
+
 	sub = 0;
 	iva = 0;
 	$("#pagoTarjeta").hide();
@@ -12,6 +17,8 @@ Template.carrito.onRendered(function(){
 		{
 			detCarrito[i].idProducto;
 			detCarrito[i].unidades;
+			var g =granos.find(detCarrito[i].idProducto,{_id:true,precioVenta:true}).fetch()[0];
+			v.introducirGrano(detCarrito[i].idProducto,detCarrito[i].unidades,g.precioVenta);
 			console.log("Entro");
 		} 	
 	}
@@ -24,26 +31,55 @@ Template.carrito.events({
 		Meteor.call("deleteCarrito",Session.get("idU"));
 		location.reload(true);
 	},
-		"click #btnAceptarCompra":function(){
+	"click #btnAceptarCompra":function(){
 		$('#modal2').closeModal();
-		console.log("evento");
+		var tCompra;
+		var tPago;
+		var esExportacion;
+
+		esExportacion = !document.getElementById("rdoNacional").checked;
+
+
+		if(document.getElementById("rdoDeposito").checked)
+			tPago = "D";
+		else
+			tPago = "T";
+		v.setUsuario(Session.get("idU"));
+		v.setFecha(new Date());
+		var cantidad = v.getTotal();
+		v.realizarPago(tPago,cantidad);
+		if(v.actualizaInventario()){
+			v.setEsCompletado(true);
+			Materialize.toast("Su compra ha sido realizada con éxito",2000,'rounded');		
+		}
+		else{
+			Materialize.toast("No hay existencia los granos!",2000,'rounded');
+			return;
+		}
+	},
+	"change #direccionEnvio": function(){
+		var idDireccion = document.getElementById("direccionEnvio").value;
+		v.setDireccion(idDireccion);
 	},
 	"click #btnAceptarDireccion": function(){
-		var direccion = {
-			idUsuario: Session.get("idU"),
-			nomConsig:$("#txtNombreConsignatario").val(),
-			calle: $("#txtCalle").val(),
-			numero: $("#txtNumero").val(),
-			colonia:$("#txtColonia").val(),
-			rfc: $("#txtRFC").val(),
-			codigoPostal:$("#txtCp").val(),
-			pais: $("#txtPais").val(),
-			estado: $("#txtEstado").val(),
-			ciudad: $("#txtCiudad").val(),
-			telefono: $("#txtTelefono").val(),
-			fiscal: false
-		}
-		Meteor.call("insertarDireccion",direccion,function(error){
+		var dir = {
+				clave: "",
+				idUsuario: Session.get("idU"),
+				nomConsig:$("#txtNombreConsignatario").val(),
+				calle: $("#txtCalle").val(),
+				numero: $("#txtNumero").val(),
+				colonia:$("#txtColonia").val(),
+				rfc: $("#txtRFC").val(),
+				codigoPostal:$("#txtCp").val(),
+				pais: $("#txtPais").val(),
+				estado: $("#txtEstado").val(),
+				ciudad: $("#txtCiudad").val(),
+				telefono: $("#txtTelefono").val(),
+				fiscal: false
+			};
+		Meteor.call("getSigConsecDirecciones", dir,function(error, direccion){
+			
+			Meteor.call("insertarDireccion",direccion,function(error){
 				if(error)
 					Materialize.toast(error.reason,2000,'rounded');
 				else{
@@ -60,43 +96,10 @@ Template.carrito.events({
 					$("#txtTelefono").val("");
 				}
 			});
-	},
-	"click #btnAceptarCompra":function(){
-		var tCompra;
-		var tPago;
-		var idDireccion;
-
-		if(document.getElementById("rdoNacional").checked)
-			tCompra = "N";
-		else
-			tCompra = "E";
-
-		if(document.getElementById("rdoDeposito").checked)
-			tPago = "D";
-		else
-			tPago = "T";
-
-		//Direccion de envio(ID)
-		idDireccion = document.getElementById("direccionEnvio").value;
-		//Detalle de la venta
-		var dv = Carrito.find({idUsuario:Session.get("idU")}).fetch();
-		for(var i=0; i<dv.length; i++)
-		{
-			dv[i].idProducto;
-			dv[i].unidades;
-		} 
-		//Folios
-		Meteor.call("obtenSigFolio","V",function(error,fVenta){
-				if(error)
-					Materialize.toast(error.reason,2000,'rounded');
-				else{
-					fVenta;
-				}
 		});
-	},
-	"change #direccionEnvio": function(){
-		console.log($("#direccionEnvio").val());
-	}
+
+},
+
 });
 Template.carrito.helpers({
 	articulos:function(){
@@ -119,7 +122,7 @@ Template.carrito.helpers({
 });
 Template.articulo.helpers({
 	pUnitario:function(){
-		var precio = Granos.find({_id:this.idProducto},{precioVenta:true}).fetch();
+		var precio = granos.find({_id:this.idProducto},{precioVenta:true}).fetch();
 		Session.set("precio",precio[0].precioVenta);
 		return Meteor.formato.moneda2(precio[0].precioVenta);
 	},
@@ -129,7 +132,7 @@ Template.articulo.helpers({
 		return Meteor.formato.moneda2(String(totalprod));
 	},
 	nombre: function(){
-		var nombre = Granos.find({_id:this.idProducto},{nombre:true}).fetch();
+		var nombre = granos.find({_id:this.idProducto},{nombre:true}).fetch();
 		return nombre[0].nombre;
 	}
 });

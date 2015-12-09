@@ -1,5 +1,8 @@
 Meteor.methods({
 	InsertGrano: function(grano){
-		Granos.insert(grano);
+		granos.insert(grano);
+	},
+	obtenerGranos: function(){
+		return granos.find().fetch();
 	}
 });

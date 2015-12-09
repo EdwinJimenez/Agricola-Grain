@@ -1,3 +1,6 @@
 Meteor.publish("compras",function(){
-	return Compras.find();
+	return compras.find();
+});
+Meteor.publish("compras-por-usuario",function(usuario_id){
+	return compras.find({idUsuario:usuario_id});
 });

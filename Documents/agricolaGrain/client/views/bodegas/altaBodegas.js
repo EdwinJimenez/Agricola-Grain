@@ -14,6 +14,8 @@ Template.altaBodegas.events({
 					largo:$("#txtLargo").val(),
 					ancho:$("#txtAncho").val(),
 					alto:$("#txtAlto").val(),
+					capacidad:50,
+					existencia:0,
 					imagenes:"img/bodega_refrigerada.jpg",
 					estatus:"A",
 					situacion: "L",

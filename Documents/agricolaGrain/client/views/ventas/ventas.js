@@ -8,10 +8,10 @@ Template.venta.helpers({
 		return Bodegas.find(this.idBodega,{nombre:true});
 	},
 	convFechaIni:function(){
-		return this.inicioContrato.toLocaleDateString();
+		//return this.inicioContrato.toLocaleDateString();
 	},
 	convFechaFin:function(){
-		return this.finContrato.toLocaleDateString();
+		//return this.finContrato.toLocaleDateString();
 	}
 });
 Template.ventas.helpers({

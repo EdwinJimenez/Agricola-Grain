@@ -21,41 +21,45 @@
 					}
 					else
 					{
-						console.log(result);
-						var	direccionUsuario = {
-							idUsuario : result,
-							calle: $("#txtCalle").val(),
-							numero: $("#txtNumero").val(),
-							colonia:$("#txtColonia").val(),
-							rfc: $("#txtRFC").val(),
-							pais: $("#txtPais").val(),
-							estado: $("#txtEstado").val(),
-							ciudad: $("#txtCiudad").val(),
-							fiscal: true
-						}
-						Meteor.call('insertarDireccion',direccionUsuario,function (error){
-							if (error)
-							{
-
-								Materialize.toast(error.reason, 2000, 'rounded');
+						var	direccionUsu = {
+								clave: "",
+								idUsuario : result,
+								calle: $("#txtCalle").val(),
+								numero: $("#txtNumero").val(),
+								colonia:$("#txtColonia").val(),
+								rfc: $("#txtRFC").val(),
+								pais: $("#txtPais").val(),
+								estado: $("#txtEstado").val(),
+								ciudad: $("#txtCiudad").val(),
+								fiscal: true
 							}
+						Meteor.call("getSigConsecDirecciones",direccionUsu, function(error, direccionUsuario){
+							
+							Meteor.call('insertarDireccion',direccionUsuario,function (error){
+								if (error)
+								{
+
+									Materialize.toast(error.reason, 2000, 'rounded');
+								}
+							});
+							Materialize.toast('Gracias por registrarse.', 2000,'rounded');
+							$(":text").each(function(){	
+								$($(this)).val('');
+							});
+							$("#txtTelefono").val("");
+							$("#txtCorreo").val("");
+							$("#txtContraseña").val("");
+							$("#txtNumero").val("");
 						});
-					    Materialize.toast('Gracias por registrarse.', 2000,'rounded');
-						$(":text").each(function(){	
-							$($(this)).val('');
-						});
-						$("#txtTelefono").val("");
-						$("#txtCorreo").val("");
-						$("#txtContraseña").val("");
-						$("#txtNumero").val("");
+						
 					}
 				});
-				
-			}
+
 		}
-	});	
-Template.registro.onRendered(function(){
-	$('.collapsible').collapsible({
-	      accordion : false
-	    });
-});
+	}
+});	
+	Template.registro.onRendered(function(){
+		$('.collapsible').collapsible({
+			accordion : false
+		});
+	});
