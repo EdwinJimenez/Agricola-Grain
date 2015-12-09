@@ -1,9 +1,12 @@
-Meteor.subscriptions = {
-	subscribeVentas : function(){
-		var usuario_id = Session.get("idU");
-		if(usuario_id==null)
+Deps.autorun(function() {
+	if(Session.get("idU")==null)
 			return;
-		Meteor.subscribe("ventas-por-usuario",usuario_id);
+
+	var usuario_id = Session.get("idU");
+	if (Session.get("esEmpleado")) {
+		Meteor.subscribe("ventas");
 	}
-}
-Meteor.subscriptions.subscribeVentas();
+	else{
+		Meteor.subscribe("ventas-por-cliente",usuario_id);
+	}
+});

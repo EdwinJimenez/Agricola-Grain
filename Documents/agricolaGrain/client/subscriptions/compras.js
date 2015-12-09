@@ -1,9 +1,8 @@
-Meteor.subscriptions = {
-	subscribeCompras : function(){
-		if(Session.get("idU")==null)
+Deps.autorun(function() {
+  	if(Session.get("idU")==null)
 			return;
-		var usuario_id = Session.get("idU");
-		Meteor.subscribe("compras-por-usuario",usuario_id);
+	var usuario_id = Session.get("idU");		
+	if (Session.get("esEmpleado")) {
+		Meteor.subscribe("compras-por-empleado",usuario_id);
 	}
-}
-Meteor.subscriptions.subscribeCompras();
+});

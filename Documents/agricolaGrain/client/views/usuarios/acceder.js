@@ -19,7 +19,7 @@ Template.acceder.events({
 						Session.setPersistent("esEmpleado",u[0].esEmpleado);
 						Session.setPersistent("idU",u[0]._id);
 						Session.setPersistent("PosisionMR","Solicitudes pendientes");
-						Meteor.subscriptions.subscribeRentas();
+						//Meteor.subscriptions.subscribeRentas();
 						if(u[0].esEmpleado)
 						{
 							Router.go("/94e74b909567e6d814df");
