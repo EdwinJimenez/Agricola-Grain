@@ -40,7 +40,8 @@
 	<div id="modal2" class="modal bottom-sheet">
 		<div class="modal-content">
 			<h4>Seleccione los siguientes datos</h4>
-			<div class="row">
+			<!--AQUI EMPIEZA EL MODAL SI LLENO DIRECCION-->
+			<div class="row puedeComprar">
 				<div class="col s6">
 					<h6>Tipo de compra</h6>
 					<form>
@@ -66,6 +67,10 @@
 						</div>
 				</div>
 			</div>
+			<!--AQUI TEMRINA EL MODAL SI LLENO DIRECCION-->
+			<div class="row noPuedeComprar">
+				<h6>INGRESE UNA DIRECCIÓN PORFAVOR O VERIFIQUE QUE SU CARRITO NO ESTE VACIO</h6>
+			</div>
 		</div>
 		<div class="modal-footer">
 			<div class="row">
@@ -80,8 +85,9 @@
 						<label for="txtNip">NIP</label>
 					</div>
 				</div>
-				<a class="btn-flat" id="btnVerFicha">Ver ficha</a>
-				<a class="btn-flat" id="btnAceptarCompra">Aceptar</a>
+				<a class="btn-flat puedeComprar" id="btnVerFicha">Ver ficha</a>
+				<a class="btn-flat puedeComprar" id="btnAceptarCompra">Aceptar</a>
+				<a class="btn-flat noPuedeComprar" id="btnAceptarFallo">Aceptar</a>
 			</div>
 		</div>
 	</div>
@@ -163,7 +169,7 @@
 		</div>
 		<div class="modal-footer">
 			<div id="mensajeError">Ingrese una dirección de envio porfavor.</div>
-			<a id="btnAceptarDir" href="#!" class="waves-effect waves-green btn-flat">Aceptar</a>
+			<a id="btnAceptarDir" class="waves-effect waves-green btn-flat">Aceptar</a>
 		</div>
 	</div>
 </template>

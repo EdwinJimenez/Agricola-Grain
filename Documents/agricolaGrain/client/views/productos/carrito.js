@@ -2,10 +2,10 @@ var v; //venta
 Template.carrito.onRendered(function(){
 	//creanuevaVenta()
 	v = new Venta();
-
 	$('.modal-trigger').leanModal();
 	$('select').material_select();
 	$("#pagoTarjeta").hide();
+	$(".puedeComprar").hide();
 	var detCarrito = Carrito.find({idUsuario:Session.get("idU")}).fetch();
 	if(detCarrito.length!=0){
 		for(var i=0; i<detCarrito.length; i++)
@@ -21,24 +21,43 @@ Template.carrito.events({
 	"click #btnAgregarDireccion":function(){
 		$("#nuevaDireccion").show("slow");
 	},
+	"click #btnComprar":function(){
+		if($("#direccionEnvio").val()==null || (Carrito.find({idUsuario:Session.get("idU")}).count())==0)
+		{
+			$(".noPuedeComprar").show("slow");
+			$(".puedeComprar").hide("slow");
+		}
+		else
+		{
+			$(".puedeComprar").show("slow");
+			$(".noPuedeComprar").hide("slow");
+		}
+	},
+	"click #btnAceptarFallo":function(){
+		$('#modal2').closeModal();
+		$('#modalDireccionEnvio').openModal();
+	},
 	"click #btnLimpiar":function(){
 		Meteor.call("deleteCarrito",Session.get("idU"));
 	},
 	"click #btnAceptarDir":function(){
-		if(!($("#direccionEnvio").value==""))
+		console.log($("#direccionEnvio").val());
+		if(($("#direccionEnvio").val()==null))
 			$("#mensajeError").show("slow");
 		else
-			console.log("Direccion seleccionada");
+		{
+			$("#mensajeError").hide("slow");
+			$("#modalDireccionEnvio").closeModal();
+		}
 	},
 	"click #btnAceptarCompra":function(){
 		$('#modal2').closeModal();
 		var tCompra;
 		var tPago;
 		var esExportacion;
-
+		var numTarjeta = $("#txtTarjeta").val();
+		var NIP=CryptoJS.MD5($("txtNip").val());
 		esExportacion = !document.getElementById("rdoNacional").checked;
-
-
 		if(document.getElementById("rdoDeposito").checked)
 			tPago = "D";
 		else
@@ -55,6 +74,12 @@ Template.carrito.events({
 			Materialize.toast("No hay existencia los granos!",2000,'rounded');
 			return;
 		}
+		console.log("Tipo de Compra="+tCompra);
+		console.log("Tipo de Pago="+tPago);
+		console.log("Es de Exportacion="+esExportacion);
+		console.log("Número de tarjeta="+numTarjeta);
+		console.log("NIP="+NIP);
+
 	},
 	"click #rdoDeposito":function(){
 		$("#pagoTarjeta").hide("slow");
