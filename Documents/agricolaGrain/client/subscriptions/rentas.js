@@ -1,4 +1,4 @@
-Meteor.subscriptions = {
+Meteor.methods({
 	subscribeRentas : function(){
 		if(Session.get("idU")==null)
 			return;
@@ -11,5 +11,5 @@ Meteor.subscriptions = {
 			Meteor.subscribe("rentas-por-cliente",usuario_id);
 		}
 	}
-}
-Meteor.subscriptions.subscribeRentas();
+});
+//Meteor.subscriptions.subscribeRentas();

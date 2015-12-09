@@ -15,10 +15,10 @@ Template.catalogoGranos.helpers({
 	},
 	productos: function(){
 		if(Session.get("filtroGrano")==null)
-			return Granos.find({estatus:"A"});
+			return granos.find({estatus:"A"});
 		else{
 			console.log(Session.get("filtroGrano"));
-			return Granos.find({idTipo:Session.get("filtroGrano")});
+			return granos.find({idTipo:Session.get("filtroGrano")});
 		}
 	}
 });

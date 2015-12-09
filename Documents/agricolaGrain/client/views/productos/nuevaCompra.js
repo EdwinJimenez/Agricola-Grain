@@ -1,5 +1,3 @@
-var sub = 0;
-var iva = 0;
 var c; // compra
 Template.nuevaCompra.onRendered(function(){
 	//crearnuevaCompra()
@@ -10,11 +8,6 @@ Template.nuevaCompra.onRendered(function(){
 	    });
 	$("#altaGrano").hide();
 	$("#nuevaCompra").show("slow");
-
-
-	sub = 0;
-	iva = 0;
-
 	var g;
 	var detCompra = DetCompraAux.find({idUsuario:Session.get("idU")}).fetch();
 	if(detCompra.length!=0){
@@ -44,15 +37,15 @@ Template.nuevaCompra.helpers({
 	detallesCompra:function(){
 		return DetCompraAux.find({idUsuario:Session.get("idU")});
 	},
-	subTot:function(){
-		return Meteor.formato.moneda2(String(sub));
-	},
-	iva:function(){
-		iva = sub * 0.16;
-		return Meteor.formato.moneda2(String(iva));
-	},
 	total:function(){
-		return Meteor.formato.moneda2(String(sub + iva));
+		var a = DetCompraAux.find({idUsuario:Session.get("idU")}).fetch();
+		var total = 0;
+		if(a.length!=0){
+			for(var i=0; i<a.length; i++){
+				total = total + (a[i].precio * a[i].unidades);
+			}
+		}
+		return Meteor.formato.moneda2(String(total));
 	}
 });
 
@@ -110,11 +103,9 @@ Template.nuevaCompra.events({
 	},
 	"change #dateFechaCompra":function(){
 		c.setFecha(new Date($("#dateFechaCompra").val()));
-		console.log(new Date($("#dateFechaCompra").val()));
 	},
 	"change #selectProveedor":function(){
 		c.setProveedor($("#selectProveedor").val());
-		console.log($("#selectProveedor").val());
 	},
 	"click #btnCancelarCompra":function(){
 		Meteor.call("eliminarDetCompra",function(error){		
@@ -145,15 +136,6 @@ Template.detCompra.events({
 		});
 		c.detalle.splice(indexToRemove,1);
 		c.introducirGrano(g._id, unidades,precio);
-		/*
-		c.detalle.some(function(dc,index,_detalle){
-			if(dc.producto==g._id){
-				dc.unidades = unidades;
-				dc.precio = precio;
-				return true;
-			}
-		});
-		*/
 	},
 	"click #btnEliminar":function(){
 
@@ -172,10 +154,9 @@ Template.detCompra.events({
 
 Template.detCompra.helpers({
 	precioAux:function(){
-		sub = sub + (parseFloat(this.precio) * parseFloat(this.unidades));
 		return this.precio;
 	},
-		importeDet:function(){
+	importeDet:function(){
 		return this.importe;
 	}
 });

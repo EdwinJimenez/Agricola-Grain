@@ -14,7 +14,6 @@ Template.carrito.onRendered(function(){
 			detCarrito[i].unidades;
 			var g =granos.find(detCarrito[i].idProducto,{_id:true,precioVenta:true}).fetch()[0];
 			v.introducirGrano(detCarrito[i].idProducto,detCarrito[i].unidades,g.precioVenta);
-			console.log("Entro");
 		} 	
 	}
 });
@@ -24,7 +23,12 @@ Template.carrito.events({
 	},
 	"click #btnLimpiar":function(){
 		Meteor.call("deleteCarrito",Session.get("idU"));
-		location.reload(true);
+	},
+	"click #btnAceptarDir":function(){
+		if(!($("#direccionEnvio").value==""))
+			$("#mensajeError").show("slow");
+		else
+			console.log("Direccion seleccionada");
 	},
 	"click #btnAceptarCompra":function(){
 		$('#modal2').closeModal();
@@ -150,13 +154,12 @@ Template.carrito.helpers({
 		return DireccionesUsu.find({idUsuario:Session.get("idU")});
 		
 	},
-total:function(){
+	total:function(){
 		var a = Carrito.find({idUsuario:Session.get("idU")}).fetch();
-		var cont= a.length;
 		var total = 0;
 		var importe = 0;
-		if(cont!=0){
-			for(var i=0; i<cont; i++){
+		if(a.length!=0){
+			for(var i=0; i<a.length; i++){
 				var b=granos.find({_id:a[i].idProducto}).fetch();
 				importe = parseFloat(b[0].precioVenta * parseFloat(a[i].unidades));
 				total = total+importe;
@@ -168,11 +171,11 @@ total:function(){
 Template.articulo.helpers({
 	pUnitario:function(){
 		var precio = granos.find({_id:this.idProducto},{precioVenta:true}).fetch();
-		Session.set("precio",precio[0].precioVenta);
-		return Meteor.formato.moneda2(precio[0].precioVenta);
+		return Meteor.formato.moneda2(String(precio[0].precioVenta));
 	},
 	importeProd:function(){
-		var totalprod = (parseFloat(Session.get("precio"))*parseFloat(this.unidades));
+		var precio = granos.find({_id:this.idProducto},{precioVenta:true}).fetch();
+		var totalprod = precio[0].precioVenta * this.unidades;
 		return Meteor.formato.moneda2(String(totalprod));
 	},
 	nombre: function(){
@@ -183,6 +186,5 @@ Template.articulo.helpers({
 Template.articulo.events({
 	"click #btnEliminarCar":function(){
 		Meteor.call("deleteArtCarrito",this._id);
-		location.reload(true);
 	}
 });
