@@ -52,33 +52,34 @@ Template.carrito.events({
 	},
 	"click #btnAceptarCompra":function(){
 		$('#modal2').closeModal();
-		var tCompra;
 		var tPago;
 		var esExportacion;
-		var numTarjeta = $("#txtTarjeta").val();
-		var NIP=CryptoJS.MD5($("txtNip").val());
+		var parametros;
 		esExportacion = !document.getElementById("rdoNacional").checked;
 		if(document.getElementById("rdoDeposito").checked)
 			tPago = "D";
-		else
+		else{
 			tPago = "T";
+			parametros={
+				numeroTarjeta : $("#txtTarjeta").val(),
+				nip : CryptoJS.MD5($("txtNip").val()).toString()
+			};
+		}
 		v.setUsuario(Session.get("idU"));
+		v.setEsExportacion(esExportacion);
 		v.setFecha(new Date());
 		var cantidad = v.getTotal();
-		v.realizarPago(tPago,cantidad);
-		if(v.actualizaInventario()){
-			v.setEsCompletado(true);
-			Materialize.toast("Su compra ha sido realizada con éxito",2000,'rounded');		
+		if(v.realizarPago(tPago,cantidad,parametros)){
+			if(v.actualizaInventario()){
+				v.setEsCompletado(true);
+			}
+			else{
+				Materialize.toast("No hay existencia los granos!",2000,'rounded');
+				return;
+			}
+		}else{
+			Materialize.toast("Su tarjeta ha sido rechazada",2000,'rounded');
 		}
-		else{
-			Materialize.toast("No hay existencia los granos!",2000,'rounded');
-			return;
-		}
-		console.log("Tipo de Compra="+tCompra);
-		console.log("Tipo de Pago="+tPago);
-		console.log("Es de Exportacion="+esExportacion);
-		console.log("Número de tarjeta="+numTarjeta);
-		console.log("NIP="+NIP);
 
 	},
 	"click #rdoDeposito":function(){

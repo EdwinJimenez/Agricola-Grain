@@ -71,15 +71,17 @@ Template.nuevaCompra.events({
 			esImportacion = !document.getElementById("rdoNacional").checked;
 
 			if(document.getElementById("rdoDeposito").checked)
-				tPago = "D";
+				tPago = "Depósito";
 			else
-				tPago = "TR";
+				tPago = "Transferencia";
 
 			idProv = $("#selectProveedor").val();
 			if(idProv==null || $("#dateFechaCompra").val()==""){
 				Materialize.toast("Asegurece de seleccionar un proveedor y fecha, porfavor!",2000,'rounded');
 				return;
 			}
+
+			c.setUsuario(Session.get("idU"));
 			c.setEsImportacion(esImportacion);
 			c.introducirFormaPago(tPago);
 

@@ -1,10 +1,10 @@
 FactoryPagoVenta = function FactoryPagoVenta(){
-	this.createPagoVenta = function(metodoPago, cantidad){
+	this.createPagoVenta = function(metodoPago){
 		var pagoVenta;
 		if(metodoPago === "T"){
-			pagoVenta = new Tarjeta(cantidad);
+			pagoVenta = new Tarjeta();
 		}else if (metodoPago === "D"){
-			pagoVenta = new Deposito(cantidad);
+			pagoVenta = new Deposito();
 		}
 		return pagoVenta;
 	}

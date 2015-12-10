@@ -11,6 +11,9 @@ Compra = function Compra(){
 
 Compra.prototype = {
 	constructor: Compra,
+	setUsuario:function(u){
+		this.usuario = u;
+	},
 	setProveedor:function(p){
 		this.proveedor = p;
 	},
@@ -24,8 +27,8 @@ Compra.prototype = {
 		var dc = new DetalleCompra(granoID,cantidad,precio);
 		this.detalle.push(dc);
 	},
-	pagoCompra:function(cantidad){
-		this.pc.setImporte(cantidad);
+	pagoCompra:function(cantidad, parametros){
+		this.pc.setCantidad(cantidad);
 	},
 	actualizaInventario:function(){
 		var fecha = this.fecha;
@@ -66,6 +69,7 @@ Compra.prototype = {
 		this.detalle.forEach(function(dc){
 			total = total + (dc.cantidad * dc.precio);
 		});
+		this.total = total;
 		return total;
 	},
 	setEsCompletado:function(esCompletado){

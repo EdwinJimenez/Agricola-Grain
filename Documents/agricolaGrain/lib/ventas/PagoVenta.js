@@ -1,5 +1,6 @@
-PagoVenta = function PagoVenta(cantidad){
-	this.cantidad = cantidad;
+PagoVenta = function PagoVenta(tipoPago){
+	this.cantidad = 0;
+	this.tipoPago = tipoPago;
 }
 PagoVenta.prototype = {
 	constructor: PagoVenta,

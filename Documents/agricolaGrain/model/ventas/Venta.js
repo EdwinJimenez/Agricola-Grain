@@ -5,6 +5,8 @@ Venta = function Venta(){
 	this.folio = "";
 	this.detalle = [];
 	this.direccion = {};
+	this.esExportacion = "";
+	this.total = 0;
 	this.esCompletado = false;
 }
 
@@ -13,10 +15,14 @@ Venta.prototype = {
 	setUsuario:function(u){
 		this.usuario = u;
 	},
-	realizarPago:function(metodoPago, cantidad){
+	realizarPago:function(metodoPago, cantidad, parametros){
 		var factoryPago = new FactoryPagoVenta();
-		var pago = factoryPago.createPagoVenta(metodoPago,cantidad);
+		var pago = factoryPago.createPagoVenta(metodoPago);
+		pago.setCantidad(cantidad);
+		var pagoExitoso = pago.procesarPago(parametros);
 		this.pv = pago;
+		return pagoExitoso;
+
 	},
 	setFecha:function(fecha){
 		this.fecha = fecha;
@@ -49,6 +55,9 @@ Venta.prototype = {
 		}
 		return true;
 	},
+	setEsExportacion:function(esExportacion){
+		this.esExportacion = esExportacion;
+	},
 	hacerRollback:function(salidas){
 		var inv =  new Inventarios();
 		salidas.forEach(function(salida){
@@ -60,12 +69,15 @@ Venta.prototype = {
 		this.detalle.forEach(function(dv){
 			total = total + (dv.cantidad * dv.precio);
 		});
+		this.total = total;
 		return total;
 	},
 	setEsCompletado:function(esCompletado){
 		this.esCompletado = esCompletado;
 		Meteor.call("getSigConsecVentas",this, function(error, venta){
+			console.log(venta);
 			Meteor.call("insertarVenta", venta);
+			Materialize.toast("Su compra ha sido realizada con éxito",2000,'rounded');		
 		});
 	}
 }

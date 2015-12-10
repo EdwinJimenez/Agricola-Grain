@@ -1,10 +1,10 @@
 PagoCompra = function PagoCompra(metodoPago){
 	this.metodoPago = metodoPago;
-	this.importe = 0;
+	this.cantidad = 0;
 }
 PagoCompra.prototype = {
 	constructor: PagoCompra,
-	setImporte:function(importe){
-		this.importe = importe;
+	setCantidad:function(cantidad){
+		this.cantidad = cantidad;
 	}
 }
